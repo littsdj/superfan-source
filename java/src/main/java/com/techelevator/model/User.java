@@ -2,9 +2,7 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class User {
 
@@ -73,6 +71,7 @@ public class User {
          this.authorities.add(new Authority(authority));
       }
    }
+
 
    @Override
    public boolean equals(Object o) {
