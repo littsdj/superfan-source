@@ -9,10 +9,10 @@ public interface BandDao {
     List<Band> findAllBands();
     Band getBandById(int bandId);
     Band getBandByName(String bandName);
-    List<Band> getBandsByGenre(String genreName);
+    List<Band> getBandsByGenre(int genreId);
     Band updateBand(Band bandToUpdate);
     int getBandIdByBandName(String bandName);
     String getBandNameById(int bandId);
-
+    Band createBand(Band band);
 
 }

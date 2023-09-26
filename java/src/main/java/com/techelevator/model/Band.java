@@ -6,10 +6,16 @@ public class Band {
     private int bandId;
     private String bandName;
     private String description;
+    /*
+     * TODO: Change this variable to reflect proper file type for image.
+     * */
     private String coverImageUrl;
-    private String genre;
-    private List<String> subgenres;
+    private int genreId;
+    private List<Subgenre> subgenres;
 
+    /*
+    * TODO: Determine proper constructor for class.
+    * */
     public Band() {
     }
 
@@ -37,27 +43,33 @@ public class Band {
         this.description = description;
     }
 
+    /*
+    * TODO: Change this method to reflect proper file type for image.
+    * */
     public String getCoverImageUrl() {
         return coverImageUrl;
     }
 
+    /*
+     * TODO: Change this method to reflect proper file type for image.
+     * */
     public void setCoverImageUrl(String coverImageUrl) {
         this.coverImageUrl = coverImageUrl;
     }
 
-    public String getGenres() {
-        return genre;
+    public int getGenreId() {
+        return genreId;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenreId(int genreId) {
+        this.genreId = genreId;
     }
 
-    public List<String> getSubgenres() {
+    public List<Subgenre> getSubgenres() {
         return subgenres;
     }
 
-    public void setSubgenres(List<String> subgenres) {
+    public void setSubgenres(List<Subgenre> subgenres) {
         this.subgenres = subgenres;
     }
 }
