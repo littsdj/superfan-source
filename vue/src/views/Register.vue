@@ -74,9 +74,18 @@ export default {
 </script>
 
 <style scoped>
+#register {
+  background-color: rgba(101, 213, 247, 0.9); /* Make the form background slightly opaque */
+  padding: 20px;
+  border-radius: 10px; /* Add rounded corners to the form */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to the form */
+  margin:20px;
+}
+
 .form-input-group {
   margin-bottom: 1rem;
 }
+
 label {
   margin-right: 0.5rem;
 }
