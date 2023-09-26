@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import bandService from '/..services/BandService.js';
+import bandService from '../services/BandService.js';
 export default {
     data() {
         return {
