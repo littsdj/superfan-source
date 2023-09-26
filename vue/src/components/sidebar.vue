@@ -3,7 +3,7 @@
     <router-link v-bind:to="{ name: 'home' }">Home</router-link>
     <a href="">Messages</a>
     <a href="">My Bands</a>
-    <a href="">New Band</a>
+    <router-link v-bind:to="{ name: 'newBand'}">New Band</router-link>
     <a href="">My account</a>
     <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
   </div>
