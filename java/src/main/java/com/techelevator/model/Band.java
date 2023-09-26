@@ -6,16 +6,10 @@ public class Band {
     private int bandId;
     private String bandName;
     private String description;
-    /*
-     * TODO: Change this variable to reflect proper file type for image.
-     * */
-    private BandImage bandImage;
+    private Image image;
     private int genreId;
     private List<Subgenre> subgenres;
 
-    /*
-    * TODO: Determine proper constructor for class.
-    * */
     public Band() {
     }
 
@@ -43,12 +37,12 @@ public class Band {
         this.description = description;
     }
 
-    public BandImage getBandImage() {
-        return bandImage;
+    public Image getBandImage() {
+        return image;
     }
 
-    public void setBandImage(BandImage bandImage) {
-        this.bandImage = bandImage;
+    public void setBandImage(Image image) {
+        this.image = image;
     }
 
     public int getGenreId() {

@@ -1,8 +1,8 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.BandImage;
+import com.techelevator.model.Image;
 
 public interface ImageDao {
-    BandImage uploadImage(String fileName, byte[] data);
-    BandImage getBandImageById(int imageId);
+    Image uploadImage(String fileName, byte[] data);
+    Image getBandImageById(int imageId);
 }

@@ -1,11 +1,11 @@
 package com.techelevator.model;
 
-public class BandImage {
+public class Image {
     private int imageId;
     private String fileName;
     private String imageData;
 
-    public BandImage() {
+    public Image() {
     }
 
     public int getImageId() {
