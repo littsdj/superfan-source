@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="hiphop">
     <div id="titleBar">  
       <h1> 
         Title Goes Here!!!!!!
@@ -11,12 +11,7 @@
     </div>
 
     <div class="body">
-      <div class="sidebar">
-        <!-- Content for the sidebar goes here -->
-        <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-        <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    
-      </div>
+      <sidebar/>
       <router-view />
     </div>
   </div>
@@ -26,7 +21,9 @@
 
 
 <script>
+import sidebar from './components/sidebar.vue';
     export default {
+  components: { sidebar },
       data() {  
         return {
           search: "search bands"
@@ -57,18 +54,14 @@
     justify-content: justify-left;
     align-items: center;
     background-color: cadetblue;
+    opacity: 0.7;
     padding: 20px;
     gap: 20px;
   }
 
   /* CSS styles for the sidebar go here */
-.sidebar {
-  display: flex;
-  flex: 0 0 250px; /* Sidebar width */
-  background-color: pink;
-  padding: 20px;
-  flex-direction: column;
-}
+
+
 
 .default {
   color: gray;
@@ -76,9 +69,15 @@
 
 .body {
   display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  height: 90vh;
 }
 
 #app {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.hiphop {
+  background: url('./images/Yellow-lowrider.png')
 }
 </style>
