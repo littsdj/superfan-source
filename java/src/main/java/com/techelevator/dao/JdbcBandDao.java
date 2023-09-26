@@ -2,7 +2,6 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Band;
 import com.techelevator.model.Subgenre;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -82,20 +81,21 @@ public class JdbcBandDao implements BandDao{
      *  this method to properly populate the band object.
      * */
     public Band createBand(Band band) {
-        Band bandToReturn = new Band();
-        String sql = "INSERT INTO bands (band_name, description, genre_id, " +
-                "cover_image_url) VALUES (?, ?, ?, ?) RETURNING band_id;";
+
+        String sql = "INSERT INTO bands (band_name, description, genre_id)" +
+                " VALUES (?, ?, ?) RETURNING band_id;";
 
         int bandId = 0;
         try {
             bandId = jdbcTemplate.queryForObject(sql, Integer.class, band.getBandName(),
-                    band.getDescription(), band.getGenreId(), band.getCoverImageUrl());
+                    band.getDescription(), band.getGenreId());
         } catch (NullPointerException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Could not create band.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Band data not present.");
         }
 
-        bandToReturn.setBandId(band.getBandId());
-        return bandToReturn;
+        band.setBandId(bandId);
+
+        return band;
     }
 
     /*
@@ -144,7 +144,7 @@ public class JdbcBandDao implements BandDao{
         Band band = new Band();
         band.setBandId(rs.getInt("band_id"));
         band.setBandName(rs.getString("band_name"));
-        band.setCoverImageUrl(rs.getString("cover_image_url"));
+        band.setBandImage(null);
         band.setDescription(rs.getString("description"));
         band.setGenreId(rs.getInt("genre_id"));
         band.setSubgenres(getAllSubgenresByBandId(band.getBandId()));

@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS genres;
 DROP TABLE IF EXISTS subgenres;
 DROP TABLE IF EXISTS band_subgenres;
 DROP TABLE IF EXISTS user_following;
+DROP TABLE IF EXISTS images;
 
 CREATE TABLE users (
     user_id SERIAL,
@@ -22,14 +23,22 @@ CREATE TABLE genres (
 	CONSTRAINT PK_genres PRIMARY KEY (genre_id)
 );
 
+CREATE TABLE images (
+    image_id SERIAL,
+    filename varchar(100) NOT NULL,
+    imagedata bytea NOT NULL,
+    CONSTRAINT PK_images PRIMARY KEY (image_id)
+);
+
 CREATE TABLE bands (
     band_id SERIAL,
     band_name varchar(50) NOT NULL UNIQUE,
     description varchar(2500) NOT NULL,
     genre_id int NOT NULL,
-	cover_image_url varchar NOT NULL,
+	band_image_id int,
     CONSTRAINT PK_band PRIMARY KEY (band_id),
-    CONSTRAINT FK_bands_genres FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
+    CONSTRAINT FK_bands_genres FOREIGN KEY (genre_id) REFERENCES genres(genre_id),
+    CONSTRAINT FK_bands_images FOREIGN KEY (band_image_id) REFERENCES images(image_id)
 );
 
 CREATE TABLE subgenres (
@@ -37,7 +46,6 @@ CREATE TABLE subgenres (
 	subgenre_name varchar NOT NULL UNIQUE,
 	CONSTRAINT PK_subgenres PRIMARY KEY (subgenre_id)
 );
-
 
 CREATE TABLE band_owners (
     band_id int NOT NULL,

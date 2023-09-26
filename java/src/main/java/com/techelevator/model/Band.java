@@ -9,7 +9,7 @@ public class Band {
     /*
      * TODO: Change this variable to reflect proper file type for image.
      * */
-    private String coverImageUrl;
+    private BandImage bandImage;
     private int genreId;
     private List<Subgenre> subgenres;
 
@@ -43,18 +43,12 @@ public class Band {
         this.description = description;
     }
 
-    /*
-    * TODO: Change this method to reflect proper file type for image.
-    * */
-    public String getCoverImageUrl() {
-        return coverImageUrl;
+    public BandImage getBandImage() {
+        return bandImage;
     }
 
-    /*
-     * TODO: Change this method to reflect proper file type for image.
-     * */
-    public void setCoverImageUrl(String coverImageUrl) {
-        this.coverImageUrl = coverImageUrl;
+    public void setBandImage(BandImage bandImage) {
+        this.bandImage = bandImage;
     }
 
     public int getGenreId() {
