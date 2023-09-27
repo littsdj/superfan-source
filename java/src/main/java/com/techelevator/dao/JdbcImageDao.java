@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.dao.mapper.ImageMapper;
 import com.techelevator.model.Image;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -16,11 +17,11 @@ public class JdbcImageDao implements ImageDao{
     }
 
     @Override
-    public Image uploadImage(String fileName, byte[] data) {
+    public int uploadImage(String fileName, byte[] data) {
         String sql = "INSERT INTO images (filename, image_data) VALUES " +
                 "(?, ?) RETURNING image_id;";
-        int bandId = jdbcTemplate.queryForObject(sql, Integer.class, fileName, data);
-        return getBandImageById(bandId);
+        int imageId = jdbcTemplate.queryForObject(sql, Integer.class, fileName, data);
+        return imageId;
     }
 
     @Override
@@ -29,6 +30,32 @@ public class JdbcImageDao implements ImageDao{
         try {
             return jdbcTemplate.queryForObject(sql, imageMapper, imageId);
         } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Image getCoverImageByBandId(int bandId) {
+        String sql = "SELECT * FROM images JOIN bands ON (images.image_id = " +
+                "bands.band_image_id) WHERE band_id = ?;";
+        try{
+            return jdbcTemplate.queryForObject(sql, imageMapper, bandId);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Image addCoverImageToBand(int imageId, int bandId) {
+        String sql = "UPDATE bands SET band_image_id = ? WHERE band_id = ?;";
+        try{
+            int rowsUpdated = jdbcTemplate.update(sql, imageId, bandId);
+            if(rowsUpdated == 1) {
+                return getCoverImageByBandId(bandId);
+            } else {
+                return null;
+            }
+        }catch (DataAccessException e) {
             return null;
         }
     }

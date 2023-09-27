@@ -6,7 +6,9 @@
             <input type="text" name="bandName" v-model="band.bandName"/>
             <br />
             <label for="description">Description</label>
-            <textArea name="description" rows="8" cols="50"  v-model="band.description"></textArea>
+            <textArea name="description" rows="8" cols="50"  @input="band.description = $event.target.value"></textArea>
+            
+            <!-- <input name="description" rows="8" cols="50"  v-model="band.description" /> -->
             <br/>
             <select name="genre" id="genrePicker" v-model="band.genreId">
                 <option value="">--select a genre--</option>

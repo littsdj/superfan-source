@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.Services.ImageService;
 import com.techelevator.dao.BandDao;
 import com.techelevator.dao.ImageDao;
 import com.techelevator.model.Band;
@@ -21,6 +22,8 @@ public class BandController {
     private BandDao bandDao;
     @Autowired
     private ImageDao imageDao;
+    @Autowired
+    private ImageService imageService;
 
     @RequestMapping(path="/bands/{bandName}", method = RequestMethod.GET)
     public Band getBand(@PathVariable String bandName) {
@@ -38,7 +41,7 @@ public class BandController {
     public Image uploadPhoto(@RequestParam("file")MultipartFile file){
         // TODO: Properly integrate method.
         try {
-            return imageDao.uploadImage(file.getOriginalFilename(), file.getBytes());
+            return imageService.uploadImage(file.getOriginalFilename(), file.getBytes());
         } catch (IOException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found.");
         }
@@ -49,4 +52,10 @@ public class BandController {
         return imageDao.getBandImageById(imageId);
     }
 
+    @PutMapping("/photo/{bandId}")
+    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
+        return imageDao.addCoverImageToBand(bandImage.getImageId(), bandId);
+    }
+
+//    @GetMapping("/photo/")
 }
