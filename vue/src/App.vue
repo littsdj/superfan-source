@@ -79,6 +79,7 @@ import sidebar from './components/sidebar.vue';
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .hiphop {
-  background: url('./images/Yellow-lowrider.png')
+  background: url('./images/Yellow-lowrider.png');
+  object-fit: fill;
 }
 </style>

@@ -6,7 +6,7 @@
             <input type="text" name="bandName" v-model="band.bandName"/>
             <br />
             <label for="description">Description</label>
-            <textArea name="description" rows="8" cols="45"  v-model="band.description"></textArea>
+            <textArea name="description" rows="8" cols="50"  v-model="band.description"></textArea>
             <br/>
             <select name="genre" id="genrePicker" v-model="band.genreId">
                 <option value="">--select a genre--</option>
@@ -46,7 +46,7 @@ export default {
         makeBandPage() {
             bandService.newBand(this.band).then( response => {
                if (response.status === 200 || response.status === 201){
-                   this.$router.push({name: 'home'})
+                   this.$router.push({name: 'bandPageView', params : { bandName: this.band.bandName}})
                } 
             })
         }
@@ -59,5 +59,11 @@ export default {
         display: grid;
         background-color: white;
         padding: 20px;
+    }
+
+    button {
+        width: 30%;
+        margin-top: 20px;
+        justify-self: center;
     }
 </style>

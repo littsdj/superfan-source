@@ -22,7 +22,7 @@ public class BandController {
     @Autowired
     private ImageDao imageDao;
 
-    @RequestMapping(path="/bands/{id}", method = RequestMethod.GET)
+    @RequestMapping(path="/bands/{bandName}", method = RequestMethod.GET)
     public Band getBand(@PathVariable String bandName) {
         return bandDao.getBandByName(bandName);
     }
