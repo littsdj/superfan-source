@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-
+@CrossOrigin
 @RestController
 @PreAuthorize("isAuthenticated()")
 public class BandController {
@@ -23,8 +23,8 @@ public class BandController {
     private ImageDao imageDao;
 
     @RequestMapping(path="/bands/{id}", method = RequestMethod.GET)
-    public Band getBand(@PathVariable int bandId) {
-        return bandDao.getBandById(bandId);
+    public Band getBand(@PathVariable String bandName) {
+        return bandDao.getBandByName(bandName);
     }
 
     @RequestMapping(path="/bands/create", method = RequestMethod.POST)
