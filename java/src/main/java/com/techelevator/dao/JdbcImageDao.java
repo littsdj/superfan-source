@@ -46,12 +46,12 @@ public class JdbcImageDao implements ImageDao{
     }
 
     @Override
-    public Image addCoverImageToBand(int imageId, int bandId) {
+    public Integer addCoverImageToBand(int imageId, int bandId) {
         String sql = "UPDATE bands SET band_image_id = ? WHERE band_id = ?;";
         try{
             int rowsUpdated = jdbcTemplate.update(sql, imageId, bandId);
             if(rowsUpdated == 1) {
-                return getCoverImageByBandId(bandId);
+                return rowsUpdated;
             } else {
                 return null;
             }

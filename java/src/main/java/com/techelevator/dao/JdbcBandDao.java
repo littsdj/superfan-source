@@ -3,12 +3,15 @@ package com.techelevator.dao;
 import com.techelevator.dao.mapper.BandMapper;
 import com.techelevator.model.Band;
 import com.techelevator.model.Subgenre;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
+
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +49,7 @@ public class JdbcBandDao implements BandDao{
     public Band getBandByName(String bandName) {
         String sql = "SELECT * FROM bands WHERE band_name = ?";
         try {
-            return jdbcTemplate.queryForObject(sql, bandMapper, bandName);
+            return jdbcTemplate.queryForObject(sql, bandMapper, bandName.toLowerCase());
         } catch(EmptyResultDataAccessException e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found");
         }
@@ -54,7 +57,7 @@ public class JdbcBandDao implements BandDao{
 
     @Override
     public List<Band> getBandsByGenre(int genreId) {
-        String sql = "SELECT * FROM bands JOIN genres ON (bands.genre_id = genres.genre_id) WHERE bands.genre_id = ?";
+        String sql = "SELECT * FROM bands WHERE genre_id = ?";
 
         return jdbcTemplate.query(sql, bandMapper, genreId);
     }
@@ -82,11 +85,16 @@ public class JdbcBandDao implements BandDao{
     *  this method to properly populate the band object.
     * */
     @Override
-    public Band updateBand(Band bandToUpdate) {
-        String sql = "UPDATE bands SET (band_name = ?, description = ?, genre_id = ?,  WHERE user_id = ?;";
-
-
-        return null;
+    public int updateBand(Band bandToUpdate) {
+        String sql = "UPDATE bands SET (band_name = ?, description = ?, genre_id = ?, " +
+                "band_image_id = ?) WHERE band_id = ?;";
+        try {
+            return jdbcTemplate.update(sql, Integer.class, bandToUpdate.getBandName(),
+                    bandToUpdate.getDescription(), bandToUpdate.getGenreId(),
+                    bandToUpdate.getBandImage().getImageId(), bandToUpdate.getBandId());
+        } catch (DataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to update band");
+        }
     }
 
     @Override
@@ -113,22 +121,6 @@ public class JdbcBandDao implements BandDao{
 
         return bandName;
     }
-
-
-    /*
-     * TODO: Determine image format and update
-     *  this method to properly populate the band object.
-     * */
-//    private Band mapRowToBand(SqlRowSet rs) {
-//        Band band = new Band();
-//        band.setBandId(rs.getInt("band_id"));
-//        band.setBandName(rs.getString("band_name"));
-//        band.setBandImage(null);
-//        band.setDescription(rs.getString("description"));
-//        band.setGenreId(rs.getInt("genre_id"));
-//        band.setSubgenres(getAllSubgenresByBandId(band.getBandId()));
-//        return band;
-//    }
 
     private List<Subgenre> getAllSubgenresByBandId(int bandId) {
         List<Subgenre> subgenres = new ArrayList<>();
