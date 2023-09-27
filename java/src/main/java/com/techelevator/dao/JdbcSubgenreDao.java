@@ -45,22 +45,16 @@ public class JdbcSubgenreDao implements SubgenreDao {
     }
 
     @Override
-    public Subgenre addNewSubgenre(String subgenreName) {
+    public int addNewSubgenre(String subgenreName) {
         Subgenre subgenreToReturn = new Subgenre();
 
         String sql = "INSERT INTO subgenres (subgenre_name) VALUES (?) " +
                 "RETURNING subgenre_id;";
-        int subgenreId = 0;
         try {
-            subgenreId = jdbcTemplate.queryForObject(sql, Integer.class, subgenreName);
-            if(subgenreId != 0) {
-                subgenreToReturn.setSubgenreId(subgenreId);
-            }
+            return jdbcTemplate.queryForObject(sql, Integer.class, subgenreName);
         } catch (NullPointerException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cannot create subgenre.");
         }
-
-        return null;
     }
 
     @Override
@@ -72,25 +66,29 @@ public class JdbcSubgenreDao implements SubgenreDao {
         return jdbcTemplate.query(sql, bandMapper, subgenreId);
     }
 
+    @Override
+    public int linkBandToSubgenre(int subgenreId, int bandId) {
+        String sql = "INSERT INTO band_subgenres (subgenre_id, band_id) VALUES " +
+                "(?, ?) RETURNING band_id;";
+
+        try {
+            return jdbcTemplate.queryForObject(sql, Integer.class, subgenreId, bandId);
+        } catch (NullPointerException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cannot create subgenre.");
+        }
+    }
 
     /*
     * TODO: Properly integrate delete methods for subgenres
     *  so that admin credentials allow subgenre management.
     * */
-    @Override
-    public boolean deleteSubgenreByName(String subgenreName) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteSubgenreById(int subgenreId) {
-        return false;
-    }
-
-    public Subgenre mapRowToSubgenre(SqlRowSet rs) {
-        Subgenre subgenre = new Subgenre();
-        subgenre.setSubgenreId(rs.getInt("subgenre_id"));
-        subgenre.setSubgenreName(rs.getString("subgenre_name"));
-        return subgenre;
-    }
+//    @Override
+//    public boolean deleteSubgenreByName(String subgenreName) {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean deleteSubgenreById(int subgenreId) {
+//        return false;
+//    }
 }
