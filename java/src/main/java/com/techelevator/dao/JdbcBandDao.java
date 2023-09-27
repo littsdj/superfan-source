@@ -56,6 +56,16 @@ public class JdbcBandDao implements BandDao {
     }
 
     @Override
+    public List<Band> getBandsBySimilarName(String searchTerm) {
+        String sql = "SELECT * FROM bands WHERE band_name LIKE ?;";
+        try{
+            return jdbcTemplate.query(sql, bandMapper, "%" + searchTerm + "%");
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No matching bands found");
+        }
+    }
+
+    @Override
     public List<Band> getBandsByGenre(int genreId) {
         String sql = "SELECT * FROM bands WHERE genre_id = ?;";
 

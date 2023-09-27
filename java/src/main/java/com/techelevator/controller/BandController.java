@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -39,7 +40,10 @@ public class BandController {
         return bandService.createBand(bandToAdd);
     }
 
-//    @RequestMapping(path="/bands/search/{band_name}")
+    @GetMapping(path="/bands/search/{searchTerm}")
+    public List<Band> getAllBands(@PathVariable String searchTerm) {
+        return bandService.getBandsBySimilarName(searchTerm);
+    }
 
     @PostMapping("/photo")
     public Image uploadPhoto(@RequestParam("file")MultipartFile file) {

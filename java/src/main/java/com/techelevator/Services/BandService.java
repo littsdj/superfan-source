@@ -18,6 +18,10 @@ public class BandService {
         return bandDao.getBandByName(bandName);
     }
 
+    public List<Band> getBandsBySimilarName(String bandName) {
+        return bandDao.getBandsBySimilarName(bandName);
+    }
+
     public List<Band> getBandsByGenre(int genreId) {
         return bandDao.getBandsByGenre(genreId);
     }
