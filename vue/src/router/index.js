@@ -35,7 +35,10 @@ const router = new Router({
       name: "login",
       component: Login,
       meta: {
-        requiresAuth: false
+        requiresAuth: false,
+        layoutClass: "login-layout",
+        backgroundImage: "login-background.png"
+
       }
     },
     {
