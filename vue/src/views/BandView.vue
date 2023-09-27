@@ -6,7 +6,10 @@
         <h1>{{ band.bandName }}</h1>
         <h2>About {{ band.bandName }}</h2>
         <p> {{ band.description }}</p>
+        <input type="file" id="file" ref="fileInput"/>
+        <button id="uploadButton" v-on:click="uploadImage()">Upload Image</button>
     </div>
+    <div><img :src="imgSrcData" alt=""></div>
     <h1 v-show="!bandFound && !isLoading">BAND PAGE NOT FOUND</h1>
 
 </div>
@@ -25,7 +28,18 @@ export default {
                 subgenres: ''
             },
             bandFound: true,
-            isLoading: false
+            isLoading: false,
+            bandImage: ''
+        }
+    },
+    computed:{
+        imgSrcData() {
+            if (this.bandImage.fileName) {
+                const dotIndex = this.bandImage.fileName.lastIndexOf('.');
+                const extension = this.bandImage.fileName.substring(dotIndex + 1);
+                return `data:image/${extension};base64, ${this.bandImage.imageData}`;
+            }
+            return '';
         }
     },
     
@@ -41,13 +55,27 @@ export default {
         })
         setTimeout( () => {this.isLoading = false} , 1000);
         
+    },
+    methods: {
+        uploadImage() {
+            const fileInfo = this.$refs.fileInput.files[0];
+            let formData = new FormData();
+            formData.append('file', fileInfo);
+            BandService.postBandCoverImage(this.band.bandId, formData)
+            .then( response => {
+                this.bandImage = response.data;
+            })
+        }
     }
 }
 </script>
 
 <style>
     .bandInfo{
-        background-color: hotpink;
-        opacity: .9;
+        background-color: rgb(255, 105, 180, .9);
+        
+    }
+    #uploadButton {
+        width: 100px;
     }
 </style>
