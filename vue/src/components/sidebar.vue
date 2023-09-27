@@ -19,14 +19,15 @@ export default {
 <style>
     .sidebar {
   display: flex;
-  flex: 0 0 250px; /* Sidebar width */
+  flex: 0 0 0; /* Sidebar width */
   background-color: whitesmoke;
   padding: 20px;
   flex-direction: column;
   opacity: 0.8;
   margin: 20px;
+  justify-items: stretch;
 }
     .sidebar * {
-        
+      text-align: center;
     }
 </style>

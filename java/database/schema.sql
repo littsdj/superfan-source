@@ -26,7 +26,7 @@ CREATE TABLE genres (
 CREATE TABLE images (
     image_id SERIAL,
     filename varchar(100) NOT NULL,
-    imagedata bytea NOT NULL,
+    image_data bytea NOT NULL,
     CONSTRAINT PK_images PRIMARY KEY (image_id)
 );
 
@@ -61,6 +61,14 @@ CREATE TABLE user_following (
 	CONSTRAINT PK_user_following PRIMARY KEY (user_id),
 	CONSTRAINT FK_user_following_users FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_user_following_bands FOREIGN KEY (band_id) REFERENCES bands(band_id)
+);
+
+CREATE TABLE band_images (
+    image_id int UNIQUE NOT NULL,
+    band_id int NOT NULL,
+    CONSTRAINT PK_band_images PRIMARY KEY (image_id),
+    CONSTRAINT FK_band_images_images FOREIGN KEY (image_id) REFERENCES images(image_id),
+    CONSTRAINT FK_band_images_bands FOREIGN KEY (band_id) REFERENCES bands(band_id)
 );
 
 CREATE TABLE band_subgenres (
