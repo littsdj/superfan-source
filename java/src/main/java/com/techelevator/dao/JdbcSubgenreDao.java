@@ -4,12 +4,12 @@ import com.techelevator.dao.mapper.BandMapper;
 import com.techelevator.dao.mapper.SubgenreMapper;
 import com.techelevator.model.Band;
 import com.techelevator.model.Subgenre;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
 
 @Component
@@ -25,29 +25,23 @@ public class JdbcSubgenreDao implements SubgenreDao {
 
     @Override
     public Subgenre getSubgenreById(int subgenreId) {
-        Subgenre subgenreToReturn = new Subgenre();
         String sql = "SELECT * FROM subgenres WHERE subgenre_id = ?;";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, subgenreId);
-        if(results.next()) {
-            subgenreToReturn = mapRowToSubgenre(results);
+        try{
+            return jdbcTemplate.queryForObject(sql, subgenreMapper, subgenreId);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Subgenre not found");
         }
-
-        return subgenreToReturn;
     }
 
     @Override
     public Subgenre getSubgenreByName(String subgenreName) {
-        Subgenre subgenreToReturn = new Subgenre();
         String sql = "SELECT * FROM subgenres WHERE subgenre_name = ?;";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, subgenreName);
-
-        if(results.next()) {
-            subgenreToReturn = mapRowToSubgenre(results);
+        try {
+            return jdbcTemplate.queryForObject(sql, subgenreMapper, subgenreName);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Subgenre not found");
         }
-
-        return subgenreToReturn;
     }
 
     @Override
@@ -84,13 +78,13 @@ public class JdbcSubgenreDao implements SubgenreDao {
     *  so that admin credentials allow subgenre management.
     * */
     @Override
-    public int deleteSubgenreByName(String subgenreName) {
-        return 0;
+    public boolean deleteSubgenreByName(String subgenreName) {
+        return false;
     }
 
     @Override
-    public int deleteSubgenreById(int subgenreId) {
-        return 0;
+    public boolean deleteSubgenreById(int subgenreId) {
+        return false;
     }
 
     public Subgenre mapRowToSubgenre(SqlRowSet rs) {

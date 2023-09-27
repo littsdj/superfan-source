@@ -11,6 +11,6 @@ public interface SubgenreDao {
     Subgenre getSubgenreByName(String subgenreName);
     List<Band> getBandsBySubgenre(int subgenreId);
     Subgenre addNewSubgenre(String subgenreName);
-    int deleteSubgenreByName(String subgenreName);
-    int deleteSubgenreById(int subgenreId);
+    boolean deleteSubgenreByName(String subgenreName);
+    boolean deleteSubgenreById(int subgenreId);
 }

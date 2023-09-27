@@ -17,17 +17,17 @@ public class SubgenreController {
     @Autowired
     private SubgenreDao subgenreDao;
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @RequestMapping(path = "/subgenre/{subgenreName}", method = RequestMethod.GET)
     public Subgenre getSubgenreByName(@PathVariable String subgenreName) {
         return subgenreDao.getSubgenreByName(subgenreName);
     }
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @RequestMapping(path = "/bands/subgenre/{subgenreId}", method = RequestMethod.GET)
     public List<Band> getBandsBySubgenre(@PathVariable int subgenreId) {
         return subgenreDao.getBandsBySubgenre(subgenreId);
     }
 
-    @RequestMapping(path = "", method = RequestMethod.POST)
+    @RequestMapping(path = "/subgenre/create", method = RequestMethod.POST)
     public Subgenre addNewSubgenre(@RequestBody String subgenreName) {
         return subgenreDao.addNewSubgenre(subgenreName);
     }
