@@ -2,11 +2,11 @@
   <div id="app" class="hiphop">
     <div id="titleBar">  
       <h1> 
-        Title Goes Here!!!!!!
+        Connecting Fans and Their Favorite Bands!!!
       </h1>
       <form>
         <input type="text" id="searchBar" class="default" v-model="search" v-on:click="clearDefaultSearch" v-on:blur="restoreDefaultSearch">
-        <button> SearchIcon </button>
+        <button> Search </button>
       </form>
     </div>
 
@@ -54,14 +54,13 @@ import sidebar from './components/sidebar.vue';
     display: flex;
     justify-content: justify-left;
     align-items: center;
-    background-color: cadetblue;
-    opacity: 0.7;
-    padding: 20px;
-    gap: 20px;
+    background-color: rgb(252, 141, 6, 0.25);
+    
+    padding: 10px;
+    gap: 50px;
   }
 
   /* CSS styles for the sidebar go here */
-
 
 
 .default {
@@ -70,15 +69,23 @@ import sidebar from './components/sidebar.vue';
 
 .body {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 20px;
-  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2px;
+  
 }
 
 #app {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .hiphop {
-  background: url('./images/Yellow-lowrider.png')
+  background: url('./images/Yellow-lowrider.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+.login {
+  background: url('./images/login-background.png')
 }
 </style>
