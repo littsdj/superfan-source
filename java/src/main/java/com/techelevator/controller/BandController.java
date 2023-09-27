@@ -29,20 +29,20 @@ public class BandController {
     @Autowired
     private BandService bandService;
 
-    @RequestMapping(path="/bands/{bandName}", method = RequestMethod.GET)
+    @RequestMapping(path = "/bands/{bandName}", method = RequestMethod.GET)
     public Band getBand(@PathVariable String bandName) {
         return bandService.getBandByName(bandName.toLowerCase());
     }
 
-    @RequestMapping(path="/bands/create", method = RequestMethod.POST)
-    public Band createBand(@RequestBody Band bandToAdd){
+    @RequestMapping(path = "/bands/create", method = RequestMethod.POST)
+    public Band createBand(@RequestBody Band bandToAdd) {
         return bandService.createBand(bandToAdd);
     }
 
 //    @RequestMapping(path="/bands/search/{band_name}")
 
     @PostMapping("/photo")
-    public Image uploadPhoto(@RequestParam("file")MultipartFile file){
+    public Image uploadPhoto(@RequestParam("file")MultipartFile file) {
         try {
             return imageService.uploadImage(file.getOriginalFilename(), file.getBytes());
         } catch (IOException e) {

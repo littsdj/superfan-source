@@ -3,6 +3,7 @@ package com.techelevator.model;
 import java.util.List;
 
 public class Band {
+
     private int bandId;
     private String bandName;
     private String description;

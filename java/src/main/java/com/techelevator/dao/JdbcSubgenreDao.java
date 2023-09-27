@@ -1,5 +1,8 @@
 package com.techelevator.dao;
 
+import com.techelevator.dao.mapper.BandMapper;
+import com.techelevator.dao.mapper.SubgenreMapper;
+import com.techelevator.model.Band;
 import com.techelevator.model.Subgenre;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,9 +10,13 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
-@Component
-public class JdbcSubgenreDao implements SubgenreDao{
+import java.util.List;
 
+@Component
+public class JdbcSubgenreDao implements SubgenreDao {
+
+    private final SubgenreMapper subgenreMapper = new SubgenreMapper();
+    private final BandMapper bandMapper = new BandMapper();
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcSubgenreDao(JdbcTemplate jdbcTemplate) {
@@ -59,8 +66,16 @@ public class JdbcSubgenreDao implements SubgenreDao{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cannot create subgenre.");
         }
 
-
         return null;
+    }
+
+    @Override
+    public List<Band> getBandsBySubgenre(int subgenreId) {
+        String sql = "SELECT bands.* FROM bands " +
+                "JOIN band_subgenres ON (bands.band_id = band_subgenres.band_id) " +
+                "WHERE band_subgenres.subgenre_id = ?;";
+
+        return jdbcTemplate.query(sql, bandMapper, subgenreId);
     }
 
 

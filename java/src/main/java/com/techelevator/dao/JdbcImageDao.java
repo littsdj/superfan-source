@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JdbcImageDao implements ImageDao{
+public class JdbcImageDao implements ImageDao {
 
     private final JdbcTemplate jdbcTemplate;
     private final ImageMapper imageMapper = new ImageMapper();
