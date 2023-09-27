@@ -7,7 +7,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JdbcGenreDao implements GenreDao{
+public class JdbcGenreDao implements GenreDao {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -18,7 +18,7 @@ public class JdbcGenreDao implements GenreDao{
     @Override
     public Genre getGenreById(int genreId) {
         Genre genre = new Genre();
-        String sql = "SELECT * FROM genres WHERE genre_id = ?";
+        String sql = "SELECT * FROM genres WHERE genre_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, genreId);
         if(results.next()) {

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SubgenreMapper implements RowMapper<Subgenre> {
+
     @Override
     public Subgenre mapRow(ResultSet rs, int i) throws SQLException {
         Subgenre subgenre = new Subgenre();

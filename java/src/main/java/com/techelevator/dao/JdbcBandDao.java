@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class JdbcBandDao implements BandDao{
+public class JdbcBandDao implements BandDao {
 
     /*
     * TODO: Exception handling.
@@ -30,14 +30,14 @@ public class JdbcBandDao implements BandDao{
 
     @Override
     public List<Band> findAllBands() {
-        String sql = "SELECT * FROM bands";
+        String sql = "SELECT * FROM bands;";
 
         return jdbcTemplate.query(sql, bandMapper);
     }
 
     @Override
     public Band getBandById(int bandId) {
-        String sql = "SELECT * FROM bands WHERE band_id = ?";
+        String sql = "SELECT * FROM bands WHERE band_id = ?;";
         try {
             return jdbcTemplate.queryForObject(sql, bandMapper, bandId);
         } catch (EmptyResultDataAccessException e) {
@@ -47,7 +47,7 @@ public class JdbcBandDao implements BandDao{
 
     @Override
     public Band getBandByName(String bandName) {
-        String sql = "SELECT * FROM bands WHERE band_name = ?";
+        String sql = "SELECT * FROM bands WHERE band_name = ?;";
         try {
             return jdbcTemplate.queryForObject(sql, bandMapper, bandName.toLowerCase());
         } catch(EmptyResultDataAccessException e){
@@ -57,7 +57,7 @@ public class JdbcBandDao implements BandDao{
 
     @Override
     public List<Band> getBandsByGenre(int genreId) {
-        String sql = "SELECT * FROM bands WHERE genre_id = ?";
+        String sql = "SELECT * FROM bands WHERE genre_id = ?;";
 
         return jdbcTemplate.query(sql, bandMapper, genreId);
     }
@@ -126,7 +126,7 @@ public class JdbcBandDao implements BandDao{
         List<Subgenre> subgenres = new ArrayList<>();
         String sql = "SELECT * FROM subgenres JOIN band_subgenres " +
                 "ON (subgenres.subgenre_id = band_subgenres.subgenre_id) " +
-                "WHERE band_subgenres.subgenre_id = ?";
+                "WHERE band_subgenres.subgenre_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
         while(results.next()) {

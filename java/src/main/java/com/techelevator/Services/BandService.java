@@ -8,8 +8,10 @@ import java.util.List;
 
 @Service
 public class BandService {
+
     private final BandDao bandDao;
-    public BandService(BandDao bandDao){
+
+    public BandService(BandDao bandDao) {
         this.bandDao = bandDao;
     }
     public Band getBandByName(String bandName) {
@@ -47,7 +49,4 @@ public class BandService {
     public String getBandNameById(int bandId) {
         return bandDao.getBandNameById(bandId);
     }
-
-
-
 }

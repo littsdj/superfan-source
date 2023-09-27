@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ImageService {
+
     private final ImageDao imageDao;
     private final BandDao bandDao;
 
@@ -16,7 +17,7 @@ public class ImageService {
         this.bandDao = bandDao;
     }
 
-    public Image uploadImage(String fileName, byte[] data){
+    public Image uploadImage(String fileName, byte[] data) {
         int imageId = imageDao.uploadImage(fileName, data);
         return imageDao.getBandImageById(imageId);
     }
@@ -40,7 +41,4 @@ public class ImageService {
             return null;
         }
     }
-
-
-
 }
