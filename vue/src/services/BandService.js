@@ -7,8 +7,12 @@ import axios from 'axios';
 export default {
 
     newBand(band) {
-        return axios.post('http://localhost:3000/bands/create', band);
+        return axios.post('http://localhost:9000/bands/create', band);
         //return http.post('/bands/create', band);
+    },
+
+    getBand(bandName) {
+        return axios.get(`http://localhost:9000/bands/${bandName}`)
     }
 
 }
