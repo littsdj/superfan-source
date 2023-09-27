@@ -54,7 +54,9 @@ const router = new Router({
       name: "register",
       component: Register,
       meta: {
-        requiresAuth: false
+        requiresAuth: false,
+        layoutClass: "login-layout",
+        backgroundImage: "music-notes.png"
       }
     },
     {
