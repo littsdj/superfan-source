@@ -20,7 +20,7 @@ export default {
     created() {
         const name = this.$route.params.bandName;
         BandService.getBand(name).then(response => {
-            this.band = response.data.band
+            this.band = response.data
         })
         
     }

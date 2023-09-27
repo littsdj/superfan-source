@@ -7,6 +7,8 @@
             <br />
             <label for="description">Description</label>
             <textArea name="description" rows="8" cols="50"  v-model="band.description"></textArea>
+            
+            <!-- <input name="description" rows="8" cols="50"  v-model="band.description" /> -->
             <br/>
             <select name="genre" id="genrePicker" v-model="band.genreId">
                 <option value="">--select a genre--</option>
