@@ -1,6 +1,7 @@
 <template>
   <div id="register" class="text-center">
-    <form @submit.prevent="register">
+    <div class="register-background"></div> <!-- Create a separate div for background -->
+    <form @submit.prevent="register" class="register-box">
       <h1>Create Account</h1>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -17,7 +18,7 @@
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
-      <button type="submit">Create Account</button>
+      <button type="submit" class="register-button">Create Account</button>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
   </div>
@@ -75,15 +76,45 @@ export default {
 
 <style scoped>
 #register {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  align-items: center; /* Center horizontally */
+  align-items: center;
   justify-content: center;
-  background-color: rgba(101, 213, 247, 0.9); /* Make the form background slightly opaque */
+  height: 100vh;
+  position: relative; /* Add position relative to create a stacking context */
+}
+
+.register-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/music-notes.png"); /* Set the background image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9; /* Set the opacity for the background */
+  z-index: -1; /* Send the background behind the content */
+}
+
+.register-box {
+  background-color: black; /* Black background color */
+  color: hotpink; /* Hot pink text color */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  border-radius: 10px; /* Add rounded corners to the form */
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3); /* Add a subtle shadow to the form */
-  margin:20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.register-button {
+  background-color: hotpink; /* Hot pink button background color */
+  color: black; /* Black button text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .form-input-group {
