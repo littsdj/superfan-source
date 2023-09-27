@@ -63,6 +63,31 @@ export default {
 </script>
 
 <style scoped>
+ #login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:url("../images/login-background.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .login-box { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(248, 17, 229, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+  } 
+
+
+
 .form-input-group {
   margin-bottom: 1rem;
 }
