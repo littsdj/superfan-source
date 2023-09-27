@@ -1,14 +1,14 @@
 package com.techelevator.dao;
 
+import com.techelevator.dao.mapper.BandMapper;
 import com.techelevator.model.Band;
 import com.techelevator.model.Subgenre;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
-
-import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +18,7 @@ public class JdbcBandDao implements BandDao{
     /*
     * TODO: Exception handling.
     * */
+    private final BandMapper bandMapper = new BandMapper();
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcBandDao(JdbcTemplate jdbcTemplate) {
@@ -26,63 +27,38 @@ public class JdbcBandDao implements BandDao{
 
     @Override
     public List<Band> findAllBands() {
-        List<Band> bands = new ArrayList<>();
         String sql = "SELECT * FROM bands";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while(results.next()) {
-            Band band = mapRowToBand(results);
-            bands.add(band);
-        }
-
-        return bands;
+        return jdbcTemplate.query(sql, bandMapper);
     }
 
     @Override
     public Band getBandById(int bandId) {
-        Band bandToReturn = new Band();
         String sql = "SELECT * FROM bands WHERE band_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
-
-        if(results.next()) {
-            bandToReturn = mapRowToBand(results);
+        try {
+            return jdbcTemplate.queryForObject(sql, bandMapper, bandId);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found");
         }
-
-        return bandToReturn;
     }
 
     @Override
     public Band getBandByName(String bandName) {
         String sql = "SELECT * FROM bands WHERE band_name = ?";
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandName);
-            if (results.next()) {
-                return mapRowToBand(results);
-            } else{
-                return null;
-            }
-        } catch(NullPointerException e){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Band not found");
+            return jdbcTemplate.queryForObject(sql, bandMapper, bandName);
+        } catch(EmptyResultDataAccessException e){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found");
         }
     }
 
     @Override
     public List<Band> getBandsByGenre(int genreId) {
-        List<Band> bands = new ArrayList<>();
         String sql = "SELECT * FROM bands JOIN genres ON (bands.genre_id = genres.genre_id) WHERE bands.genre_id = ?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, genreId);
-        while(results.next()) {
-            Band band = mapRowToBand(results);
-            bands.add(band);
-        }
-
-        return bands;
+        return jdbcTemplate.query(sql, bandMapper, genreId);
     }
-    /*
-     * TODO: Determine image format and update
-     *  this method to properly populate the band object.
-     * */
+
     public Band createBand(Band band) {
 
         String sql = "INSERT INTO bands (band_name, description, genre_id)" +
@@ -143,16 +119,16 @@ public class JdbcBandDao implements BandDao{
      * TODO: Determine image format and update
      *  this method to properly populate the band object.
      * */
-    private Band mapRowToBand(SqlRowSet rs) {
-        Band band = new Band();
-        band.setBandId(rs.getInt("band_id"));
-        band.setBandName(rs.getString("band_name"));
-        band.setBandImage(null);
-        band.setDescription(rs.getString("description"));
-        band.setGenreId(rs.getInt("genre_id"));
-        band.setSubgenres(getAllSubgenresByBandId(band.getBandId()));
-        return band;
-    }
+//    private Band mapRowToBand(SqlRowSet rs) {
+//        Band band = new Band();
+//        band.setBandId(rs.getInt("band_id"));
+//        band.setBandName(rs.getString("band_name"));
+//        band.setBandImage(null);
+//        band.setDescription(rs.getString("description"));
+//        band.setGenreId(rs.getInt("genre_id"));
+//        band.setSubgenres(getAllSubgenresByBandId(band.getBandId()));
+//        return band;
+//    }
 
     private List<Subgenre> getAllSubgenresByBandId(int bandId) {
         List<Subgenre> subgenres = new ArrayList<>();
