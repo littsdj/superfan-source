@@ -30,7 +30,7 @@ public class JdbcSubgenreDao implements SubgenreDao {
         try{
             return jdbcTemplate.queryForObject(sql, subgenreMapper, subgenreId);
         } catch (EmptyResultDataAccessException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Subgenre not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Subgenre not found.");
         }
     }
 
@@ -40,7 +40,7 @@ public class JdbcSubgenreDao implements SubgenreDao {
         try {
             return jdbcTemplate.queryForObject(sql, subgenreMapper, subgenreName);
         } catch (EmptyResultDataAccessException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Subgenre not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Subgenre not found.");
         }
     }
 

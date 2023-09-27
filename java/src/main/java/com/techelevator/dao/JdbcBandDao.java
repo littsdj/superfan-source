@@ -41,7 +41,7 @@ public class JdbcBandDao implements BandDao {
         try {
             return jdbcTemplate.queryForObject(sql, bandMapper, bandId);
         } catch (EmptyResultDataAccessException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found.");
         }
     }
 
@@ -51,7 +51,7 @@ public class JdbcBandDao implements BandDao {
         try {
             return jdbcTemplate.queryForObject(sql, bandMapper, bandName);
         } catch(EmptyResultDataAccessException e){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found.");
         }
     }
 
@@ -61,7 +61,7 @@ public class JdbcBandDao implements BandDao {
         try{
             return jdbcTemplate.query(sql, bandMapper, "%" + searchTerm + "%");
         } catch (EmptyResultDataAccessException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No matching bands found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No matching bands found.");
         }
     }
 
@@ -103,7 +103,7 @@ public class JdbcBandDao implements BandDao {
                     bandToUpdate.getDescription(), bandToUpdate.getGenreId(),
                     bandToUpdate.getBandImage().getImageId(), bandToUpdate.getBandId());
         } catch (DataAccessException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to update band");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to update band.");
         }
     }
 

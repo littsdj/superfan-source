@@ -76,7 +76,7 @@ public class BandController {
             imageDao.addCoverImageToBand(imageToLink.getImageId(), bandId);
             return imageToLink;
         } catch (IOException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found.");
         }
     }
 }
