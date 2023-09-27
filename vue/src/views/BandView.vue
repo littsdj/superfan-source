@@ -1,5 +1,14 @@
 <template>
-  <h1>{{ band }}</h1>
+<div>
+    <div v-show="bandFound">
+
+        <h1>{{ band.bandName }}</h1>
+        <h2>About {{ band.bandName }}</h2>
+        <p> {{ band.description }}</p>
+    </div>
+    <h1 v-show="!bandFound">BAND PAGE NOT FOUND</h1>
+
+</div>
 </template>
 
 <script>
@@ -13,7 +22,8 @@ export default {
                 description: '',
                 genreId: '',
                 subgenres: ''
-            }
+            },
+            bandFound: true
         }
     },
     //this is broken
@@ -21,6 +31,10 @@ export default {
         const name = this.$route.params.bandName;
         BandService.getBand(name).then(response => {
             this.band = response.data
+        }).catch((error) => {
+            if(error.response){
+                this.bandFound = false;
+            }
         })
         
     }
