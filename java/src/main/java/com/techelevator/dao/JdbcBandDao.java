@@ -49,7 +49,7 @@ public class JdbcBandDao implements BandDao {
     public Band getBandByName(String bandName) {
         String sql = "SELECT * FROM bands WHERE band_name = ?;";
         try {
-            return jdbcTemplate.queryForObject(sql, bandMapper, bandName.toLowerCase());
+            return jdbcTemplate.queryForObject(sql, bandMapper, bandName);
         } catch(EmptyResultDataAccessException e){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band not found");
         }

@@ -31,7 +31,7 @@ public class BandController {
 
     @RequestMapping(path = "/bands/{bandName}", method = RequestMethod.GET)
     public Band getBand(@PathVariable String bandName) {
-        return bandService.getBandByName(bandName.toLowerCase());
+        return bandService.getBandByName(bandName);
     }
 
     @RequestMapping(path = "/bands/create", method = RequestMethod.POST)
