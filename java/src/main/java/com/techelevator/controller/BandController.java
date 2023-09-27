@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -31,7 +32,7 @@ public class BandController {
 
     @RequestMapping(path = "/bands/{bandName}", method = RequestMethod.GET)
     public Band getBand(@PathVariable String bandName) {
-        return bandService.getBandByName(bandName.toLowerCase());
+        return bandService.getBandByName(bandName);
     }
 
     @RequestMapping(path = "/bands/create", method = RequestMethod.POST)
@@ -39,7 +40,10 @@ public class BandController {
         return bandService.createBand(bandToAdd);
     }
 
-//    @RequestMapping(path="/bands/search/{band_name}")
+    @GetMapping(path="/bands/search/{searchTerm}")
+    public List<Band> getAllBands(@PathVariable String searchTerm) {
+        return bandService.getBandsBySimilarName(searchTerm);
+    }
 
     @PostMapping("/photo")
     public Image uploadPhoto(@RequestParam("file")MultipartFile file) {
@@ -72,7 +76,7 @@ public class BandController {
             imageDao.addCoverImageToBand(imageToLink.getImageId(), bandId);
             return imageToLink;
         } catch (IOException e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found.");
         }
     }
 }

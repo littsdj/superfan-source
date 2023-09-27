@@ -14,8 +14,13 @@ public class BandService {
     public BandService(BandDao bandDao) {
         this.bandDao = bandDao;
     }
+
     public Band getBandByName(String bandName) {
         return bandDao.getBandByName(bandName);
+    }
+
+    public List<Band> getBandsBySimilarName(String bandName) {
+        return bandDao.getBandsBySimilarName(bandName);
     }
 
     public List<Band> getBandsByGenre(int genreId) {
@@ -29,6 +34,7 @@ public class BandService {
     public List<Band> findAllBands() {
         return bandDao.findAllBands();
     }
+
     public Band updateBand(Band bandToUpdate) {
         int rowsUpdated = bandDao.updateBand(bandToUpdate);
         if(rowsUpdated == 1) {
