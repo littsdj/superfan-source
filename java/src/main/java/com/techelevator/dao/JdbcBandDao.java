@@ -8,6 +8,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,15 +53,17 @@ public class JdbcBandDao implements BandDao{
 
     @Override
     public Band getBandByName(String bandName) {
-        Band bandToReturn = new Band();
         String sql = "SELECT * FROM bands WHERE band_name = ?";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandName);
-        if(results.next()) {
-            bandToReturn = mapRowToBand(results);
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandName);
+            if (results.next()) {
+                return mapRowToBand(results);
+            } else{
+                return null;
+            }
+        } catch(NullPointerException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Band not found");
         }
-
-        return bandToReturn;
     }
 
     @Override

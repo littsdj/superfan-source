@@ -49,4 +49,10 @@ public class BandController {
         return imageDao.getBandImageById(imageId);
     }
 
+    @PutMapping("/photo/{bandId}")
+    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
+        return imageDao.addCoverImageToBand(bandImage.getImageId(), bandId);
+    }
+
+//    @GetMapping("/photo/")
 }
