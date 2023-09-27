@@ -36,9 +36,6 @@ const router = new Router({
       component: Login,
       meta: {
         requiresAuth: false,
-        layoutClass: "login-layout",
-        backgroundImage: "login-background.png"
-
       }
     },
     {
@@ -55,8 +52,6 @@ const router = new Router({
       component: Register,
       meta: {
         requiresAuth: false,
-        layoutClass: "login-layout",
-        backgroundImage: "music-notes.png"
       }
     },
     {

@@ -16,8 +16,9 @@ export default {
 }
 </script>
 
-<style>
-    .sidebar {
+<style scoped>
+
+  .sidebar {
   display: flex;
   flex: 0 0 0; /* Sidebar width */
   background-color: whitesmoke;
