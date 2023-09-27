@@ -13,6 +13,14 @@ export default {
 
     getBand(bandName) {
         return axios.get(`http://localhost:9000/bands/${bandName}`)
-    }
+    },
 
+    postBandCoverImage(bandId, formData) {
+        const options = {
+            headers: {
+            'Content-Type': 'multipart/form-data'
+            }
+        }
+        return axios.post(`/coverphoto/${bandId}`, formData, options)
+    }
 }
