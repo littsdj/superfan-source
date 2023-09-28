@@ -95,6 +95,7 @@ export default {
   color: hotpink; /* Hot pink text color */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  min-height: 550px;
   max-width: 400px;
   text-align: center;
 }
@@ -110,11 +111,15 @@ export default {
 .login-button {
   background-color: hotpink; /* Hot pink button background color */
   color: black; /* Black button text color */
-  border: none;
-  padding: 10px 20px;
+  border: 0;
+  padding: 10px 0px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+}
+body, html {
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -127,10 +132,7 @@ export default {
   cursor: pointer;
 }
 .form-input-group {
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
 
-label {
-  margin-right: 0.5rem;
-}
 </style>
