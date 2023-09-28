@@ -30,25 +30,27 @@ export default {};
 </script>
 
 <style scoped>
+
 .sidebar {
   display: flex;
   flex: 1 0 0;
-  background-color: rgb(245, 245, 245, 0.9);
+  background-color: rgba(73, 218, 198, 0.6);
   padding: 20px;
   flex-direction: column;
   margin: 20px;
   justify-content: space-around;
+  height: 60vh;
+  border-radius: 20px;
 }
 .navLink {
   padding-top: 15px;
   padding-bottom: 15px;
   text-align: center;
   font-size: 20pt;
-  font-weight: bolder;
   font-family: fantasy;
   opacity: 1;
-  background-color: hotpink;
-  border-radius: 5px;
+  background-color: rgb(255, 105, 180, 1);
+  border-radius: 20px;
   border-color: black;
 }
 .sidebar * {

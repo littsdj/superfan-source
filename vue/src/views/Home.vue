@@ -1,12 +1,13 @@
 <template>
   <div class="background"> <!-- background image is stored  -->
-        <title-bar/>
-        <div class="body">
-            <sidebar />
-      
-            <p>if you see this, you are logged in.</p>
+        <title-bar class="header"/>
+        
+        <sidebar class="sidebar"/>
+        <div class="content">
+          <p>if you see this, you are logged in.</p>
         </div>
-    </div>
+        
+  </div>
 </template>
 
 <script>
@@ -23,15 +24,33 @@ export default {
   .background{
     background: url('../images/Yellow-lowrider.png');
     background-size: cover;
-    background-position: center;
-    min-height: 100vh;
+    background-position: cover;
+    position: fixed;
+    height:100vh;
+    width: 100vw;
+    display:grid;
+    grid-template-columns: 300px 1fr 100px;
+    grid-template-rows: 100px 1fr 50px ;
+    grid-template-areas: "header header header"
+                          "navigation content . "
+                          ". . .";
+    gap: 40xp
+  }
+  .header {
+    grid-area: header;
+  }
+  .sidebar {
+    grid-area: navigation;
+  }
+  .content {
+    grid-area: content;
   }
   
-  .body {
+  /* .body {
     display: grid;
     align-items: center;
     justify-content: center;
     grid-template-columns: 1fr 2fr 1fr;
     gap: 2px;
-  }
+  } */
 </style>

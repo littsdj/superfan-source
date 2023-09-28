@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style>
+  body {
+    margin: 0px;
+  }
    .body {
     display: grid;
     align-items: center;
@@ -23,7 +26,7 @@ export default {
   }
 
   #app, .app-font {
-    font-family: sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 </style>
 
