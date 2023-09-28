@@ -3,12 +3,13 @@ package com.techelevator.model;
 import java.util.List;
 
 public class Band {
+
     private int bandId;
     private String bandName;
     private String description;
-    private String coverImageUrl;
-    private String genre;
-    private List<String> subgenres;
+    private Image image;
+    private int genreId;
+    private List<Subgenre> subgenres;
 
     public Band() {
     }
@@ -37,27 +38,27 @@ public class Band {
         this.description = description;
     }
 
-    public String getCoverImageUrl() {
-        return coverImageUrl;
+    public Image getBandImage() {
+        return image;
     }
 
-    public void setCoverImageUrl(String coverImageUrl) {
-        this.coverImageUrl = coverImageUrl;
+    public void setBandImage(Image image) {
+        this.image = image;
     }
 
-    public String getGenres() {
-        return genre;
+    public int getGenreId() {
+        return genreId;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenreId(int genreId) {
+        this.genreId = genreId;
     }
 
-    public List<String> getSubgenres() {
+    public List<Subgenre> getSubgenres() {
         return subgenres;
     }
 
-    public void setSubgenres(List<String> subgenres) {
+    public void setSubgenres(List<Subgenre> subgenres) {
         this.subgenres = subgenres;
     }
 }

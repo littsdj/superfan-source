@@ -24,11 +24,11 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public int findIdByUsername(String username) {
-        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+        if (username == null) throw new IllegalArgumentException("Username cannot be null.");
 
         int userId;
         try {
-            userId = jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, username);
+            userId = jdbcTemplate.queryForObject("SELECT user_id FROM users WHERE username = ?", int.class, username);
         } catch (EmptyResultDataAccessException e) {
             throw new UsernameNotFoundException("User " + username + " was not found.");
         }
@@ -38,7 +38,7 @@ public class JdbcUserDao implements UserDao {
 
 	@Override
 	public User getUserById(int userId) {
-		String sql = "SELECT * FROM users WHERE user_id = ?";
+		String sql = "SELECT * FROM users WHERE user_id = ?;";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 		if (results.next()) {
 			return mapRowToUser(results);
@@ -50,7 +50,7 @@ public class JdbcUserDao implements UserDao {
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
-        String sql = "select * from users";
+        String sql = "SELECT * FROM users;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
@@ -63,7 +63,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public User findByUsername(String username) {
-        if (username == null) throw new IllegalArgumentException("Username cannot be null");
+        if (username == null) throw new IllegalArgumentException("Username cannot be null.");
 
         for (User user : this.findAll()) {
             if (user.getUsername().equalsIgnoreCase(username)) {
@@ -75,7 +75,7 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public boolean create(String username, String password, String role) {
-        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";
+        String insertUserSql = "INSERT INTO users (username,password_hash,role) VALUES (?,?,?);";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 

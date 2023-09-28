@@ -5,7 +5,8 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-
+import NewBand from '../views/NewBand.vue'
+import BandView from '../views/BandView.vue'
 Vue.use(Router)
 
 /**
@@ -34,7 +35,7 @@ const router = new Router({
       name: "login",
       component: Login,
       meta: {
-        requiresAuth: false
+        requiresAuth: false,
       }
     },
     {
@@ -50,8 +51,25 @@ const router = new Router({
       name: "register",
       component: Register,
       meta: {
+        requiresAuth: false,
+      }
+    },
+    {
+      path: "/newband",
+      name: "newBand",
+      component: NewBand,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/bands/:bandName",
+      name: "bandPageView",
+      component: BandView,
+      meta: {
         requiresAuth: false
       }
+
     }
   ]
 })

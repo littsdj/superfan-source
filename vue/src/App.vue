@@ -1,9 +1,30 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </div>
-    <router-view />
+
+<template id="app">
+  <div> 
+    <div class="app-font">
+  <router-view/>
   </div>
+  </div>
+
 </template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+   .body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2px;
+  }
+
+  #app, .app-font {
+    font-family: sans-serif;
+  }
+</style>
+

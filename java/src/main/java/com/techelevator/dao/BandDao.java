@@ -6,11 +6,14 @@ import java.util.List;
 
 public interface BandDao {
 
-    List<Band> findAllBand();
+    List<Band> findAllBands();
     Band getBandById(int bandId);
     Band getBandByName(String bandName);
-    List<Band> getBandsByGenre(String genreName);
-    Band updateBand(Band bandToUpdate);
-
+    List<Band> getBandsBySimilarName(String searchTerm);
+    List<Band> getBandsByGenre(int genreId);
+    int updateBand(Band bandToUpdate);
+    int getBandIdByBandName(String bandName);
+    String getBandNameById(int bandId);
+    Band createBand(Band band);
 
 }
