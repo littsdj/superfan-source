@@ -15,6 +15,9 @@ export default {
 </script>
 
 <style>
+  body {
+    margin: 0px;
+  }
    .body {
     display: grid;
     align-items: center;

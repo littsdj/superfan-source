@@ -37,7 +37,7 @@ export default {
         searchBar.classList.add("default");
       }
     },
-  },
+  }
 };
 </script>
 
@@ -45,8 +45,15 @@ export default {
 #titleBar {
   display: flex;
   align-items: center;
-  background: rgb(255, 255, 255, 0.9);
+  background: rgb(
+    166,
+    228,
+    43,
+    0.9
+  );
   justify-content: space-evenly;
+  margin: 0;
+  height: 100px;
 }
 #searchBar {
   height: 30px;

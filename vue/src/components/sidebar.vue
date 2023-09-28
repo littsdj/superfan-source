@@ -30,10 +30,11 @@ export default {};
 </script>
 
 <style scoped>
+
 .sidebar {
   display: flex;
   flex: 1 0 0;
-  background-color: rgb(245, 245, 245, 0.9);
+  background-color: rgba(73, 218, 198, 0.6);
   padding: 20px;
   flex-direction: column;
   margin: 20px;
@@ -48,7 +49,7 @@ export default {};
   font-weight: bolder;
   font-family: fantasy;
   opacity: 1;
-  background-color: hotpink;
+  background-color: rgb(255, 105, 180, 1);
   border-radius: 5px;
   border-color: black;
 }

@@ -1,11 +1,12 @@
 <template>
   <div id="pageContent">
+    <div class="login-background"></div>
     <div id="headerBar">
-      <h1 id="header">SUPERFAN SOURCE</h1>
+      <title-bar-vue />
     </div>
     <div id="login">
       <form @submit.prevent="login">
-        <div class="login-background"></div>
+        
         <!-- Create a separate div for background -->
         <div class="login-box">
           <div class="login-content">
@@ -51,9 +52,11 @@
 </template>
 
 <script>
+import TitleBarVue from '../components/TitleBar.vue';
 import authService from "../services/AuthService";
 
 export default {
+  components: { TitleBarVue },
   name: "login",
   data() {
     return {
@@ -88,10 +91,6 @@ export default {
 </script>
 
 <style scoped>
-#headerBar {
-  background-color: rgb(166, 228, 43);
-  height: 100px;
-}
 
 #login {
   display: flex;
