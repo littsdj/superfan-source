@@ -93,7 +93,7 @@ export default {
   background: url("../images/music-notes.png"); /* Set the background image */
   background-size: cover;
   background-position: center;
-  opacity: 0.9; /* Set the opacity for the background */
+  opacity: 0.8; /* Set the opacity for the background */
   z-index: -1; /* Send the background behind the content */
 }
 
