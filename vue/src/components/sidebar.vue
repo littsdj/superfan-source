@@ -40,6 +40,7 @@ export default {};
   margin: 20px;
   justify-content: space-around;
   height: 60vh;
+  border-radius: 20px;
 }
 .navLink {
   padding-top: 15px;
@@ -50,7 +51,7 @@ export default {};
   font-family: fantasy;
   opacity: 1;
   background-color: rgb(255, 105, 180, 1);
-  border-radius: 5px;
+  border-radius: 20px;
   border-color: black;
 }
 .sidebar * {

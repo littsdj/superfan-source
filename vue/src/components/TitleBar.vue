@@ -49,7 +49,7 @@ export default {
     166,
     228,
     43,
-    0.9
+    0.6
   );
   justify-content: space-evenly;
   margin: 0;

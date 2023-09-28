@@ -121,7 +121,7 @@ export default {
     0.9
   ); /* Black background color with opacity */
   color: rgb(0, 0, 0); /* Hot pink text color */
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   max-width: 400px;

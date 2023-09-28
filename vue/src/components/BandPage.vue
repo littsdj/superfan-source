@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id = "content">
     <div class="bandInfo">
-      <img
+      <img id="coverPhoto"
         src="../images/dancingJukeBox.gif"
         alt="Loading"
         v-show="isLoading"
@@ -107,8 +107,16 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 #uploadButton {
   width: 100px;
+}
+
+#coverPhoto {
+  width: 200px;
+}
+#content {
+  overflow-y: auto;
 }
 </style>
