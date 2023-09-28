@@ -1,10 +1,10 @@
-<template>
-  <div class="background"> <!-- background image is stored  -->
+<!-- <template>
+  <div class="background"> 
         <title-bar class="header"/>
         
         <sidebar class="sidebar"/>
       
-        <search-results class="content"/>
+        <search-results class="content" :searchTerms="$route.params.searchTerms"/>
         
     </div>
 </template>
@@ -54,4 +54,4 @@ export default {
   .content {
     grid-area: content;
   }
-</style>
+</style> -->

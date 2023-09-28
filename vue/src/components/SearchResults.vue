@@ -1,7 +1,9 @@
-<template>
+<!--<template>
     <div>
         <h1>Search Results</h1>
-        <div v-for="band in searchResults"></div>
+        <div v-for="band in searchResults">
+            <p></p>
+        </div>
     </div>
 </template>
 
@@ -10,7 +12,8 @@ import BandService from '../services/BandService'
 export default {
     data() {
         return {
-            searchResults: ''
+            searchResults: '',
+            searchTerms:''
         }
     },
     props: { searchTerms },
@@ -24,4 +27,4 @@ export default {
 
 <style>
 
-</style>
+</style> -->
