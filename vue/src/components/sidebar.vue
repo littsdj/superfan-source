@@ -1,11 +1,23 @@
 <template>
   <div class="sidebar">
-    <router-link v-bind:to="{ name: 'home' }">Home</router-link>
-    <a href="">Messages</a>
-    <a href="">My Bands</a>
-    <router-link v-bind:to="{ name: 'newBand'}">New Band</router-link>
-    <a href="">My account</a>
-    <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    <div class="navLink">  
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>
+    </div>
+    <div class="navLink">
+      <a href="">Messages</a>
+    </div>
+    <div class="navLink">
+      <a href="">My Bands</a>
+    </div>
+    <div class="navLink">
+      <router-link v-bind:to="{ name: 'newBand'}">New Band</router-link>
+    </div>
+    <div class="navLink">
+      <a href="">My account</a>
+    </div>
+    <div class="navLink">
+      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+    </div>
   </div>
     
 </template>
@@ -17,18 +29,28 @@ export default {
 </script>
 
 <style scoped>
-
+  .navLink{
+    padding-top:15px;
+    padding-bottom: 15px;
+    border: ;
+  }
   .sidebar {
   display: flex;
-  flex: 0 0 0; /* Sidebar width */
+  flex: 1 0 0; 
   background-color: whitesmoke;
   padding: 20px;
   flex-direction: column;
   opacity: 0.8;
   margin: 20px;
-  justify-items: stretch;
+  justify-content: around;
 }
-    .sidebar * {
+    .sidebar *{
       text-align: center;
+      align-items:  center;
+
+      text-decoration: none;
+      /* flex-basis: 100% ; */
+      max-height: 100px;
+
     }
 </style>

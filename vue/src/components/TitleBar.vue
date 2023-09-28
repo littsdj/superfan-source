@@ -2,8 +2,8 @@
   <div id="titleBar">
         <h1>Connecting Fans and Their Favorite Bands!!!</h1>
         
-            <input type="text" id="searchBar" class="default" v-model="search" v-on:click="clearDefaultSearch" v-on:blur="restoreDefaultSearch" />
-            <button>Search</button>
+        <input type="text" id="searchBar" class="default" v-model="search" v-on:click="clearDefaultSearch" v-on:blur="restoreDefaultSearch" />
+        <button id="button">Search</button>
         
     </div>
 </template>
@@ -41,6 +41,16 @@ export default {
     background: white;
     opacity: .8;
 }
+#searchBar{
+  height: 30px;
+  width: 300px;
+} 
+#button {
+  justify-content: flex-end;
+  height: 50px;
+  width: 75px;
+}
+
 .default {
   color: gray;
 }
