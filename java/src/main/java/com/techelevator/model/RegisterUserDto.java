@@ -50,3 +50,5 @@ public class RegisterUserDto {
         this.role = role;
     }
 }
+
+
