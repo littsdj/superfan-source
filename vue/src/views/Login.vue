@@ -22,9 +22,9 @@
           <button type="submit" class="login-button">Sign in</button>
         </div>
         <div class="form-input-group">
-          <button class="link-to-register">
+          <p>
             <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link>
-          </button>
+          </p>
         </div>
       </div>
     </form>
@@ -91,8 +91,8 @@ export default {
 }
 
 .login-box {
-  background-color: rgba(0, 0, 0, 0.9); /* Black background color with opacity */
-  color: hotpink; /* Hot pink text color */
+  background-color:rgb(166, 228, 43, 0.9); /* Black background color with opacity */
+  color: rgb(0, 0, 0); /* Hot pink text color */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   
@@ -101,7 +101,7 @@ export default {
 }
 
 .login-title {
-  color: hotpink; /* Hot pink title color */
+  color: rgb(0, 0, 0); /* Hot pink title color */
 }
 
 .login-content {
@@ -109,23 +109,15 @@ export default {
 }
 
 .login-button {
-  background-color: hotpink; /* Hot pink button background color */
-  color: black; /* Black button text color */
+  background-color: rgb(245, 150, 61); /* Hot pink button background color */
+  color: rgb(0, 0, 0); /* Black button text color */
   border: 0;
   padding: 10px 0px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
 }
-.link-to-register {
-   background-color: hotpink; /* Hot pink button background color */
-  color: black; /* Black button text color */
-  border: 0;
-  padding: 10px 0px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
+
 
 .form-input-group {
   margin-bottom: .5rem;

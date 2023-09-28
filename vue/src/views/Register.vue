@@ -98,8 +98,8 @@ export default {
 }
 
 .register-box {
-  background-color: black; /* Black background color */
-  color: hotpink; /* Hot pink text color */
+  background-color: rgb(67, 235, 212); /* Black background color */
+  color: rgb(235, 39, 137); /* Hot pink text color */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -108,8 +108,8 @@ export default {
 }
 
 .register-button {
-  background-color: hotpink; /* Hot pink button background color */
-  color: black; /* Black button text color */
+  background-color: rgb(223, 42, 132); /* Hot pink button background color */
+  color: rgb(0, 0, 0); /* Black button text color */
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
