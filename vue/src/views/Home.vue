@@ -22,7 +22,7 @@ export default {
 
 <style scoped>
   .background{
-    background: url('../images/Yellow-lowrider.png');
+    background: url('../images/boombox.jpg');
     background-size: cover;
     background-position: cover;
     position: fixed;
