@@ -1,7 +1,8 @@
 <template>
-  <div id = "content">
+  <div id="content">
     <div class="bandInfo">
-      <img id="coverPhoto"
+      <img
+        id="coverPhoto"
         src="../images/dancingJukeBox.gif"
         alt="Loading"
         v-show="isLoading"
@@ -13,8 +14,8 @@
         <div><img :src="imgSrcData" alt="" /></div>
         <h2>About {{ band.bandName }}</h2>
         <p id="description">{{ band.description }}</p>
-        <input type="file" id="file" ref="fileInput" />
-        <button id="uploadButton" v-on:click="uploadImage()">
+        <input class="button" type="file" id="file" ref="fileInput" />
+        <button class="button" id="uploadButton" v-on:click="uploadImage()">
           Upload Image
         </button>
       </div>
@@ -107,12 +108,8 @@ export default {
   background-color: rgb(255, 105, 180, 0.9);
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
 }
-#uploadButton {
-  width: 100px;
-}
-
 #coverPhoto {
   width: 200px;
 }

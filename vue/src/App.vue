@@ -29,5 +29,14 @@ export default {
   #app, .app-font {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
+  button {
+  margin-bottom: 20px;
+  height: 50px;
+  background-color: rgb(127, 255, 0);
+  font-size: 13pt;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  }
 </style>
 

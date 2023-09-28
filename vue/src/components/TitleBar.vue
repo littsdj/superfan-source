@@ -10,7 +10,7 @@
         v-on:click="clearDefaultSearch"
         v-on:blur="restoreDefaultSearch"
       />
-      <button id="button">Search</button>
+      <button class="button" id="button">Search</button>
     </div>
   </div>
 </template>
@@ -61,8 +61,8 @@ export default {
 }
 #button {
   justify-content: flex-end;
-  height: 40%;
-  width: 75px;
+  height: 50px;
+  width: 100px;
 }
 
 .default {
