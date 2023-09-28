@@ -22,5 +22,9 @@ export default {
             }
         }
         return axios.post(`/coverphoto/${bandId}`, formData, options)
+    },
+
+    getBandCoverImage(bandId){
+        return axios.get(`/coverphoto/${bandId}`)
     }
 }

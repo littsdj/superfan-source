@@ -28,19 +28,24 @@ export default {
                 bandId: '',
                 description: '',
                 genreId: '',
-                subgenres: ''
+                subgenres: '',
+                image:{
+                    imageId: '',
+                    fileName: '',
+                    imageData:''
+                }
             },
             bandFound: true,
-            isLoading: false,
-            bandImage: ''
+            isLoading: false
         }
     },
     computed:{
         imgSrcData() {
-            if (this.bandImage.fileName) {
-                const dotIndex = this.bandImage.fileName.lastIndexOf('.');
-                const extension = this.bandImage.fileName.substring(dotIndex + 1);
-                return `data:image/${extension};base64, ${this.bandImage.imageData}`;
+            if (this.band.image.fileName) {
+                const dotIndex = this.band.image.fileName.lastIndexOf('.');
+                const extension = this.band.image.fileName.substring(dotIndex + 1);
+                //return `data:image/${extension};base64, ${this.bandImage.imageData}`;
+                return `data:image/${extension};base64, ${this.band.image.imageData}`;
             }
             return '';
         }
@@ -56,6 +61,13 @@ export default {
                 this.bandFound = false;
             }
         })
+        BandService.getBandCoverImage(this.band.bandId).then(response => {
+            this.band.photo = response.data;
+        }).catch( error => {
+            if (error.response) {
+                this.band.photo = 'No Photo Available'
+            }
+        })
         setTimeout( () => {this.isLoading = false} , 1000);
         
     },
@@ -66,7 +78,7 @@ export default {
             formData.append('file', fileInfo);
             BandService.postBandCoverImage(this.band.bandId, formData)
             .then( response => {
-                this.bandImage = response.data;
+                this.band.image = response.data;
             })
         }
     }
