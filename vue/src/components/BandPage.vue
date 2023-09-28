@@ -67,6 +67,7 @@ export default {
       .catch((error) => {
         if (error.response) {
           this.bandFound = false;
+          this.isLoading = false;
         }
       });
     // BandService.getBandCoverImage(this.band.bandId).then(response => {
