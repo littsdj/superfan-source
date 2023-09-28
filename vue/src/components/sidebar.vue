@@ -38,6 +38,7 @@ export default {};
   flex-direction: column;
   margin: 20px;
   justify-content: space-around;
+  height: 60vh;
 }
 .navLink {
   padding-top: 15px;
