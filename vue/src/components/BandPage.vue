@@ -6,12 +6,12 @@
         <div v-show="bandFound && !isLoading" >
 
             <h1>{{ band.bandName }}</h1>
+        <div><img :src="imgSrcData" alt=""></div>
             <h2>About {{ band.bandName }}</h2>
             <p> {{ band.description }}</p>
             <input type="file" id="file" ref="fileInput"/>
             <button id="uploadButton" v-on:click="uploadImage()">Upload Image</button>
         </div>
-        <div><img :src="imgSrcData" alt=""></div>
         <h1 v-show="!bandFound && !isLoading">BAND PAGE NOT FOUND</h1>
 
     </div>
@@ -29,7 +29,7 @@ export default {
                 description: '',
                 genreId: '',
                 subgenres: '',
-                image:{
+                bandImage:{
                     imageId: '',
                     fileName: '',
                     imageData:''
@@ -41,11 +41,11 @@ export default {
     },
     computed:{
         imgSrcData() {
-            if (this.band.image.fileName) {
-                const dotIndex = this.band.image.fileName.lastIndexOf('.');
-                const extension = this.band.image.fileName.substring(dotIndex + 1);
+            if (this.band.bandImage && this.band.bandImage.fileName) {
+                const dotIndex = this.band.bandImage.fileName.lastIndexOf('.');
+                const extension = this.band.bandImage.fileName.substring(dotIndex + 1);
                 //return `data:image/${extension};base64, ${this.bandImage.imageData}`;
-                return `data:image/${extension};base64, ${this.band.image.imageData}`;
+                return `data:image/${extension};base64, ${this.band.bandImage.imageData}`;
             }
             return '';
         }
@@ -56,19 +56,20 @@ export default {
         const name = this.$route.params.bandName;
         BandService.getBand(name).then(response => {
             this.band = response.data
+            this.isLoading = false;
         }).catch((error) => {
             if(error.response){
                 this.bandFound = false;
             }
         })
-        BandService.getBandCoverImage(this.band.bandId).then(response => {
-            this.band.photo = response.data;
-        }).catch( error => {
-            if (error.response) {
-                this.band.photo = 'No Photo Available'
-            }
-        })
-        setTimeout( () => {this.isLoading = false} , 1000);
+        // BandService.getBandCoverImage(this.band.bandId).then(response => {
+        //     this.band.photo = response.data;
+        // }).catch( error => {
+        //     if (error.response) {
+        //         this.band.photo = 'No Photo Available'
+        //     }
+        // })
+        
         
     },
     methods: {
@@ -78,7 +79,7 @@ export default {
             formData.append('file', fileInfo);
             BandService.postBandCoverImage(this.band.bandId, formData)
             .then( response => {
-                this.band.image = response.data;
+                this.band.bandImage = response.data;
             })
         }
     }

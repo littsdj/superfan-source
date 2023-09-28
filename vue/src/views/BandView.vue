@@ -1,11 +1,11 @@
 <template>
   <div class="background"> <!-- background image is stored  -->
         <title-bar class="header"/>
-        <!--<div class="body">-->
-            <sidebar class="sidebar"/>
+        
+        <sidebar class="sidebar"/>
       
-            <band-page class="content"/>
-        <!--</div>-->
+        <band-page class="content"/>
+        
     </div>
 </template>
 
