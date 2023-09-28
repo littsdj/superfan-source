@@ -47,7 +47,6 @@ export default {};
   padding-bottom: 15px;
   text-align: center;
   font-size: 20pt;
-  font-weight: bolder;
   font-family: fantasy;
   opacity: 1;
   background-color: rgb(255, 105, 180, 1);

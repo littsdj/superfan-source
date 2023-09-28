@@ -162,6 +162,10 @@ label {
   );
 }
 
+label {
+  display: block;
+}
+
 #header{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-style: italic;

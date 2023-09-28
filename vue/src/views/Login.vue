@@ -96,7 +96,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 85vh;
   position: relative; /* Add position relative to create a stacking context */
 }
 
@@ -144,6 +144,10 @@ export default {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+}
+
+label {
+  display: block;
 }
 
 .form-input-group {

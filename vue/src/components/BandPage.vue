@@ -107,8 +107,7 @@ export default {
   background-color: rgb(255, 105, 180, 0.9);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  
+  align-items: center;  
 }
 #uploadButton {
   width: 100px;
