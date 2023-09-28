@@ -1,4 +1,3 @@
-
 <template id="app">
   <div> 
     <div class="app-font">
