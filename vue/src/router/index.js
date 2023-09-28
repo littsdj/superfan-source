@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import NewBand from '../views/NewBand.vue'
 import BandView from '../views/BandView.vue'
+import { search } from 'core-js/fn/symbol'
 Vue.use(Router)
 
 /**
@@ -70,6 +71,14 @@ const router = new Router({
         requiresAuth: false
       }
 
+    },
+    {
+      path: "/bands/search/:searchParam",
+      name: "searchResults",
+      component: search,
+      meta: {
+        requiresAuth: false
+      }
     }
   ]
 })
