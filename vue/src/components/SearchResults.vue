@@ -1,16 +1,23 @@
 <template>
     <div>
         <h1>Search Results</h1>
-        <div v-for="band in bandResults"></div>
+        <div v-for="band in searchResults"></div>
     </div>
 </template>
 
 <script>
+import BandService from '../services/BandService'
 export default {
     data() {
         return {
-            bandResults: ''
+            searchResults: ''
         }
+    },
+    props: { searchTerms },
+    created() {
+        BandService.searchBands(this.searchTerms).then( response => {
+            this.searchResults = response.data;
+        })
     }
 }
 </script>
