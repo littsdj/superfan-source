@@ -1,33 +1,52 @@
 <template>
-  <div id="login">
-    <form @submit.prevent="login">
-      <div class="login-background"></div> <!-- Create a separate div for background -->
-      <div class="login-box">
-        <div class="login-content">
-          <h1 class="login-title">Please Sign In</h1>
-          <div role="alert" v-if="invalidCredentials">
-            Invalid username and password!
-          </div>
-          <div role="alert" v-if="this.$route.query.registration">
-            Thank you for registering, please sign in.
+  <div id="pageContent">
+    <div id="headerBar">
+      <h1 id="header">SUPERFAN SOURCE</h1>
+    </div>
+    <div id="login">
+      <form @submit.prevent="login">
+        <div class="login-background"></div>
+        <!-- Create a separate div for background -->
+        <div class="login-box">
+          <div class="login-content">
+            <h1 class="login-title">Please Sign In</h1>
+            <div role="alert" v-if="invalidCredentials">
+              Invalid username and password!
+            </div>
+            <div role="alert" v-if="this.$route.query.registration">
+              Thank you for registering, please sign in.
+            </div>
+            <div class="form-input-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                v-model="user.username"
+                required
+                autofocus
+              />
+            </div>
+            <div class="form-input-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                v-model="user.password"
+                required
+              />
+            </div>
+            <button type="submit" class="login-button">Sign in</button>
           </div>
           <div class="form-input-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" v-model="user.username" required autofocus />
+            <p>
+              <router-link :to="{ name: 'register' }"
+                >Need an account? Sign up.</router-link
+              >
+            </p>
           </div>
-          <div class="form-input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" v-model="user.password" required />
-          </div>
-          <button type="submit" class="login-button">Sign in</button>
         </div>
-        <div class="form-input-group">
-          <p>
-            <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link>
-          </p>
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -40,35 +59,40 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
+#headerBar {
+  background-color: rgb(166, 228, 43);
+  height: 100px;
+}
+
 #login {
   display: flex;
   justify-content: center;
@@ -91,11 +115,16 @@ export default {
 }
 
 .login-box {
-  background-color:rgb(166, 228, 43, 0.9); /* Black background color with opacity */
+  background-color: rgb(
+    166,
+    228,
+    43,
+    0.9
+  ); /* Black background color with opacity */
   color: rgb(0, 0, 0); /* Hot pink text color */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  
+  padding: 20px;
   max-width: 400px;
   text-align: center;
 }
@@ -111,16 +140,14 @@ export default {
 .login-button {
   background-color: rgb(245, 150, 61); /* Hot pink button background color */
   color: rgb(0, 0, 0); /* Black button text color */
-  border: 0;
+  border: none;
   padding: 10px 0px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
 }
 
-
 .form-input-group {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-
 </style>
