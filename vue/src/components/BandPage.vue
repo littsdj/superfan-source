@@ -79,7 +79,7 @@ export default {
             formData.append('file', fileInfo);
             BandService.postBandCoverImage(this.band.bandId, formData)
             .then( response => {
-                this.band.image = response.data;
+                this.band.bandImage = response.data;
             })
         }
     }
