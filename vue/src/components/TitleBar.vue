@@ -10,7 +10,7 @@
         v-on:click="clearDefaultSearch"
         v-on:blur="restoreDefaultSearch"
       />
-      <button class="button" id="button">Search</button>
+      <button class="button" id="button" v-on:click.stop.prevent="executeSearch()">Search</button>
     </div>
   </div>
 </template>
@@ -37,6 +37,10 @@ export default {
         searchBar.classList.add("default");
       }
     },
+    executeSearch(){
+
+      this.$router.push({name: "search", params: {searchTerms : this.search}})
+    }
   }
 };
 </script>
