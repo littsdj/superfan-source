@@ -10,8 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
-
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,7 +45,7 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public Band getBandByName(String bandName) {
-        String sql = "SELECT * FROM bands WHERE band_name = ?;";
+        String sql = "SELECT * FROM bands WHERE LOWER(band_name) = LOWER(?);";
         try {
             return jdbcTemplate.queryForObject(sql, bandMapper, bandName);
         } catch(EmptyResultDataAccessException e){
@@ -57,7 +55,7 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public List<Band> getBandsBySimilarName(String searchTerm) {
-        String sql = "SELECT * FROM bands WHERE band_name LIKE ?;";
+        String sql = "SELECT * FROM bands WHERE band_name ILIKE ? ORDER BY band_name;";
         try{
             return jdbcTemplate.query(sql, bandMapper, "%" + searchTerm + "%");
         } catch (EmptyResultDataAccessException e) {
@@ -89,11 +87,6 @@ public class JdbcBandDao implements BandDao {
 
         return band;
     }
-
-    /*
-    * TODO: Determine image format and update
-    *  this method to properly populate the band object.
-    * */
     @Override
     public int updateBand(Band bandToUpdate) {
         String sql = "UPDATE bands SET (band_name = ?, description = ?, genre_id = ?, " +
@@ -132,19 +125,53 @@ public class JdbcBandDao implements BandDao {
         return bandName;
     }
 
-    private List<Subgenre> getAllSubgenresByBandId(int bandId) {
-        List<Subgenre> subgenres = new ArrayList<>();
-        String sql = "SELECT * FROM subgenres JOIN band_subgenres " +
-                "ON (subgenres.subgenre_id = band_subgenres.subgenre_id) " +
-                "WHERE band_subgenres.subgenre_id = ?;";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
-        while(results.next()) {
-            Subgenre subgenre = new Subgenre();
-            subgenre.setSubgenreId(results.getInt("subgenre_id"));
-            subgenre.setSubgenreName(results.getString("subgenre_name"));
-            subgenres.add(subgenre);
+//    public List<Subgenre> getAllSubgenresByBandId(int bandId) {
+//        List<Subgenre> subgenres = new ArrayList<>();
+//        String sql = "SELECT * FROM subgenres JOIN band_subgenres " +
+//                "ON (subgenres.subgenre_id = band_subgenres.subgenre_id) " +
+//                "WHERE band_subgenres.subgenre_id = ?;";
+//
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
+//        while(results.next()) {
+//            Subgenre subgenre = new Subgenre();
+//            subgenre.setSubgenreId(results.getInt("subgenre_id"));
+//            subgenre.setSubgenreName(results.getString("subgenre_name"));
+//            subgenres.add(subgenre);
+//        }
+//        return subgenres;
+//    }
+    @Override
+    public boolean followBand(int userId, int bandId) {
+        String sql = "INSERT INTO user_following (user_id, band_id) VALUES (?, ?) " +
+                "RETURNING band_id;";
+        try{
+            return jdbcTemplate.update(sql, userId, bandId) == 1;
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error following band");
         }
-        return subgenres;
+    }
+    @Override
+    public List<Integer> getAllUserFollowedBands(int userId) {
+        String sql = "SELECT band_id FROM user_following WHERE user_id = ?";
+        SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, userId);
+        List<Integer> bandsFollowed = new ArrayList<>();
+        try{
+            while(rs.next()) {
+                bandsFollowed.add(rs.getInt("band_id"));
+            }
+            return bandsFollowed;
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No bands found.");
+        }
+    }
+
+    @Override
+    public boolean unfollowBand(int userId, int bandId) {
+        String sql = "DELETE FROM user_following WHERE (user_id == ? AND band_id == ?)";
+        try{
+            return jdbcTemplate.update(sql, Integer.class, userId, bandId) == 1;
+        } catch (DataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error unfollowing band");
+        }
     }
 }

@@ -40,7 +40,7 @@ public class BandController {
         return bandService.createBand(bandToAdd);
     }
 
-    @GetMapping(path="/bands/search/{searchTerm}")
+    @GetMapping(path = "/bands/search/{searchTerm}")
     public List<Band> getAllBands(@PathVariable String searchTerm) {
         return bandService.getBandsBySimilarName(searchTerm);
     }
@@ -78,5 +78,20 @@ public class BandController {
         } catch (IOException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found.");
         }
+    }
+
+    @PostMapping("/bands/follow/{bandId}")
+    public boolean followBand(@RequestParam int userId, @PathVariable int bandId) {
+        return bandService.followBand(userId, bandId);
+    }
+
+    @GetMapping("/bands/following")
+    public List<Band> getAllUserFollowedBands(@RequestParam int userId) {
+        return bandService.getAllUserFollowedBands(userId);
+    }
+
+    @DeleteMapping("/bands/unfollow/{bandId}")
+    public boolean unfollowBand(@RequestParam int userId, @PathVariable int bandId) {
+        return bandService.unfollowBand(userId, bandId);
     }
 }

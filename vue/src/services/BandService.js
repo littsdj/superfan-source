@@ -26,5 +26,8 @@ export default {
 
     getBandCoverImage(bandId){
         return axios.get(`/coverphoto/${bandId}`)
+    },
+    searchBands(searchTerms) {
+        return axios.get(`/bands/search/${searchTerms}`)
     }
 }

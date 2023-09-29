@@ -15,5 +15,7 @@ public interface BandDao {
     int getBandIdByBandName(String bandName);
     String getBandNameById(int bandId);
     Band createBand(Band band);
-
+    boolean followBand(int userId, int bandId);
+    List<Integer> getAllUserFollowedBands(int userId);
+    boolean unfollowBand(int userId, int bandId);
 }

@@ -106,7 +106,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../images/login-background.png"); /* Set the background image */
+  background: url("../images/login-background.jpg"); /* Set the background image */
   background-size: cover;
   background-position: center;
   opacity: 0.9; /* Set the opacity for the background */

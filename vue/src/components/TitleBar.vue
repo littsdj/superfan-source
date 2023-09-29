@@ -10,7 +10,8 @@
         v-on:click="clearDefaultSearch"
         v-on:blur="restoreDefaultSearch"
       />
-      <button id="button">Search</button>
+      <label for="searchButton" id="searchLabel" class="select-file-button">SEARCH</label>
+      <button class="button" id="searchButton" v-on:click.stop.prevent="executeSearch()" v-show="false">Search</button>
     </div>
   </div>
 </template>
@@ -37,6 +38,10 @@ export default {
         searchBar.classList.add("default");
       }
     },
+    executeSearch(){
+
+      this.$router.push({name: "search", params: {searchTerms : this.search.toLowerCase()}})
+    }
   }
 };
 </script>
@@ -61,8 +66,8 @@ export default {
 }
 #button {
   justify-content: flex-end;
-  height: 40%;
-  width: 75px;
+  height: 50px;
+  width: 100px;
 }
 
 .default {
