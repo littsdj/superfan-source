@@ -17,6 +17,11 @@ public class BandService {
     private UserDao userDao;
     private final BandDao bandDao;
 
+    /*
+    * This class handles the middle point between all basic
+    * DAO methods and the controller, being where any additional
+    * logic is handled.
+    * */
     public BandService(BandDao bandDao, UserDao userDao, ImageDao imageDao) {
         this.bandDao = bandDao;
         this.imageDao = imageDao;
@@ -80,11 +85,6 @@ public class BandService {
     }
 
     public boolean unfollowBand(int userId, int bandId) {
-        int rowsAffected = bandDao.unfollowBand(userId, bandId);
-        if(rowsAffected == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return bandDao.unfollowBand(userId, bandId);
     }
 }
