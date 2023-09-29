@@ -90,8 +90,8 @@ public class BandController {
         return bandService.getAllUserFollowedBands(userId);
     }
 
-    @GetMapping("/bands/isfollowing/{bandId}")
-    public boolean isFollowing(@RequestParam int userId, @PathVariable int bandId) {
+    @GetMapping("/bands/{bandId}/users/{userId}/isfollowing")
+    public boolean isFollowing(@PathVariable int userId, @PathVariable int bandId) {
         return bandService.isFollowing(userId, bandId);
     }
 

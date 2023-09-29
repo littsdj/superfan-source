@@ -29,5 +29,11 @@ export default {
     },
     searchBands(searchTerms) {
         return axios.get(`/bands/search/${searchTerms}`)
+    },
+    isUserFollowing(bandId, userId) {
+        return axios.get(`/bands/${bandId}/users/${userId}/isfollowing`)
     }
+    // isUserFollowing(){
+    //     return axios.get(`/bands/following/`)
+    // }
 }

@@ -11,6 +11,10 @@
         <div id="bandTitleBox">
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
+        <div class="follow_unfollow" v-if="$store.state.token !== ''">
+            <button>Follow</button>
+            <button>Unfollow</button>
+        </div>
         <div><img :src="imgSrcData" alt="" /></div>
         <h2>About {{ band.bandName }}</h2>
         <p id="description">{{ band.description }}</p>
@@ -47,12 +51,14 @@ export default {
     //   },
       bandFound: true,
       isLoading: false,
+      isFollowing: ''
     };
   },
   computed: {
     band() {
         return this.$store.state.currentBand.bandId ? this.$store.state.currentBand : {}
         },
+  
     
     imgSrcData() {
       if (this.band.bandImage && this.band.bandImage.fileName) {
@@ -73,6 +79,7 @@ export default {
         // this.band = response.data;
         this.$store.commit('SET_BAND', response.data);
         this.isLoading = false;
+        BandService.isUserFollowing(this.band.bandId, this.$store.state.user.id).then(response => {this.isFollowing = response.data})
       })
       .catch((error) => {
         if (error.response) {
@@ -87,6 +94,7 @@ export default {
     //         this.band.photo = 'No Photo Available'
     //     }
     // })
+    
   },
   methods: {
     uploadImage() {
