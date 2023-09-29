@@ -55,7 +55,7 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public List<Band> getBandsBySimilarName(String searchTerm) {
-        String sql = "SELECT * FROM bands ORDER BY band_name WHERE band_name ILIKE ?;";
+        String sql = "SELECT * FROM bands WHERE band_name ILIKE ? ORDER BY band_name;";
         try{
             return jdbcTemplate.query(sql, bandMapper, "%" + searchTerm + "%");
         } catch (EmptyResultDataAccessException e) {
