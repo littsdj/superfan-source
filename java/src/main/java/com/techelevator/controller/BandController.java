@@ -59,10 +59,10 @@ public class BandController {
         return imageService.getBandImageById(imageId);
     }
 
-    @PutMapping("/photo/{bandId}")
-    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
-        return imageService.addCoverImageToBand(bandImage.getImageId(), bandId);
-    }
+//    @PutMapping("/photo/{bandId}")
+//    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
+//        return imageService.addCoverImageToBand(bandImage.getImageId(), bandId);
+//    }
 
     @GetMapping("/coverphoto/{bandId}")
     public Image getBandCoverImage(@PathVariable int bandId) {
@@ -88,6 +88,11 @@ public class BandController {
     @GetMapping("/bands/following")
     public List<Band> getAllUserFollowedBands(@RequestParam int userId) {
         return bandService.getAllUserFollowedBands(userId);
+    }
+
+    @GetMapping("/bands/{bandId}/users/{userId}/isfollowing")
+    public boolean isFollowing(@PathVariable int userId, @PathVariable int bandId) {
+        return bandService.isFollowing(userId, bandId);
     }
 
     @DeleteMapping("/bands/unfollow/{bandId}")

@@ -45,7 +45,7 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public Band getBandByName(String bandName) {
-        String sql = "SELECT * FROM bands WHERE band_name = ?;";
+        String sql = "SELECT * FROM bands WHERE LOWER(band_name) = LOWER(?);";
         try {
             return jdbcTemplate.queryForObject(sql, bandMapper, bandName);
         } catch(EmptyResultDataAccessException e){
@@ -55,7 +55,7 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public List<Band> getBandsBySimilarName(String searchTerm) {
-        String sql = "SELECT * FROM bands ORDER BY band_name WHERE band_name ILIKE ?;";
+        String sql = "SELECT * FROM bands WHERE band_name ILIKE ? ORDER BY band_name;";
         try{
             return jdbcTemplate.query(sql, bandMapper, "%" + searchTerm + "%");
         } catch (EmptyResultDataAccessException e) {
@@ -172,6 +172,16 @@ public class JdbcBandDao implements BandDao {
             return jdbcTemplate.update(sql, Integer.class, userId, bandId) == 1;
         } catch (DataAccessException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error unfollowing band");
+        }
+    }
+
+    @Override
+    public boolean isFollowing(int userId, int bandId) {
+        String sql = "SELECT COUNT(*) FROM user_following WHERE user_id = ? AND band_id = ?;";
+        try{
+            return jdbcTemplate.queryForObject(sql, Integer.class, userId, bandId) == 1;
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error handling follow retrieval");
         }
     }
 }

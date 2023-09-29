@@ -18,4 +18,5 @@ public interface BandDao {
     boolean followBand(int userId, int bandId);
     List<Integer> getAllUserFollowedBands(int userId);
     boolean unfollowBand(int userId, int bandId);
+    boolean isFollowing(int userId, int bandId);
 }

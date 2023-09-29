@@ -15,7 +15,7 @@
 <script>
 import TitleBar from '../components/TitleBar.vue'
 import BandService from '../services/BandService'
-import SearchedItem from '../components/SearchedItem.vue'
+import SearchedItem from '../components/SearchedItemNew.vue'
 import sidebar from '../components/sidebar.vue'
 export default {
 
