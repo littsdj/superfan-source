@@ -1,5 +1,5 @@
 <template>
-  <div class="background"> <!-- background image is stored  -->
+  <div class="background" v-bind:class="{'background-pop': bandGenre == 1, 'background-generic': bandGenre != 1}"> <!-- background image is stored  -->
         <title-bar class="header"/>
         
         <sidebar class="sidebar"/>
@@ -15,13 +15,15 @@ import sidebar  from '../components/sidebar.vue'
 import TitleBar from '../components/TitleBar.vue'
 export default {
   components: { BandPage, TitleBar, sidebar },
-
+  computed: {
+    bandGenre() {
+      return this.$store.state.currentBand.genreId ? this.$store.state.currentBand.genreId : {}},
+  }
 }
 </script>
 
 <style scoped>
  .background{
-    background: url('../images/login-background.png');
     background-size: cover;
     background-position: cover;
     position: fixed;
@@ -33,9 +35,15 @@ export default {
     grid-template-areas: "header header header"
                           "navigation content . "
                           ". . .";
-    gap: 40xp
+    gap: 40px;
   }
-  
+  .background-pop {
+    background: url('../images/world.jpg');
+  }
+  .background-generic {
+    background: url('../images/login-background.jpg');
+  }
+
   /* .body {
     
     align-items: center;
