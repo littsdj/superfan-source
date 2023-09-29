@@ -39,7 +39,7 @@ export default {
     },
     executeSearch(){
 
-      this.$router.push({name: "search", params: {searchTerms : this.search}})
+      this.$router.push({name: "search", params: {searchTerms : this.search.toLowerCase()}})
     }
   }
 };
