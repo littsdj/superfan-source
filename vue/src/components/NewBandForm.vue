@@ -65,6 +65,7 @@ export default {
         padding: 20px;
         border-radius: 50px;
         align-items: center;
+        justify-content: center;
     }
 
     input, textarea {

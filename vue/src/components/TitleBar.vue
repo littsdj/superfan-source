@@ -10,7 +10,8 @@
         v-on:click="clearDefaultSearch"
         v-on:blur="restoreDefaultSearch"
       />
-      <button class="button" id="button" v-on:click.stop.prevent="executeSearch()">Search</button>
+      <label for="searchButton" id="searchLabel" class="select-file-button">SEARCH</label>
+      <button class="button" id="searchButton" v-on:click.stop.prevent="executeSearch()" v-show="false">Search</button>
     </div>
   </div>
 </template>

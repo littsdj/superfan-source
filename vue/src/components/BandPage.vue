@@ -7,17 +7,21 @@
         alt="Loading"
         v-show="isLoading"
       />
-      <div v-show="bandFound && !isLoading">
+      <div class="bandPageBox" v-show="bandFound && !isLoading">
         <div id="bandTitleBox">
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
         <div><img :src="imgSrcData" alt="" /></div>
         <h2>About {{ band.bandName }}</h2>
         <p id="description">{{ band.description }}</p>
-        <input class="button" type="file" id="file" ref="fileInput" />
-        <button class="button" id="uploadButton" v-on:click="uploadImage()">
+        <!-- <input class="button" type="file" id="file" ref="fileInput" />
+        -->
+        <label for="file" id="fileButton" class="select-file-button">Select Cover Image</label>
+        <input class="button" type="file" id="file" ref="fileInput" v-show="false"/> 
+        <label for="uploadButton" id="uploadLabel" class="select-file-button">Upload Image</label>
+        <button class="select-file-button" id="uploadButton" v-on:click="uploadImage()" v-show="false">
           Upload Image
-        </button>
+        </button>        
       </div>
       <h1 v-show="!bandFound && !isLoading">BAND PAGE NOT FOUND</h1>
     </div>
@@ -101,19 +105,27 @@ export default {
 
 <style>
 #bandTitleBox {
-  background-color: rgb(159, 207, 97);
-  border-radius: 20px;
-  width: 80%;
+    background-color: rgb(127, 255, 0, 0.7);
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 15px;
+    border-style: solid;
+    border-color: orange;
 }
 #bandName {
   text-align: center;
   font-size: 36pt;
 }
-.bandInfo {
+.bandPageBox {
   background-color: rgb(255, 105, 180, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 #coverPhoto {
   width: 200px;
