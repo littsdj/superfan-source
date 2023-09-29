@@ -59,10 +59,10 @@ public class BandController {
         return imageService.getBandImageById(imageId);
     }
 
-    @PutMapping("/photo/{bandId}")
-    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
-        return imageService.addCoverImageToBand(bandImage.getImageId(), bandId);
-    }
+//    @PutMapping("/photo/{bandId}")
+//    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
+//        return imageService.addCoverImageToBand(bandImage.getImageId(), bandId);
+//    }
 
     @GetMapping("/coverphoto/{bandId}")
     public Image getBandCoverImage(@PathVariable int bandId) {
