@@ -32,6 +32,12 @@ export default {
     },
     isUserFollowing(bandId, userId) {
         return axios.get(`/bands/${bandId}/users/${userId}/isfollowing`)
+    },
+    followGroup(bandId, userId){
+        return axios.post(`/bands/${bandId}/follow`, userId)
+    },
+    unfollowGroup(bandId, userId){
+        return axios.delete(`/bands/${bandId}/unfollow`, userId)
     }
     // isUserFollowing(){
     //     return axios.get(`/bands/following/`)

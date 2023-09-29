@@ -12,8 +12,10 @@
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
         <div class="follow_unfollow" v-if="$store.state.token !== ''">
-            <button>Follow</button>
-            <button>Unfollow</button>
+            <label id="followLabel" class="followLabel" for="followButton" v-show="!isFollowing" >Follow</label>
+            <button  name="followButton" v-show="false" v-on:click="toggleFollow()">Follow</button>
+            <label id="unfollowLabel" class= "followLabel" for="unfollowButton" v-show="isFollowing">Unfollow</label>
+            <button name="unfollowButton" v-show="false" v-on:click="toggleFollow()">Unfollow</button>
         </div>
         <div><img :src="imgSrcData" alt="" /></div>
         <h2>About {{ band.bandName }}</h2>
@@ -107,6 +109,22 @@ export default {
         }
       );
     },
+    toggleFollow() {
+      if(this.isFollowing) {
+        BandService.unfollowGroup(this.band.bandId, this.$store.state.user.id).then(response => {
+          if (response){
+            this.isFollowing = false;
+          }
+        })
+      }
+      else{
+        BandService.followGroup(this.band.bandId, this.$store.state.user.id).then(response => {
+          if(response) {
+            this.isFollowing = true;
+          }
+        })
+      }
+    }
   },
 };
 </script>

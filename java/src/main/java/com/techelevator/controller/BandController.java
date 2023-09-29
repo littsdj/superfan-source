@@ -80,7 +80,7 @@ public class BandController {
         }
     }
 
-    @PostMapping("/bands/follow/{bandId}")
+    @PostMapping("/bands/{bandId}/follow")
     public boolean followBand(@RequestParam int userId, @PathVariable int bandId) {
         return bandService.followBand(userId, bandId);
     }
@@ -95,7 +95,7 @@ public class BandController {
         return bandService.isFollowing(userId, bandId);
     }
 
-    @DeleteMapping("/bands/unfollow/{bandId}")
+    @DeleteMapping("/bands/{bandId}/unfollow")
     public boolean unfollowBand(@RequestParam int userId, @PathVariable int bandId) {
         return bandService.unfollowBand(userId, bandId);
     }
