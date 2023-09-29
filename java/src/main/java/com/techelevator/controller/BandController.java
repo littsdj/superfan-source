@@ -79,4 +79,14 @@ public class BandController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found.");
         }
     }
+
+    @PostMapping("/bands/follow/{bandId}")
+    public boolean followBand(@RequestParam int userId, @PathVariable int bandId) {
+        return bandService.followBand(userId, bandId);
+    }
+
+    @GetMapping("/bands/following")
+    public List<Band> getAllUserFollowedBands(@RequestParam int userId) {
+        return bandService.getAllUserFollowedBands(userId);
+    }
 }

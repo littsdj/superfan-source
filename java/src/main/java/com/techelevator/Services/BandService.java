@@ -2,21 +2,25 @@ package com.techelevator.Services;
 
 import com.techelevator.dao.BandDao;
 import com.techelevator.dao.ImageDao;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Band;
+import com.techelevator.model.User;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 @Service
 public class BandService {
     private ImageDao imageDao;
-
+    private UserDao userDao;
     private final BandDao bandDao;
 
-    public BandService(BandDao bandDao, ImageDao imageDao) {
+    public BandService(BandDao bandDao, UserDao userDao, ImageDao imageDao) {
         this.bandDao = bandDao;
         this.imageDao = imageDao;
+        this.userDao = userDao;
     }
 
     public Band getBandByName(String bandName) {
@@ -60,5 +64,18 @@ public class BandService {
 
     public String getBandNameById(int bandId) {
         return bandDao.getBandNameById(bandId);
+    }
+
+    public boolean followBand(int userId, int bandId) {
+        return bandDao.followBand(userId, bandId);
+    }
+
+    public List<Band> getAllUserFollowedBands(int userId) {
+        List<Integer> bandIds = bandDao.getAllUserFollowedBands(userId);
+        List<Band> bandsFollowed = new ArrayList<>();
+        for(int i = 0; i < bandIds.size(); i++) {
+            bandsFollowed.add(bandDao.getBandById(bandIds.get(i)));
+        }
+        return bandsFollowed;
     }
 }
