@@ -45,7 +45,7 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public Band getBandByName(String bandName) {
-        String sql = "SELECT * FROM bands WHERE band_name = ?;";
+        String sql = "SELECT * FROM bands WHERE LOWER(band_name) = LOWER(?);";
         try {
             return jdbcTemplate.queryForObject(sql, bandMapper, bandName);
         } catch(EmptyResultDataAccessException e){
