@@ -90,6 +90,11 @@ public class BandController {
         return bandService.getAllUserFollowedBands(userId);
     }
 
+    @GetMapping("/bands/isfollowing/{bandId}")
+    public boolean isFollowing(@RequestParam int userId, @PathVariable int bandId) {
+        return bandService.isFollowing(userId, bandId);
+    }
+
     @DeleteMapping("/bands/unfollow/{bandId}")
     public boolean unfollowBand(@RequestParam int userId, @PathVariable int bandId) {
         return bandService.unfollowBand(userId, bandId);

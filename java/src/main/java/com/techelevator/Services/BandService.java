@@ -87,4 +87,8 @@ public class BandService {
     public boolean unfollowBand(int userId, int bandId) {
         return bandDao.unfollowBand(userId, bandId);
     }
+
+    public boolean isFollowing(int userId, int bandId) {
+        return bandDao.isFollowing(userId, bandId);
+    }
 }

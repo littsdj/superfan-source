@@ -174,4 +174,14 @@ public class JdbcBandDao implements BandDao {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error unfollowing band");
         }
     }
+
+    @Override
+    public boolean isFollowing(int userId, int bandId) {
+        String sql = "SELECT COUNT(*) FROM user_following WHERE user_id = ? AND band_id = ?;";
+        try{
+            return jdbcTemplate.queryForObject(sql, Integer.class, userId, bandId) == 1;
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error handling follow retrieval");
+        }
+    }
 }
