@@ -58,9 +58,31 @@ export default {
 
 <style>
     .newBand {
-        display: grid;
-        background-color: white;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 214, 31, 0.7);
         padding: 20px;
+        border-radius: 50px;
+        align-items: center;
+    }
+
+    input, textarea {
+        background-color: rgb(231, 248, 255);
+        border-radius: 5px;
+    }
+
+    select {
+        background-color: rgb(231, 248, 255);
+        border-radius: 5px;
+        width: 40%;
+        align-self: center;
+    }
+
+    label {
+        text-align: center;
+        font-size: 20pt;
+        font-family: fantasy;
     }
 
     button {

@@ -29,23 +29,27 @@ import BandService from "../services/BandService";
 export default {
   data() {
     return {
-      band: {
-        bandName: "",
-        bandId: "",
-        description: "",
-        genreId: "",
-        subgenres: "",
-        bandImage: {
-          imageId: "",
-          fileName: "",
-          imageData: "",
-        },
-      },
+    //   band: {
+    //     bandName: "",
+    //     bandId: "",
+    //     description: "",
+    //     genreId: "",
+    //     subgenres: "",
+    //     bandImage: {
+    //       imageId: "",
+    //       fileName: "",
+    //       imageData: "",
+    //     },
+    //   },
       bandFound: true,
       isLoading: false,
     };
   },
   computed: {
+    band() {
+        return this.$store.state.currentBand.bandId ? this.$store.state.currentBand : {}
+        },
+    
     imgSrcData() {
       if (this.band.bandImage && this.band.bandImage.fileName) {
         const dotIndex = this.band.bandImage.fileName.lastIndexOf(".");
@@ -62,7 +66,8 @@ export default {
     const name = this.$route.params.bandName;
     BandService.getBand(name)
       .then((response) => {
-        this.band = response.data;
+        // this.band = response.data;
+        this.$store.commit('SET_BAND', response.data);
         this.isLoading = false;
       })
       .catch((error) => {
