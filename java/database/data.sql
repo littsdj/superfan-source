@@ -14,7 +14,9 @@ INSERT INTO genres (genre_name) VALUES ('Experimental');
 INSERT INTO genres (genre_name) VALUES ('Latin');
 INSERT INTO genres (genre_name) VALUES ('Metal');
 
-INSERT INTO bands (band_name, description, genre_id, band_image_id) VALUES ('The Beatles', 'test', '1', null);
-INSERT INTO bands (band_name, description, genre_id, band_image_id) VALUES ('Metallica', 'test', '1', null);
+INSERT INTO bands (band_name, description, genre_id, band_image_id) VALUES ('The Beatles', 'test', '1', 1);
+INSERT INTO bands (band_name, description, genre_id, band_image_id) VALUES ('Metallica', 'test', '1', 2);
+
+
 
 COMMIT TRANSACTION;
