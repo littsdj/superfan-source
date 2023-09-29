@@ -29,8 +29,8 @@ public class BandService {
         return band;
     }
 
-    public List<Band> getBandsBySimilarName(String bandName) {
-        return bandDao.getBandsBySimilarName(bandName);
+    public List<Band> getBandsBySimilarName(String searchTerm) {
+        return bandDao.getBandsBySimilarName(searchTerm);
     }
 
     public List<Band> getBandsByGenre(int genreId) {
@@ -77,5 +77,14 @@ public class BandService {
             bandsFollowed.add(bandDao.getBandById(bandIds.get(i)));
         }
         return bandsFollowed;
+    }
+
+    public boolean unfollowBand(int userId, int bandId) {
+        int rowsAffected = bandDao.unfollowBand(userId, bandId);
+        if(rowsAffected == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

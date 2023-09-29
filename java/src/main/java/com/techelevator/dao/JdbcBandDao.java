@@ -55,7 +55,7 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public List<Band> getBandsBySimilarName(String searchTerm) {
-        String sql = "SELECT * FROM bands WHERE band_name ILIKE ?;";
+        String sql = "SELECT * FROM bands ORDER BY band_name WHERE band_name ILIKE ?;";
         try{
             return jdbcTemplate.query(sql, bandMapper, "%" + searchTerm + "%");
         } catch (EmptyResultDataAccessException e) {
@@ -162,6 +162,18 @@ public class JdbcBandDao implements BandDao {
             return bandsFollowed;
         } catch (EmptyResultDataAccessException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No bands found.");
+        }
+    }
+
+    @Override
+    public int unfollowBand(int userId, int bandId) {
+        String sql = "DELETE FROM user_following WHERE (user_id == ? AND band_id == ?)";
+        int rowsAffected = 0;
+        try{
+           rowsAffected = jdbcTemplate.update(sql, Integer.class, userId, bandId);
+           return rowsAffected;
+        } catch (DataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error unfollowing band");
         }
     }
 }

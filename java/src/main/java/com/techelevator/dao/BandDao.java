@@ -17,4 +17,5 @@ public interface BandDao {
     Band createBand(Band band);
     boolean followBand(int userId, int bandId);
     List<Integer> getAllUserFollowedBands(int userId);
+    int unfollowBand(int userId, int bandId);
 }

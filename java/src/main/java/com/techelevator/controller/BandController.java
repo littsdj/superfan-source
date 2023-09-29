@@ -40,7 +40,7 @@ public class BandController {
         return bandService.createBand(bandToAdd);
     }
 
-    @GetMapping(path="/bands/search/{searchTerm}")
+    @GetMapping(path = "/bands/search/{searchTerm}")
     public List<Band> getAllBands(@PathVariable String searchTerm) {
         return bandService.getBandsBySimilarName(searchTerm);
     }
