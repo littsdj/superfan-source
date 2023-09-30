@@ -142,8 +142,7 @@ public class JdbcBandDao implements BandDao {
 //    }
     @Override
     public boolean followBand(int userId, int bandId) {
-        String sql = "INSERT INTO user_following (user_id, band_id) VALUES (?, ?) " +
-                "RETURNING band_id;";
+        String sql = "INSERT INTO user_following (user_id, band_id) VALUES (?, ?);";
         try{
             return jdbcTemplate.update(sql, userId, bandId) == 1;
         } catch (EmptyResultDataAccessException e) {

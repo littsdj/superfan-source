@@ -11,11 +11,12 @@
         <div id="bandTitleBox">
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
+        {{currentUserId}}
         <div class="follow_unfollow" v-if="$store.state.token !== ''">
-            <label id="followLabel" class="followLabel" for="followButton" v-show="!isFollowing" >Follow</label>
-            <button  name="followButton" v-show="false" v-on:click="toggleFollow()">Follow</button>
-            <label id="unfollowLabel" class= "followLabel" for="unfollowButton" v-show="isFollowing">Unfollow</label>
-            <button name="unfollowButton" v-show="false" v-on:click="toggleFollow()">Unfollow</button>
+            <label id="followLabel" class="followLabel" for="followButton" v-on:click="toggleFollow()" v-show="!isFollowing" >Follow</label>
+            <button  name="followButton" v-show="false">Follow</button>
+            <label id="unfollowLabel" class= "followLabel" for="unfollowButton" v-on:click="toggleFollow()" v-show="isFollowing">Unfollow</label>
+            <button name="unfollowButton" v-show="false">Unfollow</button>
         </div>
         <div><img :src="imgSrcData" alt="" /></div>
         <h2>About {{ band.bandName }}</h2>
@@ -115,14 +116,16 @@ export default {
           if (response){
             this.isFollowing = false;
           }
-        })
+        }).catch ( (error) => 
+        window.alert(error.status))
       }
       else{
         BandService.followGroup(this.band.bandId, this.$store.state.user.id).then(response => {
           if(response) {
             this.isFollowing = true;
           }
-        })
+        }).catch ( (error) => 
+        window.alert(error.status))
       }
     }
   },

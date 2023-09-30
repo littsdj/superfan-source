@@ -56,6 +56,7 @@ export default {
   }
 
   .followLabel{
+    margin-top: 10px;
     margin-bottom: 20px;
     background-color: rgb(127, 255, 0);
     padding-left: 10px;
