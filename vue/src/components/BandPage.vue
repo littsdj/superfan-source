@@ -11,7 +11,7 @@
         <div id="bandTitleBox">
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
-        {{currentUserId}}
+        
         <div class="follow_unfollow" v-if="$store.state.token !== ''">
             <label id="followLabel" class="followLabel" for="followButton" v-on:click="toggleFollow()" v-show="!isFollowing" >Follow</label>
             <button  name="followButton" v-show="false">Follow</button>
@@ -111,8 +111,9 @@ export default {
       );
     },
     toggleFollow() {
+      const userId = this.$store.state.user.id;
       if(this.isFollowing) {
-        BandService.unfollowGroup(this.band.bandId, this.$store.state.user.id).then(response => {
+        BandService.unfollowGroup(this.band.bandId, userId).then(response => {
           if (response){
             this.isFollowing = false;
           }
@@ -120,7 +121,7 @@ export default {
         window.alert(error.status))
       }
       else{
-        BandService.followGroup(this.band.bandId, this.$store.state.user.id).then(response => {
+        BandService.followGroup(this.band.bandId, userId).then(response => {
           if(response) {
             this.isFollowing = true;
           }
