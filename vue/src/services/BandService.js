@@ -18,25 +18,29 @@ export default {
     postBandCoverImage(bandId, formData) {
         const options = {
             headers: {
-            'Content-Type': 'multipart/form-data'
+                'Content-Type': 'multipart/form-data'
             }
         }
         return axios.post(`/coverphoto/${bandId}`, formData, options)
     },
 
-    getBandCoverImage(bandId){
+    getBandCoverImage(bandId) {
         return axios.get(`/coverphoto/${bandId}`)
     },
+
     searchBands(searchTerms) {
         return axios.get(`/bands/search/${searchTerms}`)
     },
+
     isUserFollowing(bandId, userId) {
         return axios.get(`/bands/${bandId}/users/${userId}/isfollowing`)
     },
-    followGroup(bandId, userId){
+
+    followGroup(bandId, userId) {
         return axios.post(`/bands/${bandId}/follow/${userId}`)
     },
-    unfollowGroup(bandId, userId){
+    
+    unfollowGroup(bandId, userId) {
         return axios.delete(`/bands/${bandId}/unfollow/${userId}`)
     }
     // isUserFollowing(){

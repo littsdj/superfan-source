@@ -13,24 +13,21 @@
       <router-link v-bind:to="{ name: 'newBand' }">New Band</router-link>
     </div>
     <div class="navLink">
-      <a href="">My account</a>
+      <a href="">My Account</a>
     </div>
     <div class="navLink">
-      <router-link
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-        >Logout</router-link
-      >
+      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+};
 </script>
 
 <style scoped>
-
 .sidebar {
   display: flex;
   flex: 1 0 0;
@@ -42,6 +39,7 @@ export default {};
   height: 60vh;
   border-radius: 20px;
 }
+
 .navLink {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -53,10 +51,10 @@ export default {};
   border-radius: 20px;
   border-color: black;
 }
+
 .sidebar * {
   text-align: center;
   align-items: center;
-
   text-decoration: none;
   /* flex-basis: 100% ; */
   max-height: 100px;
