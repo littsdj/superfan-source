@@ -64,11 +64,6 @@ export default {
   gap: 40px;
 }
 
-.content {
-  display: flex;
-  justify-content: center;
-}
-
 .header {
   grid-area: header;
 }
@@ -116,7 +111,7 @@ export default {
   border-style: groove;
   border-color: goldenrod;
   text-align: center;
-  width: 500px;
+  width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
 }

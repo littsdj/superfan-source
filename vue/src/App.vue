@@ -28,7 +28,7 @@ body {
 /* Scroll bar stylings */
 ::-webkit-scrollbar {
     width: 20px;
-    height: 20px;
+    height: 100%;
   }
 
   /* Track */

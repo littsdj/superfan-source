@@ -36,6 +36,7 @@ export default {
         name: "search",
         params: { searchTerms: this.search.toLowerCase() },
       });
+      location.reload();
     },
   },
 };
