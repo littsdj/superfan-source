@@ -154,6 +154,7 @@ export default {
   justify-content: center;
 }
 
+
 #coverPhoto {
   width: 200px;
 }
