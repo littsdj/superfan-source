@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     makeBandPage() {
-      bandService.newBand(this.band).then((response) => {
+      bandService.newBand(this.band, this.$store.state.user.id).then((response) => {
         if (response.status === 200 || response.status === 201) {
           this.$router.push({
             name: "bandPageView",

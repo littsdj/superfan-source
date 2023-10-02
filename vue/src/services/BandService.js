@@ -6,8 +6,8 @@ import axios from 'axios';
 
 export default {
 
-    newBand(band) {
-        return axios.post('/bands/create', band);
+    newBand(band, userId) {
+        return axios.post(`/bands/create/${userId}`, band);
         //return http.post('/bands/create', band);
     },
 
