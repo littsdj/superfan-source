@@ -2,7 +2,7 @@
   <div>
     <h1>{{ band.bandName }}</h1>
     <h2>{{ genre }}</h2>
-    <button>View Page</button>
+    <button v-on:click="navigateToBandPage()">View Page</button>
   </div>
 </template>
 
@@ -15,6 +15,11 @@ export default {
       return genres[this.band.genreId];
     },
   },
+  methods :{
+    navigateToBandPage(){
+      this.$router.push(`/bands/${this.band.bandName}`)
+    }
+  }
 };
 </script>
 
