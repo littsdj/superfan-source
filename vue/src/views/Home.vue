@@ -5,7 +5,7 @@
     <sidebar class="sidebar" />
     <div class="content">
       <div id="homeHeader"><h1>Bands You Follow</h1></div>
-      <div id="noFollowed" v-if="!followedBands"><h2>Go discover some bands to see them here!</h2></div>
+      <div id="noFollowed" v-if="!hasFollowed"><h2>Go discover some bands to see them here!</h2></div>
       <div class="followedBand" v-for='band in followedBands' v-bind:key="band.bandId">
         <searched-item v-bind:band="band" />
       </div>
@@ -24,7 +24,7 @@ export default {
   name: "home",
   data() {
     return {
-      followedBands: []
+      followedBands: ''
     }
   },
   created() {
@@ -32,11 +32,16 @@ export default {
       if (response.data) {
         this.followedBands = response.data
       } else {
-        this.followedBands = {}
+        this.followedBands = ''
       }
     }).catch( (error) =>
       window.alert(error.status)
     )
+  },
+  computed: {
+    hasFollowed() {
+       return (this.followedBands.length > 0)
+    }
   }
 };
 </script>
@@ -77,6 +82,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .followedBand {
@@ -86,7 +92,7 @@ export default {
   border-style: solid;
   border-color: goldenrod;
   text-align: center;
-  width: 800px;
+  width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
