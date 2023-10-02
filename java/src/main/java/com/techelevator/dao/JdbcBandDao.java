@@ -142,8 +142,7 @@ public class JdbcBandDao implements BandDao {
 //    }
     @Override
     public boolean followBand(int userId, int bandId) {
-        String sql = "INSERT INTO user_following (user_id, band_id) VALUES (?, ?) " +
-                "RETURNING band_id;";
+        String sql = "INSERT INTO user_following (user_id, band_id) VALUES (?, ?);";
         try{
             return jdbcTemplate.update(sql, userId, bandId) == 1;
         } catch (EmptyResultDataAccessException e) {
@@ -167,11 +166,22 @@ public class JdbcBandDao implements BandDao {
 
     @Override
     public boolean unfollowBand(int userId, int bandId) {
-        String sql = "DELETE FROM user_following WHERE (user_id == ? AND band_id == ?)";
+        String sql = "DELETE FROM user_following WHERE (user_id = ? AND band_id = ?)";
         try{
-            return jdbcTemplate.update(sql, Integer.class, userId, bandId) == 1;
+            jdbcTemplate.update(sql, userId, bandId);
+            return true;
         } catch (DataAccessException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error unfollowing band");
+        }
+    }
+
+    @Override
+    public boolean isFollowing(int userId, int bandId) {
+        String sql = "SELECT COUNT(*) FROM user_following WHERE user_id = ? AND band_id = ?;";
+        try{
+            return jdbcTemplate.queryForObject(sql, Integer.class, userId, bandId) == 1;
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error handling follow retrieval");
         }
     }
 }

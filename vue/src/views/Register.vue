@@ -1,50 +1,32 @@
 <template>
   <div id="register" class="text-center">
     <div class="register-background"></div>
-    
+
     <!-- Create a separate div for background -->
     <div>
-      <div class="headerBox">
+      <div class="headerBar">
         <h1 id="header">SUPERFAN SOURCE</h1>
       </div>
       <form @submit.prevent="register" class="register-box">
-        <h1>Create Account</h1>
+        <h1 class="register-title">Create Account</h1>
         <div role="alert" v-if="registrationErrors">
           {{ registrationErrorMsg }}
         </div>
         <div class="form-input-group">
           <label for="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            v-model="user.username"
-            required
-            autofocus
-          />
+          <input type="text" id="username" v-model="user.username" required autofocus />
         </div>
         <div class="form-input-group">
           <label for="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            v-model="user.password"
-            required
-          />
+          <input type="password" id="password" v-model="user.password" required />
         </div>
         <div class="form-input-group">
           <label for="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            v-model="user.confirmPassword"
-            required
-          />
+          <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
         </div>
         <button type="submit" class="register-button">Create Account</button>
         <p>
-          <router-link :to="{ name: 'login' }"
-            >Already have an account? Log in.</router-link
-          >
+          <router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link>
         </p>
       </form>
     </div>
@@ -53,7 +35,6 @@
 
 <script>
 import authService from "../services/AuthService";
-
 
 export default {
   name: "register",
@@ -89,7 +70,7 @@ export default {
             const response = error.response;
             this.registrationErrors = true;
             if (response.status === 400) {
-              this.registrationErrorMsg = "Bad Request: Validation Errors";
+              this.registrationErrorMsg = "Bad Request: Validation Errors.";
             }
           });
       }
@@ -118,15 +99,15 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../images/music-notes.png"); /* Set the background image */
+  background: url("../images/register-background.jpg"); /* Set the background image */
   background-size: cover;
   background-position: center;
-  opacity: 0.8; /* Set the opacity for the background */
+  opacity: 0.9; /* Set the opacity for the background */
   z-index: -1; /* Send the background behind the content */
 }
 
 .register-box {
-  background-color: rgb(67, 235, 212, 0.8); /* Black background color */
+  background-color: rgb(67, 235, 212, 0.8); /* Black background color with opacity */
   color: rgb(235, 39, 137); /* Hot pink text color */
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -150,24 +131,17 @@ export default {
 }
 
 label {
+  display: block;
   margin-right: 1rem;
 }
-.headerBox{
+
+.headerBar {
   border-radius: 20px;
-  background: rgb(
-    166,
-    228,
-    43,
-    0.6
-  );
+  background: rgb(166, 228, 43, 0.6);
 }
 
-label {
-  display: block;
-}
-
-#header{
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+#header {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-style: italic;
   font-size: 50px;
 }

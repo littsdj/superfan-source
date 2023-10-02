@@ -1,24 +1,20 @@
 <template>
   <div :class="layoutClass" :style="backgroundStyle">
-  
     <router-view />
   </div>
 </template>
 
 <script>
-
-
 export default {
-
   computed: {
     layoutClass() {
       const route = this.$route;
-      return route.meta.layoutClass || ""; // Default to an empty string if no class is specified
+      return route.meta.layoutClass || ""; /* Default to an empty string if no class is specified */
     },
     backgroundStyle() {
       const route = this.$route;
       const backgroundImage = route.meta.backgroundImage || "";
-      return backgroundImage ? `background-image: url(${require('../images/' + backgroundImage)})` : "";
+      return backgroundImage ? `background-image: url(${require("../images/" + backgroundImage)})` : "";
     },
   },
 };
@@ -27,7 +23,7 @@ export default {
 <style scoped>
 #titleBar {
   display: flex;
-  justify-content: justify-left;
+  justify-content: left;
   align-items: center;
   background-color: rgb(252, 141, 6, 0.25);
   padding: 10px;

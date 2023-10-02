@@ -2,9 +2,7 @@
   <div class="background">
     <!-- background image is stored  -->
     <title-bar class="header" />
-
     <sidebar class="sidebar" />
-
     <new-band-form class="content" />
   </div>
 </template>
@@ -13,27 +11,17 @@
 import NewBandForm from "../components/NewBandForm.vue";
 import sidebar from "../components/sidebar.vue";
 import TitleBar from "../components/TitleBar.vue";
+
 export default {
   components: { TitleBar, NewBandForm, sidebar },
 };
 </script>
 
-<style>
+<style scoped>
 .background {
-  background: url("../images/Yellow-lowrider.png");
+  background: url("../images/create-band.jpg");
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
-}
-
-/* CSS styles for the sidebar go here */
-
-.default {
-  color: gray;
-}
-.background {
-  background-size: cover;
-  background-position: cover;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -44,8 +32,15 @@ export default {
     "header header header"
     "navigation content . "
     ". . .";
-  gap: 40xp;
+  gap: 40px;
 }
+
+/* CSS styles for the sidebar go here */
+
+.default {
+  color: gray;
+}
+
 /* .body {
   display: grid;
   align-items: center;
@@ -57,14 +52,17 @@ export default {
 #app {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .header {
   grid-area: header;
   /* position: fixed; */
 }
+
 .sidebar {
   /* position: fixed; */
   grid-area: navigation;
 }
+
 .content {
   grid-area: content;
 }
