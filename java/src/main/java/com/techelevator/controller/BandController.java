@@ -85,8 +85,8 @@ public class BandController {
         return bandService.followBand(userId, bandId);
     }
 
-    @GetMapping("/bands/following")
-    public List<Band> getAllUserFollowedBands(@RequestParam int userId) {
+    @GetMapping("/bands/following/{userId}")
+    public List<Band> getAllUserFollowedBands(@PathVariable int userId) {
         return bandService.getAllUserFollowedBands(userId);
     }
 

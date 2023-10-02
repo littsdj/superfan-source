@@ -4,7 +4,10 @@
     <title-bar class="header" />
     <sidebar class="sidebar" />
     <div class="content">
-      <div v-for="result in searchResults" v-bind:key="result.bandId">
+    <div id="searchHeader">
+      <h1> Search Results </h1>
+    </div>
+      <div class="searchResult" v-for="result in searchResults" v-bind:key="result.bandId">
         <searched-item v-bind:band="result" />
       </div>
     </div>
@@ -66,5 +69,32 @@ export default {
 
 .content {
   grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchResult {
+  width: 800px;
+  background-color: rgb(145, 250, 250, 0.7);
+  color: darkgreen;
+  text-align: center;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: pink;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#searchHeader {
+  width: 800px;
+  background-color: rgba(251, 146, 255, 0.7);
+  color: rgb(105, 36, 36);
+  text-align: center;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: rgb(118, 212, 255);
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>

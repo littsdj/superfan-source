@@ -168,7 +168,8 @@ public class JdbcBandDao implements BandDao {
     public boolean unfollowBand(int userId, int bandId) {
         String sql = "DELETE FROM user_following WHERE (user_id = ? AND band_id = ?)";
         try{
-            return jdbcTemplate.update(sql, Integer.class, userId, bandId) == 1;
+            jdbcTemplate.update(sql, userId, bandId);
+            return true;
         } catch (DataAccessException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error unfollowing band");
         }
