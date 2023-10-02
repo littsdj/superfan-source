@@ -54,11 +54,6 @@ export default {
   gap: 40px;
 }
 
-.content {
-  display: flex;
-  justify-content: center;
-}
-
 .header {
   grid-area: header;
 }
@@ -72,10 +67,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .searchResult {
-  width: 800px;
+  width: 60%;
   background-color: rgb(145, 250, 250, 0.7);
   color: darkgreen;
   text-align: center;
@@ -87,7 +83,7 @@ export default {
 }
 
 #searchHeader {
-  width: 800px;
+  width: 60%;
   background-color: rgba(251, 146, 255, 0.7);
   color: rgb(105, 36, 36);
   text-align: center;

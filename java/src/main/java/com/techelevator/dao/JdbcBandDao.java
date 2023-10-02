@@ -79,13 +79,11 @@ public class JdbcBandDao implements BandDao {
         try {
             bandId = jdbcTemplate.queryForObject(sql, Integer.class, band.getBandName(),
                     band.getDescription(), band.getGenreId());
+            band.setBandId(bandId);
+            return band;
         } catch (NullPointerException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Band data not present.");
         }
-
-        band.setBandId(bandId);
-
-        return band;
     }
     @Override
     public int updateBand(Band bandToUpdate) {
@@ -184,4 +182,50 @@ public class JdbcBandDao implements BandDao {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error handling follow retrieval");
         }
     }
+
+    @Override
+    public boolean setBandOwner(int userId, int bandId) {
+        String sql = "INSERT INTO band_owners (owner_id, band_id) VALUES (?, ?);";
+        try {
+            return jdbcTemplate.update(sql, userId, bandId) == 1;
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Error handling follow retrieval");
+        }
+    }
+    @Override
+    public boolean removeBandOwner(int userId, int bandId) {
+        String sql = "DELETE FROM band_owners WHERE (owner_id = ? AND band_id = ?)";
+        try{
+            jdbcTemplate.update(sql, userId, bandId);
+            return true;
+        } catch (DataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error unfollowing band");
+        }
+    }
+
+    @Override
+    public int getBandOwnerIdByBandId(int bandId) {
+        String sql = "SELECT owner_id FROM band_owners WHERE band_id = ?";
+        try{
+            return jdbcTemplate.queryForObject(sql, Integer.class, bandId);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Band owner not found.");
+        }
+    }
+
+    @Override
+    public List<Integer> getBandIdsByOwnerId(int userId) {
+        String sql = "SELECT band_id FROM band_owners WHERE owner_id = ?";
+        List<Integer> bandsOwned = new ArrayList<>();
+        try{
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+            while(results.next()) {
+                bandsOwned.add(results.getInt("band_id"));
+            }
+            return bandsOwned;
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error retrieving owned bands");
+        }
+    }
+
 }

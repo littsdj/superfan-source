@@ -99,4 +99,24 @@ public class BandController {
     public boolean unfollowBand(@PathVariable int userId, @PathVariable int bandId) {
         return bandService.unfollowBand(userId, bandId);
     }
+
+    @PostMapping("/bands/{bandId}/owner/{userId}")
+    public boolean setBandOwner(@PathVariable int userId, @PathVariable int bandId) {
+        return bandService.setBandOwner(userId, bandId);
+    }
+
+    @DeleteMapping("/bands/{bandId}/owner/{userId}")
+    public boolean removeBandOwner(@PathVariable int userId, @PathVariable int bandId) {
+        return bandService.removeBandOwner(userId, bandId);
+    }
+
+    @GetMapping("/bands/{bandId}/owner")
+    public int getBandOwnerIdByBandId(@PathVariable int bandId) {
+        return bandService.getBandOwnerIdByBandId(bandId);
+    }
+
+    @GetMapping("/bands/ownedbands/{userId}")
+    public List<Integer> getBandIdsByOwnerId(@PathVariable int userId) {
+        return bandService.getBandsIdsByOwnerId(userId);
+    }
 }

@@ -25,6 +25,28 @@ body {
   gap: 2px;
 }
 
+/* Scroll bar stylings */
+::-webkit-scrollbar {
+    width: 20px;
+    height: 100%;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--grey); 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(26, 190, 48); 
+    border-radius: 20px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(124, 30, 201); 
+  }
+
 #app,
 .app-font {
   font-family: sans-serif;
@@ -53,6 +75,7 @@ button {
   border: 5px;
   border-style: solid;
   border-color: orange;
+  text-align: center;
 }
 
 .followLabel {
