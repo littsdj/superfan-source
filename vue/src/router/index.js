@@ -8,6 +8,7 @@ import store from '../store/index'
 import NewBand from '../views/NewBand.vue'
 import BandView from '../views/BandView.vue'
 import SearchPage from '../views/SearchPage.vue'
+import ManagedBand from '../views/ManagedBand.vue'
 Vue.use(Router)
 
 /**
@@ -77,6 +78,14 @@ const router = new Router({
       component: SearchPage,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/bands/ownedbands/:userId",
+      name: "managed",
+      component: ManagedBand,
+      meta: {
+        requiresAuth: true
       }
     }
   ]

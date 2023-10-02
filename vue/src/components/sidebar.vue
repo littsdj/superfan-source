@@ -7,7 +7,7 @@
       <a href="">Messages</a>
     </div>
     <div class="navLink">
-      <a href="">My Bands</a>
+      <router-link v-bind:to="{ name: 'managed', params: { userId: $store.state.user.id }}">Managed Bands</router-link>
     </div>
     <div class="navLink">
       <router-link v-bind:to="{ name: 'newBand' }">New Band</router-link>

@@ -18,9 +18,9 @@
         <p id="description">{{ band.description }}</p>
         <!-- <input class="button" type="file" id="file" ref="fileInput" />
         -->
-        <label for="file" id="fileButton" class="select-file-button">Select Cover Image</label>
+        <label for="file" id="fileButton" class="select-file-button" v-if="userIsOwner">Select Cover Image</label>
         <input class="button" type="file" id="file" ref="fileInput" v-show="false" />
-        <label for="uploadButton" id="uploadLabel" class="select-file-button">Upload Image</label>
+        <label for="uploadButton" id="uploadLabel" class="select-file-button" v-if="userIsOwner">Upload Image</label>
         <button class="select-file-button" id="uploadButton" v-on:click="uploadImage()" v-show="false">Upload Image</button>
       </div>
       <h1 v-show="!bandFound && !isLoading">BAND PAGE NOT FOUND</h1>
@@ -49,6 +49,7 @@ export default {
       bandFound: true,
       isLoading: false,
       isFollowing: "",
+      bandOwnerId: ""
     };
   },
   computed: {
@@ -64,6 +65,9 @@ export default {
       }
       return "";
     },
+    userIsOwner() {
+      return (this.bandOwnerId === this.$store.state.user.id);
+    }
   },
   created() {
     this.isLoading = true;
@@ -77,6 +81,10 @@ export default {
         .then((response) => {
           this.isFollowing = response.data;
         });
+        BandService.getBandOwnerIdByBandId(this.band.bandId)
+        .then( (response) => {
+          this.bandOwnerId = response.data;
+        })
       })
       .catch((error) => {
         if (error.response) {
