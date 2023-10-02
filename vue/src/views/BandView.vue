@@ -30,12 +30,12 @@ export default {
   width: 100vw;
   display: grid;
   grid-template-columns: 300px 1fr 100px;
-  grid-template-rows: 100px 1fr 50px;
+  grid-template-rows: 100px 1fr 15px;
   grid-template-areas:
     "header header header"
     "navigation content . "
     ". . .";
-  gap: 40px;
+  gap: 20px;
 }
 
 .background-pop {
