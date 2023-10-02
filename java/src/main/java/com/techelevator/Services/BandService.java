@@ -59,8 +59,10 @@ public class BandService {
         }
     }
 
-    public Band createBand(Band band) {
-        return bandDao.createBand(band);
+    public Band createBand(Band band, int userId) {
+        Band newBand = bandDao.createBand(band);
+        bandDao.setBandOwner(userId, newBand.getBandId());
+        return newBand;
     }
 
     public int getBandIdByBandName(String bandName) {
