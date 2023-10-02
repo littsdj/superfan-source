@@ -55,7 +55,7 @@ body {
 button {
   margin-bottom: 20px;
   height: 50px;
-  background-color: rgb(127, 255, 0);
+  background-color: rgb(0, 255, 98);
   font-size: 13pt;
   border-radius: 20px;
   font-weight: bolder;
@@ -64,7 +64,7 @@ button {
 
 .select-file-button {
   margin-bottom: 20px;
-  background-color: rgb(127, 255, 0);
+  background-color: rgb(0, 255, 98);
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 3px;
@@ -73,15 +73,16 @@ button {
   border-radius: 20px;
   width: 120px;
   border: 5px;
-  border-style: solid;
-  border-color: orange;
+  border-style: inset;
+  border-color: black;
   text-align: center;
+  font-weight: bolder;
 }
 
 .followLabel {
-  margin-top: 10px;
   margin-bottom: 20px;
-  background-color: rgb(127, 255, 0);
+  margin-top: 20px;
+  background-color: rgb(0, 255, 98);
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 3px;
@@ -90,8 +91,10 @@ button {
   border-radius: 20px;
   width: 120px;
   border: 5px;
-  border-style: solid;
-  border-color: orange;
+  border-style: inset;
+  border-color: black;
+  text-align: center;
+  font-weight: bolder;
 }
 </style>
 

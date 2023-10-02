@@ -50,7 +50,6 @@ CREATE TABLE subgenres (
 CREATE TABLE band_owners (
     band_id int NOT NULL,
     owner_id int NOT NULL,
-
     CONSTRAINT FK_band_owners_user FOREIGN KEY (owner_id) REFERENCES users(user_id),
     CONSTRAINT FK_band_owners_bands FOREIGN KEY (band_id) REFERENCES bands(band_id)
 );
@@ -58,7 +57,6 @@ CREATE TABLE band_owners (
 CREATE TABLE user_following (
 	user_id int,
 	band_id int,
-
 	CONSTRAINT FK_user_following_users FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_user_following_bands FOREIGN KEY (band_id) REFERENCES bands(band_id)
 );

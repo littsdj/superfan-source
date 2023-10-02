@@ -46,7 +46,7 @@ export default {
 #titleBar {
   display: flex;
   align-items: center;
-  background: rgb(166, 228, 43, 0.6);
+  background: rgba(73, 218, 198, 0.6);
   justify-content: space-evenly;
   margin: 0;
   height: 100px;

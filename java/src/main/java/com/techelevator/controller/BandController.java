@@ -35,9 +35,9 @@ public class BandController {
         return bandService.getBandByName(bandName);
     }
 
-    @RequestMapping(path = "/bands/create", method = RequestMethod.POST)
-    public Band createBand(@RequestBody Band bandToAdd) {
-        return bandService.createBand(bandToAdd);
+    @RequestMapping(path = "/bands/create/{userId}", method = RequestMethod.POST)
+    public Band createBand(@RequestBody Band bandToAdd, @PathVariable int userId) {
+        return bandService.createBand(bandToAdd, userId);
     }
 
     @GetMapping(path = "/bands/search/{searchTerm}")

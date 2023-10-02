@@ -14,7 +14,7 @@
           <button name="unfollowButton" v-show="false">Unfollow</button>
         </div>
         <img id="coverPhoto" :src="imgSrcData" alt="" />
-        <h2>About {{ band.bandName }}</h2>
+        <h1>About {{ band.bandName }}</h1>
         <p id="description">{{ band.description }}</p>
         <!-- <input class="button" type="file" id="file" ref="fileInput" />
         -->
@@ -129,9 +129,10 @@ export default {
 
 <style scoped>
 #bandTitleBox {
-  background-color: rgb(127, 255, 0, 1.0);
+  background-color: rgb(0, 255, 98);
   border-radius: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 3px;
@@ -157,15 +158,31 @@ export default {
 
 
 #coverPhoto {
-  margin-top: 50px;
-  width: 60%;
+  margin-top: 25px;
   border-radius: 50px;
   border: 15px;
   border-style: solid;
   border-color: orange;
+  max-width: 60%;
+  max-height: 300px;
 }
 
 #content {
   overflow-y: auto;
+}
+
+#roundedEdges {
+    border-radius: 50px;
+}
+
+#description{
+    padding: 40px;
+    background-color: rgba(255, 173, 214, 0.9); 
+    border-radius: 50px;
+    border-style: solid;
+    border: 5px;
+    max-width: 80%;
+    font-size: 18pt;
+    text-align: center;
 }
 </style>
