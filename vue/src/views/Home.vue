@@ -4,7 +4,11 @@
     <title-bar class="header" />
     <sidebar class="sidebar" />
     <div class="content">
-      <p>WELCOME!</p>
+      <div id="homeHeader"><h1>Bands You Follow</h1></div>
+      <div id="noFollowed" v-if="!followedBands"><h2>Go discover some bands to see them here!</h2></div>
+      <div class="followedBand" v-for='band in followedBands' v-bind:key="band.bandId">
+        <searched-item v-bind:band="band" />
+      </div>
     </div>
   </div>
 </template>
@@ -12,10 +16,28 @@
 <script>
 import sidebar from "../components/sidebar.vue";
 import TitleBar from "../components/TitleBar.vue";
+import BandService from "../services/BandService.js";
+import SearchedItem from "../components/SearchedItemNew.vue"
 
 export default {
-  components: { sidebar, TitleBar },
+  components: { sidebar, TitleBar, SearchedItem },
   name: "home",
+  data() {
+    return {
+      followedBands: []
+    }
+  },
+  created() {
+    BandService.getAllUserFollowing(this.$store.state.user.id).then( (response) => {
+      if (response.data) {
+        this.followedBands = response.data
+      } else {
+        this.followedBands = {}
+      }
+    }).catch( (error) =>
+      window.alert(error.status)
+    )
+  }
 };
 </script>
 
@@ -52,6 +74,45 @@ export default {
 
 .content {
   grid-area: content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.followedBand {
+  background-color: rgb(172, 16, 102, 0.7);
+  color: cyan;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: goldenrod;
+  text-align: center;
+  width: 800px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#noFollowed {
+  background-color: rgb(172, 16, 102, 0.7);
+  color: cyan;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: goldenrod;
+  text-align: center;
+  width: 500px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#homeHeader {
+  background-color: rgb(172, 16, 102, 0.7);
+  color: cyan;
+  border-radius: 50px;
+  border-style: groove;
+  border-color: goldenrod;
+  text-align: center;
+  width: 500px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /* .body {

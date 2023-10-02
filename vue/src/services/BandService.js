@@ -42,6 +42,9 @@ export default {
     
     unfollowGroup(bandId, userId) {
         return axios.delete(`/bands/${bandId}/unfollow/${userId}`)
+    },
+    getAllUserFollowing(userId) {
+        return axios.get(`/bands/following/${userId}`)
     }
     // isUserFollowing(){
     //     return axios.get(`/bands/following/`)
