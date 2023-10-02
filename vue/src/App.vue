@@ -75,6 +75,7 @@ button {
   border: 5px;
   border-style: solid;
   border-color: orange;
+  text-align: center;
 }
 
 .followLabel {
