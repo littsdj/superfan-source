@@ -91,4 +91,20 @@ public class BandService {
     public boolean isFollowing(int userId, int bandId) {
         return bandDao.isFollowing(userId, bandId);
     }
+
+    public boolean setBandOwner(int userId, int bandId) {
+        return bandDao.setBandOwner(userId, bandId);
+    }
+
+    public boolean removeBandOwner(int userId, int bandId) {
+        return bandDao.removeBandOwner(userId, bandId);
+    }
+
+    public int getBandOwnerIdByBandId(int bandId) {
+        return bandDao.getBandOwnerIdByBandId(bandId);
+    }
+
+    public List<Integer> getBandsIdsByOwnerId(int userId) {
+        return bandDao.getBandIdsByOwnerId(userId);
+    }
 }
