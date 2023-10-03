@@ -168,8 +168,15 @@ export default {
   border-radius: 50px;
 }
 
-
-
+#coverPhoto {
+  margin-top: 25px;
+  border-radius: 50px;
+  border: 15px;
+  border-style: solid;
+  border-color: orange;
+  max-width: 60%;
+  max-height: 300px;
+}
 
 #content {
   overflow-y: auto;
@@ -179,7 +186,7 @@ export default {
     border-radius: 50px;
 }
 
-#description{
+#description {
     padding: 40px;
     background-color: rgba(255, 173, 214, 0.9); 
     border-radius: 50px;

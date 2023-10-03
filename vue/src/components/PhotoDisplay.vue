@@ -3,39 +3,15 @@
     <h1>Band Photos</h1>
 
     <div id="button-holder">
-    <label
-      for="file-picker"
-      id="fileButton"
-      class="gallery-file-select"
-      v-if="userIsOwner"
-    >
-      Select Photo
-    </label>
-    <input
-      class="button"
-      ref="fileInput"
-      type="file"
-      id="file-picker"
-      name="uploadGalleryPhoto"
-      v-show="userIsOwner"
-    />
+    <label for="file-picker" id="fileButton" class="gallery-file-select" v-if="userIsOwner"> Select Photo </label>
+    <input class="button" ref="fileInput" type="file" id="file-picker" name="uploadGalleryPhoto" v-show="userIsOwner" />
     <!--These are buttons made to be labels so we can keep them in line with universal styling -->
-    <label for="upload-gallery-photo" class="upload-label" v-if="userIsOwner">
-      Upload Photo
-    </label>
-    <button
-      id="upload-gallery-photo"
-      v-on:click="uploadImage()"
-      v-if="userIsOwner"
-    > Click me to submit </button>
+    <label for="upload-gallery-photo" class="upload-label" v-if="userIsOwner"> Upload Photo </label>
+    <button id="upload-gallery-photo" v-on:click="uploadImage()" v-if="userIsOwner"> Click me to submit </button>
     </div>
 
     <div id="photoContainer">
-      <div
-        class="galleryPhoto"
-        v-for="image in galleryImages"
-        v-bind:key="image.imageId"
-      >
+      <div class="galleryPhoto" v-for="image in galleryImages" v-bind:key="image.imageId">
         <img class="imageData" v-bind:src="generateImageSource(image)" alt="" />
       </div>
     </div>
@@ -109,6 +85,7 @@ export default {
   justify-content: space-around;
   align-items: center;
 }
+
 .imageData {
   max-width: 400px;
   max-height: 500px;
@@ -118,6 +95,5 @@ export default {
   border: 15px;
   border-style: solid;
   border-color: orange;
-
 }
 </style>

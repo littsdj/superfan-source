@@ -49,7 +49,7 @@ body {
 
 #app,
 .app-font {
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
