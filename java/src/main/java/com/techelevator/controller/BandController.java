@@ -40,6 +40,11 @@ public class BandController {
         return bandService.createBand(bandToAdd, userId);
     }
 
+    @PutMapping(path = "/bands/update/{bandId}")
+    public Band updateBand(@RequestBody Band bandToUpdate, @PathVariable int bandId) {
+        return bandService.updateBand(bandToUpdate);
+    }
+
     @GetMapping(path = "/bands/search/{searchTerm}")
     public List<Band> getAllBands(@PathVariable String searchTerm) {
         return bandService.getBandsBySimilarName(searchTerm);
@@ -58,11 +63,6 @@ public class BandController {
     public Image getPhoto(@PathVariable int imageId) {
         return imageService.getBandImageById(imageId);
     }
-
-//    @GetMapping("/photos/{bandId}")
-//    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
-//        return imageService.addCoverImageToBand(bandImage.getImageId(), bandId);
-//    }
 
     @GetMapping("/coverphoto/{bandId}")
     public Image getBandCoverImage(@PathVariable int bandId) {
