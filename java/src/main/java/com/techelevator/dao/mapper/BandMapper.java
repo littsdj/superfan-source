@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Locale;
 
 public class BandMapper implements RowMapper<Band> {
     @Override
@@ -16,7 +15,6 @@ public class BandMapper implements RowMapper<Band> {
         band.setBandImage(null);
         band.setDescription(rs.getString("description"));
         band.setGenreId(rs.getInt("genre_id"));
-//        band.setSubgenres(getAllSubgenresByBandId(band.getBandId()));
         return band;
     }
 }
