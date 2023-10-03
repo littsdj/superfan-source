@@ -1,10 +1,10 @@
 <template>
   <div>
     <form class="newBand">
-      <label for="bandName">Band Name</label>
+      <label for="bandName"> Band Name </label>
       <input type="text" name="bandName" v-model="band.bandName" />
       <br />
-      <label for="description">Description</label>
+      <label for="description"> Description </label>
       <textArea name="description" rows="8" cols="50" @input="band.description = $event.target.value"></textArea>
 
       <!-- <input name="description" rows="8" cols="50"  v-model="band.description" /> -->
@@ -26,7 +26,7 @@
             <label for="bandImage">Band Image</label>
             <br/>
             <input name="bandImage" type="file" id="file" ref="fileInput"/> -->
-      <button v-on:click.stop.prevent="makeBandPage()">CREATE PAGE</button>
+      <button v-on:click.stop.prevent="makeBandPage()"> CREATE PAGE </button>
     </form>
   </div>
 </template>

@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-    .background {
+.background {
   background: url("../images/music-recorders.jpg");
   background-size: cover;
   background-position: cover;
@@ -35,6 +35,7 @@ export default {
     ". . .";
   gap: 40px;
 }
+
 .titlebar {
     grid-area: header;
 }
@@ -42,6 +43,7 @@ export default {
 .sidebar {
     grid-area: navigation;
 }
+
 .photoDisplay {
     grid-area: content;
 }

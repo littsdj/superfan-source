@@ -31,9 +31,7 @@ export default {
   components: { BandPage, TitleBar, sidebar },
   computed: {
     bandGenre() {
-      return this.$store.state.currentBand.genreId
-        ? this.$store.state.currentBand.genreId
-        : {};
+      return this.$store.state.currentBand.genreId ? this.$store.state.currentBand.genreId : {};
     },
   },
 };
@@ -68,11 +66,12 @@ export default {
   background-size: cover;
 }
 
-.background-rock{
+.background-rock {
    background: url("../images/rock-2.jpg");
    background-repeat: no-repeat;
    background-size: cover;
 }
+
 .background-country {
    background: url("../images/country.jpg");
    background-repeat: no-repeat;
