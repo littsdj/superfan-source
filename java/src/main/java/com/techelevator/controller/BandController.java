@@ -46,7 +46,7 @@ public class BandController {
 
     @PutMapping(path = "/bands/update/{bandId}")
     public Band updateBand(@RequestBody Band bandToUpdate, @PathVariable int bandId) {
-        return bandService.updateBand(bandToUpdate);
+        return bandService.updateBand(bandToUpdate, bandId);
     }
 
     @GetMapping(path = "/bands/search/{searchTerm}")

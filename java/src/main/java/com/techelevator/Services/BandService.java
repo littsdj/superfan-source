@@ -50,7 +50,10 @@ public class BandService {
         return bandDao.findAllBands();
     }
 
-    public Band updateBand(Band bandToUpdate) {
+    public Band updateBand(Band bandToUpdate, int bandId) {
+        Band referenceBand = bandDao.getBandById(bandId);
+        bandToUpdate.setBandImage(referenceBand.getBandImage());
+        bandToUpdate.setBandId(bandId);
         int rowsUpdated = bandDao.updateBand(bandToUpdate);
         if(rowsUpdated == 1) {
             return bandDao.getBandById(bandToUpdate.getBandId());

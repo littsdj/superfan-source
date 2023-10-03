@@ -82,12 +82,11 @@ public class JdbcBandDao implements BandDao {
     }
     @Override
     public int updateBand(Band bandToUpdate) {
-        String sql = "UPDATE bands SET (band_name = ?, description = ?, genre_id = ?, " +
-                "band_image_id = ?) WHERE band_id = ?;";
+        String sql = "UPDATE bands SET band_name = ?, description = ?, genre_id = ? WHERE band_id = ?;";
         try {
             return jdbcTemplate.update(sql, bandToUpdate.getBandName(),
                     bandToUpdate.getDescription(), bandToUpdate.getGenreId(),
-                    bandToUpdate.getBandImage().getImageId(), bandToUpdate.getBandId());
+                    bandToUpdate.getBandId());
         } catch (DataAccessException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to update band.");
         }
