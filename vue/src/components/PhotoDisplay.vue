@@ -3,9 +3,9 @@
     <h1>Band Photos</h1>
     
     <label for="uploadGalleryPhoto" v-if="userIsOwner"> Select Photo </label>  
-    <input type="file" name="uploadGalleryPhoto" v-if="userIsOwner" />
+    <input type="file" name="uploadGalleryPhoto" v-show="false" />
 <!--These are buttons made to be labels so we can keep them in line with universal styling -->
-    <label for="upload-button" class="upload-label"> Upload Photo </label>
+    <label for="upload-button" class="upload-label" v-if="userIsOwner"> Upload Photo </label>
     <button class="select-file-button" name="upload-button" v-show="false" v-on:click="uploadImage()"/>
 
     <div class="galleryPhoto" v-for="image in galleryImages" v-bind:key="image.imageId">

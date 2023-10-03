@@ -1,5 +1,5 @@
 <template>
-    <div id="content">
+    <div class="background">
         <title-bar id="titlebar" />
         <sidebar id="sidebar" />
         <photo-display id="photoDisplay" />
@@ -19,5 +19,23 @@ export default {
 </script>
 
 <style>
-
+    .background {
+  background: url("../images/search-results.jpg");
+  background-size: cover;
+  background-position: cover;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 300px 1fr 100px;
+  grid-template-rows: 100px 1fr 50px;
+  grid-template-areas:
+    "header header header"
+    "navigation content . "
+    ". . .";
+  gap: 40px;
+}
+.titlebar {
+    grid-area: navigation;
+}
 </style>
