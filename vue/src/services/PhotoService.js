@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-    getAllBandPhotosByBandId(bandId) {
+    getAllBandImagesByBandId(bandId) {
         return axios.get(`/bands/${bandId}/gallery`);
     },
     addImageToBandGallery(bandId, formData) {

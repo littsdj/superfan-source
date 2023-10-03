@@ -64,7 +64,9 @@ public class JdbcImageDao implements ImageDao {
 
     @Override
     public List<Image> getAllBandImagesByBandId(int bandId){
-        String sql = "SELECT * FROM images JOIN band_images ON (band_images.image_id = images.image_id) WHERE band_id = ?;";
+        String sql =
+                "SELECT * FROM images JOIN band_images ON (band_images.image_id = images.image_id) WHERE band_id = ? " +
+                        "ORDER BY images.image_id DESC";
         try{
             return jdbcTemplate.query(sql, imageMapper, bandId);
         }catch (EmptyResultDataAccessException e){

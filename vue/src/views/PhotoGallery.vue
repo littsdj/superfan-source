@@ -1,8 +1,8 @@
 <template>
     <div class="background">
-        <title-bar id="titlebar" />
-        <sidebar id="sidebar" />
-        <photo-display id="photoDisplay" />
+        <title-bar class="titlebar" />
+        <sidebar class="sidebar" />
+        <photo-display class="photoDisplay" />
     </div>
 </template>
 
@@ -18,9 +18,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .background {
-  background: url("../images/search-results.jpg");
+  background: url("../images/music-recorders.jpg");
   background-size: cover;
   background-position: cover;
   position: fixed;
@@ -36,6 +36,14 @@ export default {
   gap: 40px;
 }
 .titlebar {
+    grid-area: header;
+}
+
+.sidebar {
     grid-area: navigation;
 }
+.photoDisplay {
+    grid-area: content;
+}
+
 </style>

@@ -50,6 +50,7 @@ export default {
   background-color: rgb(255, 105, 180, 1);
   border-radius: 20px;
   border-color: black;
+  
 }
 
 .sidebar * {
