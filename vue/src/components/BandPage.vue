@@ -2,7 +2,20 @@
   <div id="content">
     <div class="bandInfo">
       <img id="coverPhoto" src="../images/dancingJukeBox.gif" alt="Loading" v-show="isLoading" />
-      <div class="bandPageBox" v-show="bandFound && !isLoading">
+      <div class="bandPageBox" v-show="bandFound && !isLoading" 
+      v-bind:class="{
+      'bandPageBox-generic': bandGenreId == 0,
+      'bandPageBox-pop': bandGenreId == 1,
+      'bandPageBox-rock': bandGenreId == 2,
+      'bandPageBox-country': bandGenreId == 3,
+      'bandPageBox-jazz': bandGenreId == 4,
+      'bandPageBox-electronic': bandGenreId == 5,
+      'bandPageBox-hiphop': bandGenreId == 6,
+      'bandPageBox-world': bandGenreId == 7,
+      'bandPageBox-experimental': bandGenreId == 8,
+      'bandPageBox-latin': bandGenreId == 9,
+      'bandPageBox-metal': bandGenreId == 10,
+    }">
         <div id="bandTitleBox">
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
@@ -54,6 +67,13 @@ export default {
     };
   },
   computed: {
+    bandGenreId() {
+      if (this.$route.name == "bandPageView") {
+        return this.$store.state.currentBand.genreId;
+      } else {
+        return 0;
+      }
+    },
     band() {
       return this.$store.state.currentBand.bandId ? this.$store.state.currentBand : {};
     },
@@ -160,12 +180,44 @@ export default {
 }
 
 .bandPageBox {
-  background-color: rgb(255, 105, 180, 0.9);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 50px;
+}
+.bandPageBox-generic {
+  background-color: rgba(73, 218, 198, 0.6);
+}
+.bandPageBox-pop {
+  background-color: red;
+}
+.bandPageBox-rock {
+  background-color: green;
+}
+.bandPageBox-country {
+  background-color: yellow ;
+}
+.bandPageBox-jazz {
+  background-color: purple;
+}
+.bandPageBox-electronic {
+  background-color: pink;
+}
+.bandPageBox-hiphop {
+  background-color: fuchsia;
+}
+.bandPageBox-world {
+  background-color: turquoise;
+}
+.bandPageBox-experimental {
+  background-color: cyan;
+}
+.bandPageBox-latin {
+  background-color: burlywood;
+}
+.bandPageBox-metal {
+  background-color: hotpink;
 }
 
 

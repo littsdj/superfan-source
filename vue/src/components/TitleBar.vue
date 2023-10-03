@@ -1,5 +1,18 @@
 <template>
-  <div id="titleBar">
+  <div id="titleBar" 
+  v-bind:class="{
+      'title-bar-generic': bandGenreId == 0,
+      'title-bar-pop': bandGenreId == 1,
+      'title-bar-rock': bandGenreId == 2,
+      'title-bar-country': bandGenreId == 3,
+      'title-bar-jazz': bandGenreId == 4,
+      'title-bar-electronic': bandGenreId == 5,
+      'title-bar-hiphop': bandGenreId == 6,
+      'title-bar-world': bandGenreId == 7,
+      'title-bar-experimental': bandGenreId == 8,
+      'title-bar-latin': bandGenreId == 9,
+      'title-bar-metal': bandGenreId == 10,
+    }">
     <h1 id="header">SUPERFAN SOURCE</h1>
     <div class="searchElement">
       <input type="text" id="searchBar" class="default" v-model="search" v-on:click="clearDefaultSearch" v-on:blur="restoreDefaultSearch" />
@@ -39,6 +52,15 @@ export default {
       location.reload();
     },
   },
+  computed: {
+    bandGenreId() {
+      if (this.$route.name == "bandPageView") {
+        return this.$store.state.currentBand.genreId;
+      } else {
+        return 0;
+      }
+    },
+  }
 };
 </script>
 
@@ -46,10 +68,42 @@ export default {
 #titleBar {
   display: flex;
   align-items: center;
-  background: rgba(73, 218, 198, 0.6);
   justify-content: space-evenly;
   margin: 0;
   height: 100px;
+}
+.title-bar-generic {
+  background-color: rgba(73, 218, 198, 0.6);
+}
+.title-bar-pop {
+  background-color: red;
+}
+.title-bar-rock {
+  background-color: green;
+}
+.title-bar-country {
+  background-color: yellow ;
+}
+.title-bar-jazz {
+  background-color: purple;
+}
+.title-bar-electronic {
+  background-color: pink;
+}
+.title-bar-hiphop {
+  background-color: fuchsia;
+}
+.title-bar-world {
+  background-color: turquoise;
+}
+.title-bar-experimental {
+  background-color: cyan;
+}
+.title-bar-latin {
+  background-color: burlywood;
+}
+.title-bar-metal {
+  background-color: hotpink;
 }
 
 #searchBar {

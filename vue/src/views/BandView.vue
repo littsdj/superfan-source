@@ -17,7 +17,8 @@
     <!-- background image is stored  -->
     <title-bar class="header" />
     <sidebar class="sidebar" />
-    <band-page class="content" />
+    <band-page class="content" v-show="true"/> 
+    <!-- ^^^ONLY FOR VISIBILITY OF THEMES DISABLE VSHOW FALSE WHEN DONE-->
   </div>
 </template>
 
