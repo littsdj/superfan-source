@@ -168,7 +168,6 @@ export default {
   border-radius: 50px;
 }
 
-
 #coverPhoto {
   margin-top: 25px;
   border-radius: 50px;
@@ -187,7 +186,7 @@ export default {
     border-radius: 50px;
 }
 
-#description{
+#description {
     padding: 40px;
     background-color: rgba(255, 173, 214, 0.9); 
     border-radius: 50px;

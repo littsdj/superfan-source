@@ -7,11 +7,7 @@
       <div id="managedBandsHeader">
         <h1 >Managed Bands</h1>
       </div>
-      <div
-        class="ownedBandCard"
-        v-for="band in ownedBands"
-        v-bind:key="band.bandId"
-      >
+      <div class="ownedBandCard" v-for="band in ownedBands" v-bind:key="band.bandId">
         <owned-band v-bind:band="band" />
       </div>
     </div>
@@ -85,7 +81,6 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 
 #managedBandsHeader {
   width: 60%;
