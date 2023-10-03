@@ -37,14 +37,19 @@ export default {
     "header header header"
     "navigation content . "
     ". . .";
-  gap: 40px;
+  gap: 20px;
 }
 
-.titlebar {
+.header {
     grid-area: header;
 }
 
 .sidebar {
     grid-area: navigation;
 }
+
+.content {
+  grid-area: content;
+}
+
 </style>
