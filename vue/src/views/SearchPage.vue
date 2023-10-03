@@ -6,8 +6,22 @@
     <div class="content">
     <div id="searchHeader">
       <h1> Search Results </h1>
+      <label for="genre">Filter By Genre</label>
+      <select name="genre" id="genrePicker" v-model="filterGenreId">
+        <option value="">--Select A Genre--</option>
+        <option value="1">Pop</option>
+        <option value="2">Rock</option>
+        <option value="3">Country</option>
+        <option value="4">Jazz</option>
+        <option value="5">Electronic</option>
+        <option value="6">Hip-Hop</option>
+        <option value="7">World</option>
+        <option value="8">Experimental</option>
+        <option value="9">Latin</option>
+        <option value="10">Metal</option>
+      </select>
     </div>
-      <div class="searchResult" v-for="result in searchResults" v-bind:key="result.bandId">
+      <div class="searchResult" v-for="result in filteredResults" v-bind:key="result.bandId">
         <searched-item v-bind:band="result" />
       </div>
     </div>
@@ -25,7 +39,19 @@ export default {
   data() {
     return {
       searchResults: "",
+      filterGenreId:''
     };
+  },
+  computed: {
+    filteredResults() {
+      if (this.filterGenreId) {
+        return this.searchResults.filter( (band) => {
+          return (band.genreId == this.filterGenreId);
+        })
+      }else {
+        return this.searchResults;
+      }
+    }
   },
   created() {
     BandService.searchBands(this.$route.params.searchTerms)
