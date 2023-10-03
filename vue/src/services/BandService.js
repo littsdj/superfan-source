@@ -51,6 +51,9 @@ export default {
     },
     getBandsByOwnerId(userId) {
         return axios.get(`/bands/ownedbands/${userId}`)
+    },
+    updateBand(band, bandId) {
+        return axios.put(`/bands/update/${bandId}`, band)
     }
     
     // isUserFollowing(){

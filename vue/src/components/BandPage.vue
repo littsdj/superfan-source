@@ -20,6 +20,9 @@
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
 
+        <label for="updateBand" id="updateBandLabel" v-on:click="navToUpdateBand()">Update Band</label>
+        <button name="updateBand" id="updateBand" v-show="false" />
+
         <div class="follow_unfollow" v-if="$store.state.token !== ''">
           <label id="followLabel" class="followLabel" for="followButton" v-on:click="toggleFollow()" v-show="!isFollowing">Follow</label>
           <button name="followButton" v-show="false">Follow</button>
@@ -154,6 +157,9 @@ export default {
     },
     navToPhotoGallery() {
         this.$router.push({ name: "gallery", params: { bandId: this.band.bandId } })
+    },
+    navToUpdateBand() {
+        this.$router.push({ name: "updateBand", params: { bandId: this.band.bandId }})
     }
   },
 };
@@ -218,6 +224,22 @@ export default {
 }
 .bandPageBox-metal {
   background-color: hotpink;
+}
+#updateBandLabel {
+    background-color: red;
+    color:white;
+    font-family: fantasy;
+    text-transform: uppercase;
+    width: 100px;
+    height: auto;
+    border-radius: 50px;
+    border: 5px;
+    border-style: inset;
+    border-color: oldlace;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+    box-shadow: black;
 }
 
 #coverPhoto {

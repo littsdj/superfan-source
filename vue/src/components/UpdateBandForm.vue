@@ -20,7 +20,7 @@
         <option value="9">Latin</option>
         <option value="10">Metal</option>
       </select>
-      <button v-on:click.stop.prevent="makeBandPage()"> CREATE PAGE </button>
+      <button v-on:click.stop.prevent="updateBandPage()"> CREATE PAGE </button>
     </form>
   </div>
 </template>
@@ -39,8 +39,8 @@ export default {
     };
   },
   methods: {
-    makeBandPage() {
-      bandService.newBand(this.band, this.$store.state.user.id).then((response) => {
+    updateBandPage() {
+      bandService.updateBand(this.band, this.$store.state.user.id).then((response) => {
         if (response.status === 200 || response.status === 201) {
           this.$router.push({
             name: "bandPageView",

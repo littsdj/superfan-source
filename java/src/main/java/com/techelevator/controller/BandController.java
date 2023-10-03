@@ -54,7 +54,6 @@ public class BandController {
         return bandService.getBandsBySimilarName(searchTerm);
     }
 
-    //todo: DYLAN PLS LOOK AT THIS!
     @PostMapping(path = "/bands/{bandId}/gallery")
     public boolean addPhotoToGallery(@RequestParam("file")MultipartFile file, @PathVariable int bandId) {
         try{
