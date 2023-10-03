@@ -2,7 +2,6 @@ package com.techelevator.dao;
 
 import com.techelevator.dao.mapper.BandMapper;
 import com.techelevator.model.Band;
-import com.techelevator.model.Subgenre;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -15,10 +14,6 @@ import java.util.List;
 
 @Component
 public class JdbcBandDao implements BandDao {
-
-    /*
-    * TODO: Exception handling.
-    * */
     private final BandMapper bandMapper = new BandMapper();
     private final JdbcTemplate jdbcTemplate;
 
@@ -90,7 +85,7 @@ public class JdbcBandDao implements BandDao {
         String sql = "UPDATE bands SET (band_name = ?, description = ?, genre_id = ?, " +
                 "band_image_id = ?) WHERE band_id = ?;";
         try {
-            return jdbcTemplate.update(sql, Integer.class, bandToUpdate.getBandName(),
+            return jdbcTemplate.update(sql, bandToUpdate.getBandName(),
                     bandToUpdate.getDescription(), bandToUpdate.getGenreId(),
                     bandToUpdate.getBandImage().getImageId(), bandToUpdate.getBandId());
         } catch (DataAccessException e) {

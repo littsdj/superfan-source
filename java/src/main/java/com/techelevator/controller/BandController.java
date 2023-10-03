@@ -2,10 +2,12 @@ package com.techelevator.controller;
 
 import com.techelevator.Services.BandService;
 import com.techelevator.Services.ImageService;
+import com.techelevator.Services.MessageService;
 import com.techelevator.dao.BandDao;
 import com.techelevator.dao.ImageDao;
 import com.techelevator.model.Band;
 import com.techelevator.model.Image;
+import com.techelevator.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,6 +31,8 @@ public class BandController {
     private ImageService imageService;
     @Autowired
     private BandService bandService;
+    @Autowired
+    private MessageService messageService;
 
     @RequestMapping(path = "/bands/{bandName}", method = RequestMethod.GET)
     public Band getBand(@PathVariable String bandName) {
@@ -133,5 +137,35 @@ public class BandController {
     @GetMapping("/bands/ownedbands/{userId}")
     public List<Band> getBandsByOwnerId(@PathVariable int userId) {
         return bandService.getBandsByOwnerId(userId);
+    }
+
+    @GetMapping("/messages/{messageId}")
+    public Message getMessageById(@PathVariable int messageId) {
+        return messageService.getMessageById(messageId);
+    }
+
+    @GetMapping("/messages/user/{userId}")
+    public List<Message> getAllMessagesToUser(@PathVariable int userId) {
+        return messageService.getAllMessagesToUser(userId);
+    }
+
+    @GetMapping("/messages/band/{bandId")
+    public List<Message> getAllMessagesFromBand(@PathVariable int bandId) {
+        return messageService.getAllMessagesFromBand(bandId);
+    }
+
+    @PostMapping("/messages/send")
+    public Message sendMessage(@RequestBody Message message) {
+        return messageService.sendMessage(message);
+    }
+
+    @PutMapping("/messages/user/{userId}/delete/{messageId}")
+    public boolean hideMessageForUser(@PathVariable int messageId, @PathVariable int userId) {
+        return messageService.hideMessageForUser(messageId, userId);
+    }
+
+    @PutMapping("/messages/band/delete/{messageId}")
+    public boolean hideMessageForBand(@PathVariable int messageId) {
+        return messageService.hideMessageForBand(messageId);
     }
 }
