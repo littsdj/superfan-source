@@ -26,7 +26,7 @@ export default {
 .background {
   background: url("../images/messages.jpg");
   background-size: cover;
-  background-position: cover;
+  background-position: center;
   position: fixed;
   height: 100vh;
   width: 100vw;
