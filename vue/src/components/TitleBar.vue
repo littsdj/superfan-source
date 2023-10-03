@@ -98,7 +98,7 @@ export default {
   background-color: rgba(73, 218, 198, 0.6);
 }
 .title-bar-pop {
-  background-color: red;
+  background-color: #dd9bc6ee;
 }
 .title-bar-rock {
   background-color: green;

@@ -76,7 +76,7 @@ export default {
   background-color: rgba(73, 218, 198, 0.6);
 }
 .sidebar-pop {
-  background-color: red;
+  background-color: #dd9bc6ee;
 }
 .sidebar-rock {
   background-color: green;
@@ -110,8 +110,8 @@ export default {
   background-color: rgb(255, 105, 180, 1);
 }
 .sidebar-pop  * {
-  background-color: green;
-  color: white
+  background-color: #f04620;
+  color: #f7e8c4
 }
 .sidebar-rock > * {
   background-color: yellow;

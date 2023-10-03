@@ -196,7 +196,7 @@ export default {
   background-color: rgba(73, 218, 198, 0.6);
 }
 .bandPageBox-pop {
-  background-color: red;
+  background-color: #dd9bc6ee;
 }
 .bandPageBox-rock {
   background-color: green;
