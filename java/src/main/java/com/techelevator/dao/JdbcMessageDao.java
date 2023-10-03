@@ -7,17 +7,18 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.relational.core.mapping.Embedded;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.constraints.Null;
 import javax.xml.crypto.Data;
 import java.util.List;
-
+@Component
 public class JdbcMessageDao implements MessageDao{
-    private final MessageMapper messageMapper;
+    private final MessageMapper messageMapper = new MessageMapper();
     private final JdbcTemplate jdbcTemplate;
-    public JdbcMessageDao(MessageMapper messageMapper, JdbcTemplate jdbcTemplate) {
-        this.messageMapper = messageMapper;
+    public JdbcMessageDao(JdbcTemplate jdbcTemplate) {
+
         this.jdbcTemplate = jdbcTemplate;
     }
 
