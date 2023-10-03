@@ -50,6 +50,16 @@ public class BandController {
         return bandService.getBandsBySimilarName(searchTerm);
     }
 
+    //todo: DYLAN PLS LOOK AT THIS!
+    @PostMapping(path = "/bands/{bandId}/gallery")
+    public boolean addPhotoToGallery(@RequestParam("file")MultipartFile file, @PathVariable int bandId) {
+        try{
+            return imageService.addImageToBandGallery(file.getOriginalFilename(), file.getBytes(), bandId);
+        }catch (IOException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found.");
+        }
+    }
+
     @PostMapping("/photos")
     public Image uploadPhoto(@RequestParam("file")MultipartFile file) {
         try {
@@ -67,6 +77,11 @@ public class BandController {
     @GetMapping("/coverphoto/{bandId}")
     public Image getBandCoverImage(@PathVariable int bandId) {
         return imageService.getCoverImageByBandId(bandId);
+    }
+
+    @GetMapping("/bands/{bandId}/gallery")
+    public List<Image> getAllBandImagesByBandId(@PathVariable int bandId) {
+        return imageService.getAllBandImagesByBandId(bandId);
     }
 
     @PostMapping("/coverphoto/{bandId}")

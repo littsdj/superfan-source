@@ -1,5 +1,20 @@
 <template>
-  <div class="background" v-bind:class="{'background-pop': bandGenre == 1, 'background-generic': bandGenre != 1}"> <!-- background image is stored  -->
+  <div
+    class="background"
+    v-bind:class="{
+      'background-pop': bandGenre == 1,
+      'background-rock': bandGenre == 2,
+      'background-country': bandGenre == 3,
+      'background-jazz': bandGenre == 4,
+      'background-electronic': bandGenre == 5,
+      'background-hiphop': bandGenre == 6,
+      'background-world': bandGenre == 7,
+      'background-experimental': bandGenre == 8,
+      'background-latin': bandGenre == 9,
+      'background-metal': bandGenre == 10,
+    }"
+  >
+    <!-- background image is stored  -->
     <title-bar class="header" />
     <sidebar class="sidebar" />
     <band-page class="content" />
@@ -15,7 +30,9 @@ export default {
   components: { BandPage, TitleBar, sidebar },
   computed: {
     bandGenre() {
-      return this.$store.state.currentBand.genreId ? this.$store.state.currentBand.genreId : {};
+      return this.$store.state.currentBand.genreId
+        ? this.$store.state.currentBand.genreId
+        : {};
     },
   },
 };
@@ -39,13 +56,69 @@ export default {
 }
 
 .background-pop {
-  background: url("../images/world.jpg");
+   background: url("../images/jukebox.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 .background-generic {
   background: url("../images/login-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+.background-rock{
+   background: url("../images/rock-2.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.background-country {
+   background: url("../images/country.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.background-jazz {
+   background: url("../images/jazz.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.background-electronic {
+   background: url("../images/concert-2.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.background-hiphop {
+   background: url("../images/hip-hop.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.background-world {
+   background: url("../images/world.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+} 
+
+.background-experimental {
+   background: url("../images/experimental.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.background-latin {
+   background: url("../images/latin-2.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.background-metal {
+   background: url("../images/metal.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+}
 /* .body {
     
     align-items: center;

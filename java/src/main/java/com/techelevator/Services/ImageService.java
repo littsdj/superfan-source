@@ -6,6 +6,9 @@ import com.techelevator.model.Band;
 import com.techelevator.model.Image;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ImageService {
 
@@ -40,5 +43,14 @@ public class ImageService {
         } else {
             return null;
         }
+    }
+
+    public boolean addImageToBandGallery(String fileName, byte[] data, int bandId){
+        int imageId = imageDao.uploadImage(fileName, data);
+        return imageDao.addImageToBandGallery(imageId, bandId);
+
+    }
+    public List<Image> getAllBandImagesByBandId(int bandId) {
+        return imageDao.getAllBandImagesByBandId(bandId);
     }
 }
