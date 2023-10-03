@@ -19,7 +19,7 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>
     </div>
     <div class="navLink">
-      <a href="">Messages</a>
+      <router-link v-bind:to="{name: 'inbox' }">Messages</router-link>
     </div>
     <div class="navLink">
       <router-link

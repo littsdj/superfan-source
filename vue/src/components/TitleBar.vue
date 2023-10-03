@@ -15,9 +15,9 @@
       'title-bar-metal': bandGenreId == 10,
     }"
   >
-    <h1 id="header">SUPERFAN SOURCE</h1>
     <div id="titleBar">
-      <h1 id="header">SUPERFAN SOURCE</h1>
+    <h1 id="header">SUPERFAN SOURCE</h1>
+      
       <div class="searchElement">
         <input
           type="text"
@@ -92,6 +92,7 @@ export default {
   justify-content: space-evenly;
   margin: 0;
   height: 100px;
+  width: 100vw
 }
 .title-bar-generic {
   background-color: rgba(73, 218, 198, 0.6);
