@@ -1,8 +1,8 @@
 <template>
     <div id="content">
-        <title-bar />
-        <sidebar />
-        <photo-display />
+        <title-bar id="titlebar" />
+        <sidebar id="sidebar" />
+        <photo-display id="photoDisplay" />
     </div>
 </template>
 

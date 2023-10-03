@@ -22,6 +22,7 @@
         <input class="button" type="file" id="file" ref="fileInput" v-show="false" />
         <label for="uploadButton" id="uploadLabel" class="select-file-button" v-if="userIsOwner">Upload Image</label>
         <button class="select-file-button" id="uploadButton" v-on:click="uploadImage()" v-show="false">Upload Image</button>
+        <button id="galleryButton" v-on:click="navToPhotoGallery()">View Band Photo Gallery</button>
       </div>
       <h1 v-show="!bandFound && !isLoading">BAND PAGE NOT FOUND</h1>
     </div>
@@ -131,6 +132,9 @@ export default {
           .catch((error) => window.alert(error.status));
       }
     },
+    navToPhotoGallery() {
+        this.$router.push({ name: "gallery", params: { bandId: this.band.bandId } })
+    }
   },
 };
 </script>
