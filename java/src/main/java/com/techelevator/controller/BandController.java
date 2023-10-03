@@ -45,7 +45,7 @@ public class BandController {
         return bandService.getBandsBySimilarName(searchTerm);
     }
 
-    @PostMapping("/photo")
+    @PostMapping("/photos")
     public Image uploadPhoto(@RequestParam("file")MultipartFile file) {
         try {
             return imageService.uploadImage(file.getOriginalFilename(), file.getBytes());
@@ -54,12 +54,12 @@ public class BandController {
         }
     }
 
-    @GetMapping("/photo/{imageId}")
+    @GetMapping("/photos/{imageId}")
     public Image getPhoto(@PathVariable int imageId) {
         return imageService.getBandImageById(imageId);
     }
 
-//    @PutMapping("/photo/{bandId}")
+//    @GetMapping("/photos/{bandId}")
 //    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
 //        return imageService.addCoverImageToBand(bandImage.getImageId(), bandId);
 //    }
@@ -70,7 +70,7 @@ public class BandController {
     }
 
     @PostMapping("/coverphoto/{bandId}")
-    public Image uploadFile(@RequestParam("file") MultipartFile file, @PathVariable int bandId) {
+    public Image uploadCoverImageToBand(@RequestParam("file") MultipartFile file, @PathVariable int bandId) {
         try {
             Image imageToLink = imageService.uploadImage(file.getOriginalFilename(), file.getBytes());
             imageDao.addCoverImageToBand(imageToLink.getImageId(), bandId);

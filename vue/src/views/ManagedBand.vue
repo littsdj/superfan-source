@@ -4,11 +4,15 @@
     <title-bar class="header" />
     <sidebar class="sidebar" />
     <div class="content">
-    <div id="searchHeader">
-      <h1> Managed Bands </h1>
-    </div>
-      <div class="searchResult" v-for="result in searchResults" v-bind:key="result.bandId">
-        <owned-band v-bind:band="result" />
+      <div id="searchHeader">
+        <h1>Managed Bands</h1>
+      </div>
+      <div
+        class="ownedBandCard"
+        v-for="band in ownedBands"
+        v-bind:key="band.bandId"
+      >
+        <owned-band v-bind:band="band" />
       </div>
     </div>
   </div>
@@ -24,21 +28,24 @@ export default {
   components: { TitleBar, OwnedBand, sidebar },
   data() {
     return {
-      searchResults: "",
+      bandOwnerId: "",
+      ownedBands: []
     };
   },
   created() {
-    BandService.searchBands(this.$route.params.searchTerms)
-    .then((results) => {
-      this.searchResults = results.data;
+    BandService.getBandOwnerIdByBandId(this.band.bandId).then((response) => {
+      this.bandOwnerId = response.data;
     });
+    BandService.getBandsByOwnerId(this.bandOwnerId).then( (response) => {
+      this.ownedBands = response.data;
+    })
   },
 };
 </script>
 
 <style scoped>
 .background {
-  background: url("../images/search-results.jpg");
+  background: url("../images/concert-2.jpg");
   background-size: cover;
   background-position: cover;
   position: fixed;

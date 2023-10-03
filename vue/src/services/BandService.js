@@ -48,6 +48,9 @@ export default {
     },
     getBandOwnerIdByBandId(bandId){
         return axios.get(`/bands/${bandId}/owner`);
+    },
+    getBandsByOwnerId(userId) {
+        return axios.get(`/bands/ownedbands/${userId}`)
     }
     // isUserFollowing(){
     //     return axios.get(`/bands/following/`)
