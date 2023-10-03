@@ -103,6 +103,9 @@ export default {
 .title-bar-rock {
   background-color: #574158d0;
 }
+.title-bar-rock #header{
+  color: #c5ac8e;
+}
 .title-bar-country {
   background-color: #9daf4ed7;
 }
