@@ -50,6 +50,7 @@ CREATE TABLE subgenres (
 CREATE TABLE band_owners (
     band_id int NOT NULL,
     owner_id int NOT NULL,
+    CONSTRAINT PK_band_owners PRIMARY KEY (band_id, owner_id),
     CONSTRAINT FK_band_owners_user FOREIGN KEY (owner_id) REFERENCES users(user_id),
     CONSTRAINT FK_band_owners_bands FOREIGN KEY (band_id) REFERENCES bands(band_id)
 );
@@ -57,6 +58,7 @@ CREATE TABLE band_owners (
 CREATE TABLE user_following (
 	user_id int,
 	band_id int,
+	CONSTRAINT PK_user_following PRIMARY KEY (user_id, band_id),
 	CONSTRAINT FK_user_following_users FOREIGN KEY (user_id) REFERENCES users(user_id),
 	CONSTRAINT FK_user_following_bands FOREIGN KEY (band_id) REFERENCES bands(band_id)
 );
@@ -79,14 +81,22 @@ CREATE TABLE band_subgenres (
 
 CREATE TABLE messages (
     message_id SERIAL,
-    receiver_user_id INT,
     sender_band_id INT,
     message_body varchar(2000) NOT NULL,
-    send_date date NOT NULL,
-    is_visible boolean,
+    send_date timestamp DEFAULT CURRENT_TIMESTAMP,
+    is_visible boolean DEFAULT true,
     CONSTRAINT PK_messages PRIMARY KEY (message_id),
-    CONSTRAINT FK_messages_users FOREIGN KEY (receiver_user_id) REFERENCES users(user_id),
     CONSTRAINT FK_messages_bands FOREIGN KEY (sender_band_id) REFERENCES bands(band_id)
+);
+
+CREATE TABLE user_messages (
+    message_id int NOT NULL,
+    user_id int NOT NULL,
+    is_read boolean DEFAULT false,
+    is_deleted boolean DEFAULT false,
+    CONSTRAINT PK_user_messages PRIMARY KEY (message_id, user_id),
+    CONSTRAINT FK_user_messages_users FOREIGN KEY (user_id) REFERENCES users(user_id),
+    CONSTRAINT FK_user_messages_messages FOREIGN KEY (message_id) REFERENCES messages (message_id)
 );
 
 COMMIT TRANSACTION;
