@@ -1,6 +1,7 @@
 <template>
-  <div id="titleBar" 
-  v-bind:class="{
+  <div
+    id="titleBar"
+    v-bind:class="{
       'title-bar-generic': bandGenreId == 0,
       'title-bar-pop': bandGenreId == 1,
       'title-bar-rock': bandGenreId == 2,
@@ -12,14 +13,32 @@
       'title-bar-experimental': bandGenreId == 8,
       'title-bar-latin': bandGenreId == 9,
       'title-bar-metal': bandGenreId == 10,
-    }">
+    }"
+  >
     <h1 id="header">SUPERFAN SOURCE</h1>
-  <div id="titleBar">
-    <h1 id="header"> SUPERFAN SOURCE </h1>
-    <div class="searchElement">
-      <input type="text" id="searchBar" class="default" v-model="search" v-on:click="clearDefaultSearch" v-on:blur="restoreDefaultSearch" />
-      <label for="searchButton" id="searchLabel" class="select-file-button"> SEARCH </label>
-      <button class="button" id="searchButton" v-on:click.stop.prevent="executeSearch()" v-show="false"> Search </button>
+    <div id="titleBar">
+      <h1 id="header">SUPERFAN SOURCE</h1>
+      <div class="searchElement">
+        <input
+          type="text"
+          id="searchBar"
+          class="default"
+          v-model="search"
+          v-on:click="clearDefaultSearch"
+          v-on:blur="restoreDefaultSearch"
+        />
+        <label for="searchButton" id="searchLabel" class="select-file-button">
+          SEARCH
+        </label>
+        <button
+          class="button"
+          id="searchButton"
+          v-on:click.stop.prevent="executeSearch()"
+          v-show="false"
+        >
+          Search
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -62,7 +81,7 @@ export default {
         return 0;
       }
     },
-  }
+  },
 };
 </script>
 
@@ -84,7 +103,7 @@ export default {
   background-color: green;
 }
 .title-bar-country {
-  background-color: yellow ;
+  background-color: yellow;
 }
 .title-bar-jazz {
   background-color: purple;

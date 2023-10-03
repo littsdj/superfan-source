@@ -2,9 +2,9 @@
   <div id="content">
     <div class="inbox">
       <h1>Messages From Bands You Follow</h1>
-      <div v-if="messages.length === 0">
-        <p>No Messages Yet.</p>
-      </div>
+      <!-- <div v-if="messages.length === 0">
+      <p>No Messages Yet.</p>
+      </div> -->
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {};
   overflow-y: auto;
 }
 .inbox {
-   background-color: rgb(162, 6, 252);
+  background-color: rgb(162, 6, 252);
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
