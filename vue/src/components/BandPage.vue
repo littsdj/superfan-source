@@ -169,15 +169,7 @@ export default {
 }
 
 
-#coverPhoto {
-  margin-top: 25px;
-  border-radius: 50px;
-  border: 15px;
-  border-style: solid;
-  border-color: orange;
-  max-width: 60%;
-  max-height: 300px;
-}
+
 
 #content {
   overflow-y: auto;
