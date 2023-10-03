@@ -116,7 +116,7 @@ public class BandController {
     }
 
     @GetMapping("/bands/ownedbands/{userId}")
-    public List<Integer> getBandIdsByOwnerId(@PathVariable int userId) {
-        return bandService.getBandsIdsByOwnerId(userId);
+    public List<Band> getBandsByOwnerId(@PathVariable int userId) {
+        return bandService.getBandsByOwnerId(userId);
     }
 }

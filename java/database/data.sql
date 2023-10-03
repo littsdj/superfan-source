@@ -17,6 +17,8 @@ INSERT INTO genres (genre_name) VALUES ('Metal');
 INSERT INTO bands (band_name, description, genre_id, band_image_id) VALUES ('The Beatles', 'test', '1', 1);
 INSERT INTO bands (band_name, description, genre_id, band_image_id) VALUES ('Metallica', 'test', '10', 2);
 
-
+INSERT INTO messages
+(receiver_user_id, sender_band_id, message_body, send_date, is_visible)
+VALUES (1, 1, 'Hello there, fans! This is a test message.', 'YYYY-MM-DD 10:00:00')
 
 COMMIT TRANSACTION;

@@ -11,12 +11,10 @@ import Sidebar from '../components/sidebar.vue'
 import TitleBar from '../components/TitleBar.vue'
 
 export default {
-
+    components: { Sidebar, TitleBar }
 }
 </script>
 
-<style
-Sidebar>
-TitleBar
+<style>
 
 </style>

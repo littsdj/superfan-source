@@ -77,4 +77,16 @@ CREATE TABLE band_subgenres (
 	CONSTRAINT FK_band_subgenres_subgenres FOREIGN KEY (subgenre_id) REFERENCES subgenres(subgenre_id)
 );
 
+CREATE TABLE messages (
+    message_id SERIAL,
+    receiver_user_id INT,
+    sender_band_id INT,
+    message_body varchar(2000) NOT NULL,
+    send_date DATETIME NOT NULL,
+    is_visible boolean,
+    CONSTRAINT PK_messages PRIMARY KEY (message_id),
+    CONSTRAINT FK_messages_users FOREIGN KEY (receiver_user_id) REFERENCES users(user_id),
+    CONSTRAINT FK_messages_bands FOREIGN KEY (sender_band_id) REFERENCES bands(band)id
+);
+
 COMMIT TRANSACTION;
