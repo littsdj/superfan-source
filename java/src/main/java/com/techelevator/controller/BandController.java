@@ -40,12 +40,27 @@ public class BandController {
         return bandService.createBand(bandToAdd, userId);
     }
 
+    @PutMapping(path = "/bands/update/{bandId}")
+    public Band updateBand(@RequestBody Band bandToUpdate, @PathVariable int bandId) {
+        return bandService.updateBand(bandToUpdate);
+    }
+
     @GetMapping(path = "/bands/search/{searchTerm}")
     public List<Band> getAllBands(@PathVariable String searchTerm) {
         return bandService.getBandsBySimilarName(searchTerm);
     }
 
-    @PostMapping("/photo")
+    //todo: DYLAN PLS LOOK AT THIS!
+    @PostMapping(path = "/bands/{bandId}/gallery")
+    public boolean addPhotoToGallery(@RequestParam("file")MultipartFile file, @PathVariable int bandId) {
+        try{
+            return imageService.addImageToBandGallery(file.getOriginalFilename(), file.getBytes(), bandId);
+        }catch (IOException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Image data not found.");
+        }
+    }
+
+    @PostMapping("/photos")
     public Image uploadPhoto(@RequestParam("file")MultipartFile file) {
         try {
             return imageService.uploadImage(file.getOriginalFilename(), file.getBytes());
@@ -54,23 +69,23 @@ public class BandController {
         }
     }
 
-    @GetMapping("/photo/{imageId}")
+    @GetMapping("/photos/{imageId}")
     public Image getPhoto(@PathVariable int imageId) {
         return imageService.getBandImageById(imageId);
     }
-
-//    @PutMapping("/photo/{bandId}")
-//    public Image addBandCoverPhoto(@PathVariable int bandId, @RequestBody Image bandImage){
-//        return imageService.addCoverImageToBand(bandImage.getImageId(), bandId);
-//    }
 
     @GetMapping("/coverphoto/{bandId}")
     public Image getBandCoverImage(@PathVariable int bandId) {
         return imageService.getCoverImageByBandId(bandId);
     }
 
+    @GetMapping("/bands/{bandId}/gallery")
+    public List<Image> getAllBandImagesByBandId(@PathVariable int bandId) {
+        return imageService.getAllBandImagesByBandId(bandId);
+    }
+
     @PostMapping("/coverphoto/{bandId}")
-    public Image uploadFile(@RequestParam("file") MultipartFile file, @PathVariable int bandId) {
+    public Image uploadCoverImageToBand(@RequestParam("file") MultipartFile file, @PathVariable int bandId) {
         try {
             Image imageToLink = imageService.uploadImage(file.getOriginalFilename(), file.getBytes());
             imageDao.addCoverImageToBand(imageToLink.getImageId(), bandId);
@@ -116,7 +131,7 @@ public class BandController {
     }
 
     @GetMapping("/bands/ownedbands/{userId}")
-    public List<Integer> getBandIdsByOwnerId(@PathVariable int userId) {
-        return bandService.getBandsIdsByOwnerId(userId);
+    public List<Band> getBandsByOwnerId(@PathVariable int userId) {
+        return bandService.getBandsByOwnerId(userId);
     }
 }

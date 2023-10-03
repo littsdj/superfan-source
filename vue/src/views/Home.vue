@@ -94,7 +94,7 @@ export default {
 
 #noFollowed {
   background-color: rgb(172, 16, 102, 0.7);
-  color: cyan;
+  color: rgb(43, 207, 207);
   border-radius: 50px;
   border-style: solid;
   border-color: goldenrod;
@@ -105,11 +105,11 @@ export default {
 }
 
 #homeHeader {
-  background-color: rgb(172, 16, 102, 0.7);
-  color: cyan;
+  background-color: rgb(0, 255, 255, 0.8);
+  color: rgb(172, 16, 102);
   border-radius: 50px;
   border-style: groove;
-  border-color: goldenrod;
+  border-color: rgb(218, 165, 32, 0.8);
   text-align: center;
   width: 60%;
   margin-top: 10px;

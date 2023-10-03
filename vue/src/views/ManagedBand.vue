@@ -4,11 +4,15 @@
     <title-bar class="header" />
     <sidebar class="sidebar" />
     <div class="content">
-    <div id="searchHeader">
-      <h1> Managed Bands </h1>
-    </div>
-      <div class="searchResult" v-for="result in searchResults" v-bind:key="result.bandId">
-        <owned-band v-bind:band="result" />
+      <div id="managedBandsHeader">
+        <h1 >Managed Bands</h1>
+      </div>
+      <div
+        class="ownedBandCard"
+        v-for="band in ownedBands"
+        v-bind:key="band.bandId"
+      >
+        <owned-band v-bind:band="band" />
       </div>
     </div>
   </div>
@@ -24,21 +28,21 @@ export default {
   components: { TitleBar, OwnedBand, sidebar },
   data() {
     return {
-      searchResults: "",
+      bandOwnerId: "",
+      ownedBands: []
     };
   },
   created() {
-    BandService.searchBands(this.$route.params.searchTerms)
-    .then((results) => {
-      this.searchResults = results.data;
-    });
+    BandService.getBandsByOwnerId(this.$store.state.user.id).then( (response) => {
+      this.ownedBands = response.data;
+    })
   },
 };
 </script>
 
 <style scoped>
 .background {
-  background: url("../images/search-results.jpg");
+  background: url("../images/concert-2.jpg");
   background-size: cover;
   background-position: cover;
   position: fixed;
@@ -70,26 +74,27 @@ export default {
   overflow-y: auto;
 }
 
-.searchResult {
+.ownedBandCard {
   width: 60%;
-  background-color: rgb(145, 250, 250, 0.7);
-  color: darkgreen;
+  background-color: rgba(141, 54, 255, 0.9);
+  color: rgb(248, 205, 85);
   text-align: center;
   border-radius: 50px;
   border-style: solid;
-  border-color: pink;
+  border-color: rgb(255, 111, 231);
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-#searchHeader {
+
+#managedBandsHeader {
   width: 60%;
-  background-color: rgba(251, 146, 255, 0.7);
-  color: rgb(105, 36, 36);
+  background-color: rgba(248, 205, 85);
+  color: rgb(141, 54, 255, 0.9);
   text-align: center;
   border-radius: 50px;
   border-style: solid;
-  border-color: rgb(118, 212, 255);
+  border-color: rgb(255, 111, 231);
   margin-top: 10px;
   margin-bottom: 10px;
 }

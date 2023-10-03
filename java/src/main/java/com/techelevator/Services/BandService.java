@@ -106,7 +106,12 @@ public class BandService {
         return bandDao.getBandOwnerIdByBandId(bandId);
     }
 
-    public List<Integer> getBandsIdsByOwnerId(int userId) {
-        return bandDao.getBandIdsByOwnerId(userId);
+    public List<Band> getBandsByOwnerId(int userId) {
+        List<Integer> bandIds = bandDao.getBandIdsByOwnerId(userId);
+        List<Band> ownedBands = new ArrayList<>();
+        for(int i = 0; i < bandIds.size(); i++) {
+            ownedBands.add(bandDao.getBandById(bandIds.get(i)));
+        }
+        return ownedBands;
     }
 }

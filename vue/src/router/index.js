@@ -9,6 +9,7 @@ import NewBand from '../views/NewBand.vue'
 import BandView from '../views/BandView.vue'
 import SearchPage from '../views/SearchPage.vue'
 import ManagedBand from '../views/ManagedBand.vue'
+import PhotoGallery from '../views/PhotoGallery.vue'
 Vue.use(Router)
 
 /**
@@ -84,6 +85,14 @@ const router = new Router({
       path: "/bands/ownedbands/:userId",
       name: "managed",
       component: ManagedBand,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/bands/:bandId/gallery",
+      name: "gallery",
+      component: PhotoGallery,
       meta: {
         requiresAuth: true
       }

@@ -122,22 +122,6 @@ public class JdbcBandDao implements BandDao {
 
         return bandName;
     }
-
-//    public List<Subgenre> getAllSubgenresByBandId(int bandId) {
-//        List<Subgenre> subgenres = new ArrayList<>();
-//        String sql = "SELECT * FROM subgenres JOIN band_subgenres " +
-//                "ON (subgenres.subgenre_id = band_subgenres.subgenre_id) " +
-//                "WHERE band_subgenres.subgenre_id = ?;";
-//
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bandId);
-//        while(results.next()) {
-//            Subgenre subgenre = new Subgenre();
-//            subgenre.setSubgenreId(results.getInt("subgenre_id"));
-//            subgenre.setSubgenreName(results.getString("subgenre_name"));
-//            subgenres.add(subgenre);
-//        }
-//        return subgenres;
-//    }
     @Override
     public boolean followBand(int userId, int bandId) {
         String sql = "INSERT INTO user_following (user_id, band_id) VALUES (?, ?);";
