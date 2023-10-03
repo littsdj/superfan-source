@@ -199,31 +199,31 @@ export default {
   background-color: #dd9bc6ee;
 }
 .bandPageBox-rock {
-  background-color: green;
+  background-color: #574158d0;
 }
 .bandPageBox-country {
-  background-color: yellow ;
+  background-color: #9daf4ed7 ;
 }
 .bandPageBox-jazz {
-  background-color: purple;
+  background-color: #493368ec;
 }
 .bandPageBox-electronic {
   background-color: pink;
 }
 .bandPageBox-hiphop {
-  background-color: fuchsia;
+  background-color: #562583e5;
 }
 .bandPageBox-world {
-  background-color: turquoise;
+  background-color:  rgba(87, 208, 230, 0.863);
 }
 .bandPageBox-experimental {
-  background-color: cyan;
+  background-color: #4f632ddf;
 }
 .bandPageBox-latin {
-  background-color: burlywood;
+  background-color: rgba(73, 189, 175, 0.924);
 }
 .bandPageBox-metal {
-  background-color: hotpink;
+  background-color: #4f1627;
 }
 #updateBandLabel {
     background-color: red;
@@ -262,7 +262,7 @@ export default {
 
 #description {
     padding: 40px;
-    background-color: rgba(255, 173, 214, 0.9); 
+    background-color: rgb(173, 172, 182); 
     border-radius: 50px;
     border-style: solid;
     border: 5px;

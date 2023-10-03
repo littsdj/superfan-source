@@ -101,31 +101,37 @@ export default {
   background-color: #dd9bc6ee;
 }
 .title-bar-rock {
-  background-color: green;
+  background-color: #574158d0;
 }
 .title-bar-country {
-  background-color: yellow;
+  background-color: #9daf4ed7;
 }
 .title-bar-jazz {
-  background-color: purple;
+  background-color: #493368ec;
 }
 .title-bar-electronic {
-  background-color: pink;
+  background-color: rgba(251, 171, 184, 0.945);
 }
 .title-bar-hiphop {
-  background-color: fuchsia;
+  background-color: #562583e5;
+}
+.title-bar-hiphop #header {
+  color: #fdb927;
 }
 .title-bar-world {
-  background-color: turquoise;
+  background-color:  rgba(87, 208, 230, 0.863);
 }
 .title-bar-experimental {
-  background-color: cyan;
+  background-color: #4f632ddf;
 }
 .title-bar-latin {
-  background-color: burlywood;
+  background-color: rgba(73, 189, 175, 0.924);
 }
 .title-bar-metal {
-  background-color: hotpink;
+  background-color: #4f1627;
+}
+.title-bar-metal #header {
+  color: rgb(173, 172, 182);
 }
 
 #searchBar {
