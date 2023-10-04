@@ -76,7 +76,7 @@ export default {
   background-color: rgba(73, 218, 198, 0.6);
 }
 .sidebar-pop {
-  background-color: #dd9bc6ee;
+  background-color: #dd9bc6d7;
 }
 .sidebar-rock {
   background-color: #574158d0;
@@ -86,7 +86,7 @@ export default {
   background-color: #9daf4ed7 ;
 }
 .sidebar-jazz {
-  background-color: #493368ec;
+  background-color: #493368d8;
 }
 .sidebar-electronic {
   background-color: rgba(251, 184, 195, 0.87);
@@ -101,10 +101,10 @@ export default {
   background-color: #4f632ddf;
 }
 .sidebar-latin {
-  background-color: rgba(73, 189, 175, 0.924);
+  background-color: rgba(73, 189, 175, 0.863);
 }
 .sidebar-metal {
-  background-color: #4f1627;
+  background-color: #4f1627cb;
 }
 
 .sidebar-generic > * {

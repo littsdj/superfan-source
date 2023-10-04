@@ -98,7 +98,7 @@ export default {
   background-color: rgba(73, 218, 198, 0.6);
 }
 .title-bar-pop {
-  background-color: #dd9bc6ee;
+  background-color: #dd9bc6d8;
 }
 .title-bar-rock {
   background-color: #574158d0;
@@ -110,13 +110,13 @@ export default {
   background-color: #9daf4ed7;
 }
 .title-bar-jazz {
-  background-color: #493368ec;
+  background-color: #493368dc;
 }
 .title-bar-electronic {
-  background-color: rgba(251, 171, 184, 0.945);
+  background-color: rgba(251, 171, 184, 0.8);
 }
 .title-bar-hiphop {
-  background-color: #562583e5;
+  background-color: #562583d5;
 }
 .title-bar-hiphop #header {
   color: #fdb927;
@@ -128,10 +128,10 @@ export default {
   background-color: #4f632ddf;
 }
 .title-bar-latin {
-  background-color: rgba(73, 189, 175, 0.924);
+  background-color: rgba(73, 189, 175, 0.8);
 }
 .title-bar-metal {
-  background-color: #4f1627;
+  background-color: #4f1627d7;
 }
 .title-bar-metal #header {
   color: rgb(173, 172, 182);
