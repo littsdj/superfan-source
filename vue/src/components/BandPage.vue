@@ -19,7 +19,9 @@
         <div id="bandTitleBox">
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
-
+        <div>
+        <router-link v-bind:to="{name: 'newMessage', params: {bandId: band.bandId}}">Message Followers</router-link>
+        </div>
         <label for="updateBand" id="updateBandLabel" v-on:click="navToUpdateBand()">Update Band</label>
         <button name="updateBand" id="updateBand" v-show="false" />
 

@@ -12,6 +12,7 @@ import ManagedBand from '../views/ManagedBand.vue'
 import PhotoGallery from '../views/PhotoGallery.vue'
 import InboxView from '../views/InboxView.vue'
 import UpdateBand from '../views/UpdateBand.vue'
+import SendMessage from '../views/SendMessage.vue'
 Vue.use(Router)
 
 /**
@@ -111,6 +112,14 @@ const router = new Router({
       path: "/bands/update/:bandId",
       name: "updateBand",
       component: UpdateBand,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/messages/newMessage/:bandId",
+      name: "newMessage",
+      component: SendMessage,
       meta: {
         requiresAuth: true
       }
