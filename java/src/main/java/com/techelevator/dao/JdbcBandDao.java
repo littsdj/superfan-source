@@ -127,7 +127,8 @@ public class JdbcBandDao implements BandDao {
     }
     @Override
     public List<Integer> getAllUserFollowedBands(int userId) {
-        String sql = "SELECT band_id FROM user_following WHERE user_id = ?";
+        String sql = "SELECT bands.band_id FROM user_following JOIN bands " +
+                "ON (user_following.band_id = bands.band_id) WHERE user_id = ? ORDER BY band_name";
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, userId);
         List<Integer> bandsFollowed = new ArrayList<>();
         try{

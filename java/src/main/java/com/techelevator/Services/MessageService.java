@@ -48,5 +48,9 @@ public class MessageService {
         return messageDao.hideMessageForBand(messageId);
     }
 
+    public List<Message> getAllMessagesToUserOrderedByBandName(int userId) {
+        return messageDao.getAllMessagesToUserOrderedByBandName(userId);
+    }
+
 
 }
