@@ -17,5 +17,5 @@ public interface UserDao {
     boolean create(String username, String password, String role);
 
 
-
+    List<Integer> getAllUsersFollowingBand(int bandId);
 }

@@ -148,7 +148,7 @@ public class BandController {
         return messageService.getAllMessagesToUser(userId);
     }
 
-    @GetMapping("/messages/band/{bandId")
+    @GetMapping("/messages/band/{bandId}")
     public List<Message> getAllMessagesFromBand(@PathVariable int bandId) {
         return messageService.getAllMessagesFromBand(bandId);
     }

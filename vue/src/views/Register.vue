@@ -3,9 +3,10 @@
     <div class="register-background"></div>
 
     <!-- Create a separate div for background -->
-    <div>
+    <div id="registerContent">
       <div class="headerBar">
-        <h1 id="header">SUPERFAN SOURCE</h1>
+        <!-- <h1 id="header">SUPERFAN SOURCE</h1> -->
+        <img id="headerImg" src="../images/superfan-source.png" />
       </div>
       <form @submit.prevent="register" class="register-box">
         <h1 class="register-title">Create Account</h1>
@@ -137,12 +138,23 @@ label {
 
 .headerBar {
   border-radius: 20px;
-  background: rgb(166, 228, 43, 0.6);
+  margin-bottom: 20px; 
+  background: none;
 }
 
+#headerImg {
+  height: 300px;
+}
 #header {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-style: italic;
   font-size: 50px;
+}
+
+#registerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

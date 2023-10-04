@@ -4,14 +4,11 @@ import com.techelevator.dao.mapper.MessageMapper;
 import com.techelevator.model.Message;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.relational.core.mapping.Embedded;
 import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.constraints.Null;
-import javax.xml.crypto.Data;
 import java.util.List;
 @Component
 public class JdbcMessageDao implements MessageDao{
@@ -55,21 +52,30 @@ public class JdbcMessageDao implements MessageDao{
 
     @Override
     public Message sendMessage(Message message) {
-        String sql = "INSERT INTO messages (sender_band_id, message_body) VALUES (?, ?)" +
+        String sql = "INSERT INTO messages (sender_band_id, message_body) VALUES (?, ?) " +
                 "RETURNING message_id;";
         int messageId = 0;
         try{
-            messageId = jdbcTemplate.queryForObject(sql, Integer.class, message.getSenderBandId());
+            messageId = jdbcTemplate.queryForObject(sql, Integer.class, message.getSenderBandId(), message.getMessageBody());
             message.setMessageId(messageId);
             return message;
         } catch (NullPointerException e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Unable to send message");
         }
     }
+    @Override
+    public int addMessageToUserMessages(int messageId, int userId) {
+        String sql = "INSERT INTO user_messages (message_id, user_id) VALUES (?, ?);";
+        try{
+            return jdbcTemplate.update(sql, messageId, userId);
+        } catch (DataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error sending message.");
+        }
+    }
 
     @Override
     public boolean hideMessageForUser(int messageId, int userId) {
-        String sql = "UPDATE user_messages SET (is_deleted = false) WHERE (message_id = ? " +
+        String sql = "UPDATE user_messages SET (is_deleted = true) WHERE (message_id = ? " +
                 "AND user_id = ?)";
         try{
             return jdbcTemplate.update(sql, messageId, userId) == 1;
