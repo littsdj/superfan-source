@@ -172,4 +172,9 @@ public class BandController {
     public boolean hideMessageForBand(@PathVariable int messageId) {
         return messageService.hideMessageForBand(messageId);
     }
+
+    @GetMapping("/messages/user/{userId}/bybandname")
+    public List<Message> getAllMessagesToUserOrderedByBandName(@PathVariable int userId) {
+        return messageService.getAllMessagesToUserOrderedByBandName(userId);
+    }
 }

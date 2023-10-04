@@ -41,6 +41,18 @@ public class JdbcMessageDao implements MessageDao{
     }
 
     @Override
+    public List<Message> getAllMessagesToUserOrderedByBandName(int userId) {
+        String sql = "SELECT * FROM messages JOIN user_messages ON (messages.message_id " +
+                "= user_messages.message_id) JOIN bands ON (messages.sender_band_id = bands.band_id) " +
+                "WHERE user_messages.user_id = ? ORDER BY bands.band_name;";
+        try{
+            return jdbcTemplate.query(sql, messageMapper, userId);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No messages found");
+        }
+    }
+
+    @Override
     public List<Message> getAllMessagesFromBand(int bandId) {
         String sql = "SELECT * FROM messages WHERE sender_band_id = ?;";
         try{
