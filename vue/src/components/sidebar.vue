@@ -109,7 +109,7 @@ export default {
 }
 .sidebar-pop  * {
   background-color: #f04620;
-  color: #f7e8c4
+  color: #f7e8c4;
 }
 .sidebar-rock  * {
   color: #c5ac8e;

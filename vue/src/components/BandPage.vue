@@ -276,4 +276,131 @@ export default {
     font-size: 18pt;
     text-align: center;
 }
+
+.bandPageBox-pop #followLabel {
+  background-color: #f04620;
+  color: #f7e8c4;
+  border: none;
+}
+
+.bandPageBox-pop #unfollowLabel {
+  background-color: #f04620;
+  color: #f7e8c4;
+  border: none;
+}
+
+.bandPageBox-rock #followLabel {
+  background-color: #882a40;
+  color: #c5ac8e;
+  border: none;
+}
+
+.bandPageBox-rock #unfollowLabel {
+  background-color: #882a40;
+  color: #c5ac8e;
+  border: none;
+}
+
+.bandPageBox-country #followLabel {
+  background-color: #0b6e59d8;
+  color: #d4a43c;
+  border: none;
+}
+
+.bandPageBox-country #unfollowLabel {
+  background-color: #0b6e59d8;
+  color: #d4a43c;
+  border: none;
+}
+
+.bandPageBox-jazz #followLabel {
+  color: rgb(219, 153, 30);
+  background-color: grey;
+  border: none;
+}
+
+.bandPageBox-jazz #unfollowLabel {
+  color: rgb(219, 153, 30);
+  background-color: grey;
+  border: none;
+}
+
+.bandPageBox-electronic #followLabel {
+  color: rgba(114, 5, 114, 0.924);
+  background-color: whitesmoke;
+  border: none;
+}
+
+.bandPageBox-electronic #unfollowLabel {
+  color: rgba(114, 5, 114, 0.924);
+  background-color: whitesmoke;
+  border: none;
+}
+
+.bandPageBox-hiphop #followLabel {
+  color: #000000;
+  background-color: #fdb927;
+  border: none;
+}
+
+.bandPageBox-hiphop #unfollowLabel {
+  color: #000000;
+  background-color: #fdb927;
+  border: none;
+}
+
+.bandPageBox-world #followLabel {
+  color: black;
+  background-color: yellow;
+  border: none;
+}
+
+.bandPageBox-world #unfollowLabel {
+  color: black;
+  background-color: yellow;
+  border: none;
+}
+
+.bandPageBox-experimental #followLabel {
+  background-color: #cd4f39;
+  color: rgb(211, 208, 198);
+  border: none;
+}
+
+.bandPageBox-experimental #unfollowLabel {
+  background-color: #cd4f39;
+  color: rgb(211, 208, 198);
+  border: none;
+}
+
+.bandPageBox-latin #followLabel {
+  background-color: rgba(215, 104, 24, 0.911);
+  color: rgb(253 241 227);
+  border: none;
+}
+
+.bandPageBox-latin #unfollowLabel {
+  background-color: rgba(215, 104, 24, 0.911);
+  color: rgb(253 241 227);
+  border: none;
+}
+
+.bandPageBox-metal #followLabel {
+  background-color: #882a40;
+  color: #adacb6;
+  border: none;
+}
+
+.bandPageBox-metal #unfollowLabel {
+  background-color: #882a40;
+  color: #adacb6;
+  border: none;
+}
+
+
+.bandPageBox-rock #uploadLabel {
+  background-color: #882a40;
+  color: #c5ac8e;
+  border: none;
+}
 </style>

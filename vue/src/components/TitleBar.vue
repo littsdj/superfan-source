@@ -161,4 +161,64 @@ export default {
 #superfanLogo {
   height: 130px;
 }
+
+.title-bar-pop #searchLabel {
+  color: #f7e8c4;
+  background-color: #f04620;
+  border: none;
+}
+
+.title-bar-rock #searchLabel {
+  color: #c5ac8e;
+  background-color: #882a40;
+  border: none;
+}
+
+.title-bar-country #searchLabel {
+  color: #d4a43c;
+  background-color: #0b6e59d8;
+  border: none;
+}
+
+.title-bar-jazz #searchLabel {
+  color: rgb(219, 153, 30);
+  background-color: grey;
+  border: none;
+}
+
+.title-bar-electronic #searchLabel {
+  color: rgba(114, 5, 114, 0.924);
+  background-color: whitesmoke;
+  border: none;
+}
+
+.title-bar-experimental #searchLabel {
+  color: rgb(211, 208, 198);
+  background-color: #cd4f39;
+  border: none;
+}
+
+.title-bar-hiphop #searchLabel {
+  color: #000000;
+  background-color: #fdb927;
+  border: none;
+}
+
+.title-bar-world #searchLabel {
+  color: black;
+  background-color: yellow;
+  border: none;
+}
+
+.title-bar-latin #searchLabel {
+  color: rgb(253 241 227);
+  background-color: rgba(215, 104, 24, 0.911);
+  border: none;
+}
+
+.title-bar-metal #searchLabel {
+  color: #adacb6;
+  background-color: #882a40;
+  border: none;
+}
 </style>
