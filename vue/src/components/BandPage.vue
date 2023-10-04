@@ -26,9 +26,9 @@
         <button name="updateBand" id="updateBand" v-show="false" />
 
         <div class="follow_unfollow" v-if="$store.state.token !== ''">
-          <label id="followLabel" class="followLabel" for="followButton" v-on:click="toggleFollow()" v-show="!isFollowing">Follow</label>
+          <label id="followLabel" class="followLabel" for="followButton" v-on:click="toggleFollow()" v-show="!isFollowing" v-if="!userIsOwner">Follow</label>
           <button name="followButton" v-show="false">Follow</button>
-          <label id="unfollowLabel" class="followLabel" for="unfollowButton" v-on:click="toggleFollow()" v-show="isFollowing">Unfollow</label>
+          <label id="unfollowLabel" class="followLabel" for="unfollowButton" v-on:click="toggleFollow()" v-show="isFollowing"  v-if="!userIsOwner">Unfollow</label>
           <button name="unfollowButton" v-show="false">Unfollow</button>
         </div>
         <img id="coverPhoto" :src="imgSrcData" alt="" />
