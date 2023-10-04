@@ -2,17 +2,28 @@
   <div id="content">
     <div class="inbox">
       <h1>Messages From Bands You Follow</h1>
-      <!-- <div v-if="messages.length === 0">
-      <p>No Messages Yet.</p>
-      </div> -->
+      <div class="messageBox" v-for="message in messages" v-bind:key="message.messageId"> 
+        <message-box v-bind:message="message" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import MessageService from '../services/MessageService.js';
+import MessageService from "../services/MessageService.js";
+import MessageBox from "../components/MessageBox.vue";
 export default {
-
+  components: { MessageBox },
+  data() {
+    return {
+      messages: []
+    }
+  },
+  created() {
+    MessageService.getAllMessagesToUser(this.$store.state.user.id).then( (response) => {
+      this.messages = response.data
+    } )
+  }
 };
 </script>
 

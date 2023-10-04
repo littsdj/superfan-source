@@ -3,19 +3,22 @@
     <!-- background image is stored  -->
     <title-bar class="header" />
     <sidebar class="sidebar" />
+    <!-- <inbox class="content" /> -->
   </div>
 </template>
 
 <script>
 import sidebar from "../components/sidebar.vue";
 import TitleBar from "../components/TitleBar.vue";
+// import Inbox from "../components/Inbox.vue"
 
 export default {
-  components: { sidebar, TitleBar },
+  components: { sidebar, TitleBar
+  // , Inbox
+   },
   name: "inbox",
   data() {
     return {
-      messages: [],
     };
   },
   methods: {},

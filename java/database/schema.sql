@@ -8,6 +8,8 @@ DROP TABLE IF EXISTS subgenres;
 DROP TABLE IF EXISTS band_subgenres;
 DROP TABLE IF EXISTS user_following;
 DROP TABLE IF EXISTS images;
+DROP TABLE IF EXISTS messages;
+DROP TABLE IF EXISTS user_messages;
 
 CREATE TABLE users (
     user_id SERIAL,
