@@ -50,16 +50,19 @@ export default {
 <style scoped>
 .band-card {
  display: flex;
- padding: 30px;
- justify-content: space-around;
+ padding: 20px;
+ justify-content: space-evenly;
 }
 .band-image {
-  max-height: 200px;
-  width: 200px;
+  max-width: 356px;
+  max-height: 237px;
+  width: auto;
+  height: auto;
   border-radius: 20px;
 }
 .band-info-holder {
   display: flex;
   flex-direction: column;
+  flex-basis: 50%;
 }
 </style>
