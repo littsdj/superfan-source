@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import MessageService from '../services/MessageService.js';
+// import MessageService from '../services/MessageService.js';
 export default {
   
 };
@@ -21,7 +21,7 @@ export default {
   overflow-y: auto;
 }
 .inbox {
-  background-color: rgb(162, 6, 252);
+  background-color: rgba(162, 6, 252, 0.856);
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -31,6 +31,6 @@ export default {
   padding-bottom: 3px;
   border: 15px;
   border-style: solid;
-  border-color: rgb(255, 112, 212);
+  border-color: rgba(255, 112, 212, 0.842);
 }
 </style>
