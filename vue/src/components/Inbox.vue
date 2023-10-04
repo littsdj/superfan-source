@@ -10,7 +10,10 @@
 </template>
 
 <script>
-export default {};
+import MessageService from '../services/MessageService.js';
+export default {
+  
+};
 </script>
 
 <style scoped>

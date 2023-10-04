@@ -1,14 +1,9 @@
 import axios from 'axios';
 
-// const http = axios.create({
-//     baseURL: "http://localhost:3000"
-// });
-
 export default {
 
     newBand(band, userId) {
         return axios.post(`/bands/create/${userId}`, band);
-        //return http.post('/bands/create', band);
     },
 
     getBand(bandName) {
@@ -55,8 +50,4 @@ export default {
     updateBand(band, bandId) {
         return axios.put(`/bands/update/${bandId}`, band)
     }
-    
-    // isUserFollowing(){
-    //     return axios.get(`/bands/following/`)
-    // }
 }
