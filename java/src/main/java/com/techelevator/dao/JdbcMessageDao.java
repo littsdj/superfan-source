@@ -32,7 +32,7 @@ public class JdbcMessageDao implements MessageDao{
     @Override
     public List<Message> getAllMessagesToUser(int userId) {
         String sql = "SELECT * FROM messages JOIN user_messages ON (messages.message_id " +
-                "= user_messages.message_id) WHERE user_id = ?;";
+                "= user_messages.message_id) WHERE user_id = ? ORDER BY messages.message_id DESC;";
         try{
             return jdbcTemplate.query(sql, messageMapper, userId);
         } catch (EmptyResultDataAccessException e) {

@@ -39,6 +39,11 @@ public class BandController {
         return bandService.getBandByName(bandName);
     }
 
+    @GetMapping(path = "/bands/id/{bandId}")
+    public Band getBandById(@PathVariable int bandId) {
+        return bandService.getBandById(bandId);
+    }
+
     @RequestMapping(path = "/bands/create/{userId}", method = RequestMethod.POST)
     public Band createBand(@RequestBody Band bandToAdd, @PathVariable int userId) {
         return bandService.createBand(bandToAdd, userId);

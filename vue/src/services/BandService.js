@@ -10,6 +10,10 @@ export default {
         return axios.get(`/bands/${bandName}`)
     },
 
+    getBandByBandId(bandId) {
+        return axios.get(`/bands/id/${bandId}`)
+    },
+
     postBandCoverImage(bandId, formData) {
         const options = {
             headers: {
