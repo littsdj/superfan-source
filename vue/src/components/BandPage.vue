@@ -20,9 +20,9 @@
           <h1 id="bandName">{{ band.bandName }}</h1>
         </div>
         <div>
-        <router-link v-bind:to="{name: 'newMessage', params: {bandId: band.bandId}}">Message Followers</router-link>
+        <router-link id="sendMessageLabel" v-bind:to="{name: 'newMessage', params: {bandId: band.bandId}}" v-if="userIsOwner">Message Followers</router-link>
         </div>
-        <label for="updateBand" id="updateBandLabel" v-on:click="navToUpdateBand()">Update Band</label>
+        <label for="updateBand" id="updateBandLabel" v-on:click="navToUpdateBand()" v-if="userIsOwner">Update Band</label>
         <button name="updateBand" id="updateBand" v-show="false" />
 
         <div class="follow_unfollow" v-if="$store.state.token !== ''">
@@ -226,7 +226,7 @@ export default {
 .bandPageBox-metal {
   background-color: #4f1627d3;
 }
-#updateBandLabel {
+#updateBandLabel, #sendMessageLabel {
     background-color: red;
     color:white;
     font-family: fantasy;
@@ -241,6 +241,8 @@ export default {
     font-size: 20px;
     margin: 20px;
     box-shadow: black;
+    padding: 5px;
+    text-decoration: none;
 }
 
 #coverPhoto {
