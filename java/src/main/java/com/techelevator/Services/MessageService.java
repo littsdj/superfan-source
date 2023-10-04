@@ -2,7 +2,7 @@ package com.techelevator.Services;
 
 import com.techelevator.dao.BandDao;
 import com.techelevator.dao.MessageDao;
-import com.techelevator.model.Band;
+import com.techelevator.dao.UserDao;
 import com.techelevator.model.Message;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +11,12 @@ import java.util.List;
 @Service
 public class MessageService {
     private final MessageDao messageDao;
+    private final UserDao userDao;
     private final BandDao bandDao;
-    public MessageService(MessageDao messageDao, BandDao bandDao) {
+    public MessageService(MessageDao messageDao, BandDao bandDao, UserDao userDao) {
         this.messageDao = messageDao;
         this.bandDao = bandDao;
+        this.userDao = userDao;
     }
 
     public Message getMessageById(int messageId) {
@@ -30,7 +32,12 @@ public class MessageService {
     }
 
     public Message sendMessage(Message message) {
-        return messageDao.sendMessage(message);
+        Message newMessage = messageDao.sendMessage(message);
+        List<Integer> usersFollowing = userDao.getAllUsersFollowingBand(newMessage.getSenderBandId());
+        for(int i = 0; i < usersFollowing.size(); i++) {
+            messageDao.addMessageToUserMessages(newMessage.getMessageId(), usersFollowing.get(i));
+        }
+        return newMessage;
     }
 
     public boolean hideMessageForUser(int messageId, int userId) {

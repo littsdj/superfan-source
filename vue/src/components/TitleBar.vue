@@ -16,8 +16,8 @@
     }"
   >
     <div id="titleBar">
-    <h1 id="header">SUPERFAN SOURCE</h1>
-      
+    <!-- <h1 id="header">SUPERFAN SOURCE</h1> -->
+    <img src="../images/superfan-source.png" id="superfanLogo" />  
       <div class="searchElement">
         <input
           type="text"
@@ -156,5 +156,9 @@ export default {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-style: italic;
   font-size: 64px;
+}
+
+#superfanLogo {
+  height: 130px;
 }
 </style>
