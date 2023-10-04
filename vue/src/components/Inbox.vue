@@ -12,7 +12,7 @@
 <script>
 // import MessageService from '../services/MessageService.js';
 export default {
-  
+
 };
 </script>
 

@@ -3,9 +3,10 @@
     <div class="login-background"></div>
 
     <!-- Create a separate div for background -->
-    <div>
+    <div id="loginContainer">
       <div class="headerBar">
-        <h1 id="header">SUPERFAN SOURCE</h1>
+        <!-- <h1 id="header">SUPERFAN SOURCE</h1> -->
+        <img id="headerImg" src="../images/superfan-source.png" />
       </div>
       <form @submit.prevent="login" class="login-box">
           <h1 class="login-title">Please Sign In</h1>
@@ -121,14 +122,26 @@ label {
   margin-right: 1rem;
 }
 
-.headerBar {
-  border-radius: 20px;
-  background: rgb(166, 228, 43, 0.6);
-}
-
 #header {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-style: italic;
   font-size: 50px;
+}
+
+.headerBar {
+  border-radius: 20px;
+  margin-bottom: 20px; 
+  background: none;
+}
+
+#headerImg {
+  height: 300px;
+}
+
+#loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

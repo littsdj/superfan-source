@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import com.techelevator.model.User;
+import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class JdbcUserDao implements UserDao {
@@ -80,6 +82,21 @@ public class JdbcUserDao implements UserDao {
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+    }
+
+    @Override
+    public List<Integer> getAllUsersFollowingBand(int bandId) {
+        String sql = "SELECT user_id FROM user_following WHERE band_id = ?;";
+        List<Integer> userIds = new ArrayList<>();
+        try{
+            SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, bandId);
+            while(rs.next()) {
+                userIds.add(rs.getInt("user_id"));
+            }
+            return userIds;
+        }catch (EmptyResultDataAccessException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No followers found");
+        }
     }
 
     private User mapRowToUser(SqlRowSet rs) {
