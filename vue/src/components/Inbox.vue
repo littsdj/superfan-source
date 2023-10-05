@@ -38,7 +38,9 @@ export default {
   },
   computed: {
     displayedMessages() {
-      let filteredMessages = this.messages;
+      // let filteredMessages = this.messages;
+      let filteredMessages = JSON.parse(JSON.stringify(this.messages));
+
       if (this.filterBandId != 0){    //picks a bandId from drop down, and only shows those bands
          filteredMessages = this.messages.filter( message => {
           return (this.filterBandId === message.senderBandId);
