@@ -25,4 +25,17 @@ INSERT INTO bands (band_name, description, genre_id) VALUES ('The Hu', 'The Hu (
 INSERT INTO bands (band_name, description, genre_id) VALUES ('Petr Valek', 'Petr Válek is a Czech artist, musician into experimental, noise and circuit bent, painter, object builder and run also two independent labels VaPe Records and Not on Label Records. He has recorded works under his real name but also in another b-side projects such as: Der Marebrechst, VaPe, A. O. K, Notrow 32, Ozvučená Rodinná Vánoční Návštěva, Máma and Der Marebrechst.', '8');
 INSERT INTO bands (band_name, description, genre_id) VALUES ('Selena', 'Selena Quintanilla-Pérez (April 16, 1971 – March 31, 1995), known mononymously as Selena, was an American Tejano singer. Referred to as the Queen of Tejano Music, her contributions to music and fashion made her one of the most celebrated Mexican-American entertainers of the late 20th century. In 2020, Billboard magazine put her in third place on their list of Greatest Latino Artists of All Time, based on both Latin albums and Latin songs chart. Media outlets called her the Tejano Madonna for her clothing choices. She also ranks among the most influential Latin artists of all time and is credited for catapulting the Tejano genre into the mainstream market.', '9');
 
+INSERT INTO band_owners (band_id, owner_id) VALUES (1, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (2, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (3, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (4, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (5, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (6, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (7, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (8, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (9, 2);
+INSERT INTO band_owners (band_id, owner_id) VALUES (10, 2);
+
+
+
 COMMIT TRANSACTION;
