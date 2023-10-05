@@ -13,6 +13,7 @@ do
         "$FILEPATH/createdb.exe" -U postgres $DATABASE &&
         "$FILEPATH/psql.exe" -U postgres -d $DATABASE -f "$BASEDIR/schema.sql" &&
         "$FILEPATH/psql.exe" -U postgres -d $DATABASE -f "$BASEDIR/imagedata.sql" &&
+        "$FILEPATH/psql.exe" -U postgres -d $DATABASE -f "$BASEDIR/imagedata2.sql" &&
         "$FILEPATH/psql.exe" -U postgres -d $DATABASE -f "$BASEDIR/data.sql" &&
         "$FILEPATH/psql.exe" -U postgres -d $DATABASE -f "$BASEDIR/user.sql"
         break
