@@ -171,7 +171,7 @@ export default {
 
 <style scoped>
 #bandTitleBox {
-  background-color: rosybrown;
+  background-color: steelblue;
   color: white;
   border-radius: 20px;
   margin-top: 20px;
@@ -180,9 +180,9 @@ export default {
   padding-right: 10px;
   padding-top: 3px;
   padding-bottom: 3px;
-  border: 15px;
+  border: 7px;
   border-style: outset;
-  border-color: slategray;
+  border-color: oldlace;
    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
@@ -197,6 +197,8 @@ export default {
   align-items: center;
   justify-content: center;
   border-radius: 20px;
+  border: outset;
+  border-color: slategray;
 }
 .bandPageBox-generic {
   background-color: rgba(73, 218, 198, 0.6);
@@ -232,7 +234,7 @@ export default {
   background-color: #4f1627d3;
 }
 #updateBandLabel, #sendMessageLabel {
-    background-color: red;
+    background-color: steelblue;
     color:white;
     font-family: fantasy;
     text-transform: uppercase;
@@ -240,7 +242,8 @@ export default {
     height: auto;
     border-radius: 20px;
     border: 5px;
-    border-style: inset;
+    border-style: outset;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     border-color: oldlace;
     text-align: center;
     font-size: 20px;
@@ -255,7 +258,7 @@ export default {
   border-radius: 20px;
   border: 15px;
  border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   max-width: 60%;
   max-height: 300px;
 }
@@ -270,10 +273,8 @@ export default {
 
 #description {
     padding: 20px;
-    background-color: rgb(173, 172, 182); 
+    background-color: oldlace; 
     border-radius: 20px;
-    border-style: solid;
-    border: 5px;
     margin: 10px;
     max-width: 80%;
     font-size: 18pt;
@@ -281,181 +282,181 @@ export default {
 }
 
 .bandPageBox-pop #followLabel {
-  background-color: #f04620;
-  color: #f7e8c4;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-pop #unfollowLabel {
-  background-color: #f04620;
-  color: #f7e8c4;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-rock #followLabel {
-  background-color: #882a40;
-  color: #c5ac8e;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-rock #unfollowLabel {
-  background-color: #882a40;
-  color: #c5ac8e;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-country #followLabel {
-  background-color: #0b6e59d8;
-  color: #d4a43c;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-country #unfollowLabel {
-  background-color: #0b6e59d8;
-  color: #d4a43c;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-jazz #followLabel {
-  color: rgb(219, 153, 30);
-  background-color: grey;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-jazz #unfollowLabel {
-  color: rgb(219, 153, 30);
-  background-color: grey;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-electronic #followLabel {
-  color: rgba(114, 5, 114, 0.924);
-  background-color: whitesmoke;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-electronic #unfollowLabel {
-  color: rgba(114, 5, 114, 0.924);
-  background-color: whitesmoke;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-hiphop #followLabel {
-  color: #000000;
-  background-color: #fdb927;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-hiphop #unfollowLabel {
-  color: #000000;
-  background-color: #fdb927;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-world #followLabel {
-  color: black;
-  background-color: yellow;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-world #unfollowLabel {
-  color: black;
-  background-color: yellow;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-experimental #followLabel {
-  background-color: #cd4f39;
-  color: rgb(211, 208, 198);
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-experimental #unfollowLabel {
-  background-color: #cd4f39;
-  color: rgb(211, 208, 198);
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-latin #followLabel {
-  background-color: rgba(215, 104, 24, 0.911);
-  color: rgb(253 241 227);
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-latin #unfollowLabel {
-  background-color: rgba(215, 104, 24, 0.911);
-  color: rgb(253 241 227);
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-metal #followLabel {
-  background-color: #882a40;
-  color: #adacb6;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .bandPageBox-metal #unfollowLabel {
-  background-color: #882a40;
-  color: #adacb6;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   
@@ -463,10 +464,11 @@ export default {
 
 
 .bandPageBox-rock #uploadLabel {
-  background-color: #882a40;
-  color: #c5ac8e;
+  background-color: steelblue;
+  color: #ffffff;
   border-style: outset;
-  border-color: rgb(0, 0, 0);
+  border-color: oldlace;
+  border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 </style>

@@ -73,7 +73,7 @@ export default {
   flex-direction: column;
   background-color: rgb(255, 214, 31, 0.7);
   padding: 20px;
-  border-radius: 50px;
+  border-radius: 20px;
   align-items: center;
   justify-content: center;
 }
@@ -81,12 +81,12 @@ export default {
 input,
 textarea {
   background-color: rgb(231, 248, 255);
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 select {
   background-color: rgb(231, 248, 255);
-  border-radius: 5px;
+  border-radius: 10px;
   width: 40%;
   align-self: center;
 }
@@ -105,6 +105,7 @@ button {
   color: white;
   border-style: outset;
   border-radius: 20px;
+  border: px;
   border-color: black;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

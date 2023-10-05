@@ -97,12 +97,13 @@ export default {
 
 .login-box {
   background-color: rgb(166, 228, 43, 0.9); 
-  color: rgb(0, 0, 0); 
+  color: rgb(235, 39, 137); 
   border-radius: 20px;
+  margin-bottom: 30px;
   padding: 20px;
   max-width: 400px;
   text-align: center;
-   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+   text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 .login-button {
@@ -116,6 +117,7 @@ export default {
   border-radius: 15px;
   border-style: outset;
   border-color: rgb(0, 0, 0);
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 .form-input-group {
@@ -151,7 +153,7 @@ label {
 }
 .footer {
   background-color: rgba(248, 249, 250, 0.0);
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 rgb(223, 42, 132), 0 1px rgb(223, 42, 132), 1px 0 rgb(223, 42, 132), 0 -1px rgb(223, 42, 132);
   color: white;
   text-align: center;
   position: fixed;

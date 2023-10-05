@@ -61,7 +61,8 @@ export default {
 .sidebar {
   display: flex;
   flex: 1 0 0;
-
+  border: outset;
+  border-color: slategray;
   padding: 20px;
   flex-direction: column;
   margin: 20px;
@@ -166,7 +167,7 @@ export default {
   opacity: 1;
   border-style: outset;
   border-radius: 20px;
-  border-color: black;
+  border-color: slategray;
 }
 
 .sidebar * {
