@@ -1,8 +1,8 @@
 <template>
   <div id="content">
     <div class="bandInfo">
-      <img id="coverPhoto" src="../images/dancingJukeBox.gif" alt="Loading" v-show="isLoading" />
-      <div class="bandPageBox" v-show="bandFound && !isLoading" 
+      
+      <div class="bandPageBox" v-show="bandFound" 
       v-bind:class="{
       'bandPageBox-generic': bandGenreId == 0,
       'bandPageBox-pop': bandGenreId == 1,
@@ -45,7 +45,7 @@
         <button class="select-file-button" id="uploadButton" v-on:click="uploadImage()" v-show="false">Upload Image</button>
         <button id="galleryButton" v-on:click="navToPhotoGallery()">View Band Photo Gallery</button>
       </div>
-      <h1 v-show="!bandFound && !isLoading">BAND PAGE NOT FOUND</h1>
+      <h1 v-show="!bandFound">BAND PAGE NOT FOUND</h1>
     </div>
   </div>
 </template>
@@ -69,7 +69,6 @@ export default {
       //     },
       //   },
       bandFound: true,
-      isLoading: false,
       isFollowing: "",
       bandOwnerId: ""
     };
@@ -98,13 +97,13 @@ export default {
     }
   },
   created() {
-    this.isLoading = true;
+    
     const name = this.$route.params.bandName;
     BandService.getBand(name)
       .then((response) => {
         // this.band = response.data;
         this.$store.commit("SET_BAND", response.data);
-        this.isLoading = false;
+        
         BandService.isUserFollowing(this.band.bandId, this.$store.state.user.id)
         .then((response) => {
           this.isFollowing = response.data;
@@ -117,7 +116,7 @@ export default {
       .catch((error) => {
         if (error.response) {
           this.bandFound = false;
-          this.isLoading = false;
+         
         }
       });
     // BandService.getBandCoverImage(this.band.bandId).then(response => {
@@ -137,7 +136,11 @@ export default {
       .then((response) => {
           this.band.bandImage = response.data;
         }
-      );
+      ).catch( (error) => {
+        if (error) {
+          window.alert('Unable to upload image. Please make sure your image is not too large.');
+        }
+      })
     },
     toggleFollow() {
       const userId = this.$store.state.user.id;

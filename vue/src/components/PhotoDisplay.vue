@@ -60,6 +60,10 @@ export default {
         if (response.data){
           window.location.reload();
         }
+      }).catch( error => {
+        if (error){
+          window.alert('Problem uploading file! Make sure your image is not too large!')
+        }
       })
       
     },
