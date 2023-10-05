@@ -87,12 +87,12 @@ export default {
   color: rgba(73, 218, 198);
   border-radius: 20px;
   border-style: outset;
-  border-color: goldenrod;
+  border-color: rgb(0, 0, 0);
   text-align: center;
   width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 
 }
 
@@ -101,12 +101,12 @@ export default {
   color: rgba(73, 218, 198);
   border-radius: 20px;
   border-style: outset;
-  border-color: goldenrod;
+  border-color: rgb(0, 0, 0);
   text-align: center;
   width: 500px;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 #homeHeader {
@@ -114,12 +114,12 @@ export default {
   color: rgb(255, 105, 180, 1);
   border-radius: 20px;
   border-style: groove;
-  border-color: goldenrod;
+  border-color: rgb(0, 0, 0);
   text-align: center;
   width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 .footer {
