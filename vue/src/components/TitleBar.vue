@@ -225,4 +225,14 @@ export default {
   background-color: #882a40;
   border: none;
 }
+.header-managed  {
+  background-color: rgba(141, 54, 255, 0.9);
+}
+
+.header-managed #searchLabel {
+  color: oldlace;
+  background-color: rgb(248, 205, 85);
+  text-shadow: -1px 0 rgb(0, 0, 0),rgb(0, 0, 0)x rgb(0, 0, 0), 1px 0 rgb(0, 0, 0), 0 -1px rgb(0, 0, 0);
+  border: none;
+}
 </style>

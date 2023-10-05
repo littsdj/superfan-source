@@ -157,6 +157,15 @@ export default {
   background-color: rgb(92 54 49);
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+.sidebar-managed {
+  background-color: rgba(141, 54, 255, 0.9);
+}
+.sidebar-managed * {
+  color: oldlace;
+  background-color: rgb(248, 205, 85);
+  border-color:rgb(255, 111, 231) ;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 
 .navLink {
   padding-top: 15px;

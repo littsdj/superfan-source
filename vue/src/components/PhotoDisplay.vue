@@ -3,10 +3,10 @@
     <h1>Band Photos</h1>
 
     <div id="button-holder">
-    <label for="file-picker" id="fileButton" class="gallery-file-select" v-if="userIsOwner"> Select Photo </label>
+    <!-- <label for="file-picker" id="fileButton" class="gallery-file-select" v-if="userIsOwner"> Select Photo </label> -->
     <input class="button" ref="fileInput" type="file" id="file-picker" name="uploadGalleryPhoto" v-show="userIsOwner" />
     <!--These are buttons made to be labels so we can keep them in line with universal styling -->
-    <label for="upload-gallery-photo" class="upload-label" v-if="userIsOwner"> Upload Photo </label>
+    <!-- <label for="upload-gallery-photo" class="upload-label" v-if="userIsOwner"> Upload Photo </label> -->
     <button id="upload-gallery-photo" v-on:click="uploadImage()" v-if="userIsOwner"> Click me to submit </button>
     </div>
 

@@ -1,8 +1,8 @@
 <template>
   <div class="background">
     <!-- background image is stored  -->
-    <title-bar class="header" />
-    <sidebar class="sidebar" />
+    <title-bar class="header-managed" />
+    <sidebar class="sidebar-managed" />
     <div class="content">
       <div id="managedBandsHeader">
         <h1 >Managed Bands</h1>
