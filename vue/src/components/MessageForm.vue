@@ -72,6 +72,6 @@ export default {
 }
 
 .sendMessageContainer textarea{
-  border-radius: 50px;
+  border-radius: 5px;
 }
 </style>

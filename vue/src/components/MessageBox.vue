@@ -38,7 +38,6 @@ export default {
 
     #messageBody {
         background-color: rgb(209, 162, 253);
-        font-weight: bold;
         border-radius: 50px;
         border-style: solid;
         border-color: black;
