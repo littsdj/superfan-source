@@ -5,7 +5,12 @@
       <input type="text" name="bandName" v-model="band.bandName" />
       <br />
       <label for="description">Description</label>
-     <textArea name="description" rows="8" cols="50" @input="band.description = $event.target.value"></textArea>
+      <textArea
+        name="description"
+        rows="8"
+        cols="50"
+        @input="band.description = $event.target.value"
+      ></textArea>
 
       <!-- <input name="description" rows="8" cols="50"  v-model="band.description" /> -->
       <br />
@@ -46,14 +51,16 @@ export default {
   },
   methods: {
     makeBandPage() {
-      bandService.newBand(this.band, this.$store.state.user.id).then((response) => {
-        if (response.status === 200 || response.status === 201) {
-          this.$router.push({
-            name: "bandPageView",
-            params: { bandName: this.band.bandName },
-          });
-        }
-      });
+      bandService
+        .newBand(this.band, this.$store.state.user.id)
+        .then((response) => {
+          if (response.status === 200 || response.status === 201) {
+            this.$router.push({
+              name: "bandPageView",
+              params: { bandName: this.band.bandName },
+            });
+          }
+        });
     },
   },
 };
@@ -94,5 +101,11 @@ button {
   width: 30%;
   margin-top: 20px;
   justify-self: center;
+  background: rgb(255, 105, 180, 1);
+  color: white;
+  border-style: outset;
+  border-radius: 20px;
+  border-color: black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 </style>

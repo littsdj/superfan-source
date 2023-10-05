@@ -107,7 +107,7 @@ export default {
   color: #c5ac8e;
 }
 .title-bar-country {
-  background-color: #9daf4ed7;
+  background-color: #479829d3 ;
 }
 .title-bar-jazz {
   background-color: #493368dc;
@@ -146,6 +146,9 @@ export default {
   justify-content: flex-end;
   height: 50px;
   width: 100px;
+  border-style: outset;
+  border-radius: 20px;
+  border-color: black;
 }
 
 .default {

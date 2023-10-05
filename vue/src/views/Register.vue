@@ -115,16 +115,20 @@ export default {
   padding: 20px;
   max-width: 400px;
   text-align: center;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .register-button {
   background-color: rgb(223, 42, 132); /* Hot pink button background color */
-  color: rgb(0, 0, 0); /* Black button text color */
+  color: rgb(255, 255, 255); /* Black button text color */
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   margin-top: 10px;
+  border-style: outset;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .form-input-group {
@@ -139,7 +143,7 @@ label {
 .headerBar {
   border-radius: 20px;
   margin-bottom: 20px; 
-  background: none;
+  background:rgba(102, 51, 153, .9);
 }
 
 #headerImg {

@@ -73,7 +73,7 @@ export default {
 }
 
 .background-country {
-   background: url("../images/country.jpg");
+   background: url("../images/country-2.jpg");
    background-repeat: no-repeat;
    background-size: cover;
 }
@@ -85,7 +85,7 @@ export default {
 }
 
 .background-electronic {
-   background: url("../images/concert-2.jpg");
+   background: url("../images/dj-2.jpg");
    background-repeat: no-repeat;
    background-size: cover;
 }
