@@ -46,8 +46,7 @@ export default {
       }
       if (this.orderSelection === 1){
         return filteredMessages;
-      }
-      if (this.orderSelection === 2){
+      }else if (this.orderSelection === 2){
         return filteredMessages.reverse();
       }
       return filteredMessages
