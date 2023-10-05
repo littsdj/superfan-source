@@ -32,7 +32,7 @@
           <label id="unfollowLabel" class="followLabel" for="unfollowButton" v-on:click="toggleFollow()" v-show="isFollowing"  >Unfollow</label>
           <button name="unfollowButton" v-show="false">Unfollow</button>
         </div>
-        <img id="coverPhoto" :src="imgSrcData" alt="" />
+        <img id="coverPhoto" :src="imgSrcData" alt="" v-show="imgSrcData"/>
         <div id="description">
             <h2>About {{ band.bandName }}</h2>
             <p>{{ band.description }}</p>
@@ -90,7 +90,7 @@ export default {
         const extension = this.band.bandImage.fileName.substring(dotIndex + 1);
         return `data:image/${extension};base64, ${this.band.bandImage.imageData}`;
       }
-      return "";
+      return '';
     },
     userIsOwner() {
       return (this.bandOwnerId === this.$store.state.user.id);
@@ -474,4 +474,6 @@ export default {
   border-radius: 20px;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
+
 </style>

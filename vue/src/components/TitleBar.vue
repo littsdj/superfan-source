@@ -211,6 +211,7 @@ export default {
   color: black;
   background-color: yellow;
   border: none;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 .title-bar-latin #searchLabel {
