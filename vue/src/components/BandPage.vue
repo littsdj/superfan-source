@@ -173,9 +173,169 @@ export default {
 </script>
 
 <style scoped>
-#bandTitleBox {
-  background-color: rgb(170, 145, 149);
+.bandPageBox-generic #bandTitleBox {
+  background-color: rgb(255, 105, 180, 1);
   color: white;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-pop #bandTitleBox {
+  background-color: #f04620;
+  color: #f7e8c4;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-rock #bandTitleBox {
+  background-color: #882a40;
+  color: #c5ac8e;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-country #bandTitleBox {
+  background-color: #fde100;
+  color: #000000d8;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-jazz #bandTitleBox {
+  background-color: rgb(216, 148, 13);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-electronic #bandTitleBox {
+  background-color: whitesmoke;
+  color: rgba(16, 195, 207, 0.924);
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-hiphop #bandTitleBox {
+  background-color: #fdb927;
+  color: #000000;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-world #bandTitleBox {
+  background-color: yellow;
+  color: black;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-experimental #bandTitleBox {
+  background-color: #cd4f39;
+  color: rgb(211, 208, 198);
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-latin #bandTitleBox {
+  background-color:rgba(215, 104, 24, 0.911);
+  color: rgb(253 241 227);
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 7px;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.bandPageBox-metal #bandTitleBox {
+  background-color: rgb(92 54 49);
+  color: rgb(173, 172, 182);
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
