@@ -60,7 +60,11 @@ export default {
               params: { bandName: this.band.bandName },
             });
           }
-        });
+        }).catch(error => {
+          if (error){
+            window.alert("Error adding band. Make sure your band name doesn't already exist.");
+          }
+        })
     },
   },
 };
