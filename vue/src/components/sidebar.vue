@@ -131,7 +131,7 @@ export default {
 .sidebar-world * {
   color: black;
   background-color: yellow;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 .sidebar-experimental {
   background-color: #4f632ddf;
