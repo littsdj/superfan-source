@@ -45,21 +45,33 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 .sendMessageContainer {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(85, 215, 255, 0.822);
+  background-color: rgba(73, 218, 198, 0.8);
   padding: 20px;
   border-radius: 50px;
   align-items: center;
   justify-content: center;
+  border: outset;
+  border-color: slategray;
 }
 
-.sendMessageContainer * {
+.sendMessageContainer label {
     margin: 5px;
+    font-weight: bold;
+    border-radius: 50px;
+     text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
+.sendMessageContainer button{
+  margin: 10px;
+}
+
+.sendMessageContainer textarea{
+  border-radius: 50px;
+}
 </style>

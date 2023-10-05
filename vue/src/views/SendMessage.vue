@@ -33,6 +33,8 @@ export default {
     "navigation content . "
     ". . .";
   gap: 40px;
+  
+  
 }
 
 .header {

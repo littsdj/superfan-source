@@ -61,7 +61,7 @@ button {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   border-style: outset;
   border-color: oldlace;
-  border: 15px;
+  
   font-size: 13pt;
   border-radius: 20px;
   font-weight: bolder;

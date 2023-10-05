@@ -76,6 +76,9 @@ export default {
   border-radius: 20px;
   align-items: center;
   justify-content: center;
+  border: outset;
+  border-color: slategray;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 input,
