@@ -7,7 +7,7 @@
     <div id="searchHeader">
       <h1> Search Results </h1>
       <label for="genre">Filter By Genre</label>
-      <select name="genre" id="genrePicker" v-model="filterGenreId">
+      <select class="selectDropdown" name="genre" id="genrePicker" v-model="filterGenreId">
         <option value="">--Select A Genre--</option>
         <option value="1">Pop</option>
         <option value="2">Rock</option>
@@ -118,5 +118,15 @@ export default {
   border-color: rgb(118, 212, 255);
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.selectDropdown {
+  padding: 9px;
+  border-radius: 20px;
+  background-color: rgb(255, 202, 229);
+  font-size: 12pt;
+  margin-bottom: 5px;
+  font-weight: bold;
+     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 </style>

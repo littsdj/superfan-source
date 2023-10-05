@@ -1,13 +1,13 @@
 <template>
   <div>
     <form class="newBand">
-      <label for="bandName"> Band Name </label>
+      <label class="updateFont" for="bandName"> Band Name </label>
       <input type="text" name="bandName" v-model="band.bandName" />
       <br />
-      <label for="description"> Description </label>
+      <label class="updateFont" for="description"> Description </label>
       <textArea name="description" rows="8" cols="50" @input="band.description = $event.target.value"></textArea>
       <br />
-      <select name="genre" id="genrePicker" v-model="band.genreId">
+      <select class="selectDropdown" name="genre" id="genrePicker" v-model="band.genreId">
         <option value="">--Select A Genre--</option>
         <option value="1">Pop</option>
         <option value="2">Rock</option>
@@ -58,7 +58,7 @@ export default {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 214, 31, 0.7);
+  background-color: rgba(152, 123, 255, 0.7);
   padding: 20px;
   border-radius: 50px;
   align-items: center;
@@ -84,9 +84,31 @@ label {
   font-family: fantasy;
 }
 
+.updateFont {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 button {
   width: 30%;
   margin-top: 20px;
   justify-self: center;
+  background: rgb(105, 175, 255);
+  color: white;
+  border-style: outset;
+  border-radius: 20px;
+  border: px;
+  border-color: black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.selectDropdown {
+  padding: 9px;
+  border-radius: 20px;
+  background-color: rgb(205, 219, 255);
+  font-size: 12pt;
+  margin-bottom: 5px;
+  font-weight: bold;
+     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 </style>

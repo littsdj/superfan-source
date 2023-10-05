@@ -2,19 +2,17 @@
   <div id="content">
     <div class="inbox">
       <h1 id="pageHeaderTitle">Messages From Bands You Follow</h1>
-      <select name="alphabetical" id="alphabetical" v-model.number="orderSelection">
-        <option value="1">Newest First</option>
-        <option value="2">Oldest First</option>
+      <div id="sortDropdowns">
+        <select class="selectDropdown" name="alphabetical" id="alphabetical" v-model.number="orderSelection">
+          <option value="1">Newest First</option>
+          <option value="2">Oldest First</option>
         
-      </select>
-      <select name="band-picker" id="band-picker" v-model="filterBandId">
-        <option value="0">Filter By Band</option>
-        <option v-for="band in followedBands" v-bind:key="band.bandId" :value="band.bandId">{{band.bandName}}</option>
-
-
-
-
-      </select>
+        </select>
+        <select class="selectDropdown" name="band-picker" id="band-picker" v-model="filterBandId">
+          <option value="0">Filter By Band</option>
+          <option v-for="band in followedBands" v-bind:key="band.bandId" :value="band.bandId">{{band.bandName}}</option>
+        </select>
+      </div>
       <div class="messageBox" v-for="message in displayedMessages" v-bind:key="message.messageId"> 
         <message-box v-bind:message="message" />
       </div>
@@ -97,5 +95,20 @@ export default {
   padding: 5px;
   border-radius: 0px;
   text-align: center;
+}
+
+#sortDropdowns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.selectDropdown {
+  padding: 9px;
+  border-radius: 20px;
+  background-color: rgb(255, 202, 229);
+  font-size: 12pt;
+  margin-bottom: 5px;
+  font-weight: bold;
+     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 </style>

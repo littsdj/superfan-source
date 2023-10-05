@@ -14,7 +14,7 @@
 
       <!-- <input name="description" rows="8" cols="50"  v-model="band.description" /> -->
       <br />
-      <select name="genre" id="genrePicker" v-model="band.genreId">
+      <select class="selectDropdown" name="genre" id="genrePicker" v-model="band.genreId">
         <option value="">--Select A Genre--</option>
         <option value="1">Pop</option>
         <option value="2">Rock</option>
@@ -84,13 +84,6 @@ textarea {
   border-radius: 15px;
 }
 
-select {
-  background-color: rgb(231, 248, 255);
-  border-radius: 10px;
-  width: 40%;
-  align-self: center;
-}
-
 label {
   text-align: center;
   font-size: 20pt;
@@ -108,5 +101,15 @@ button {
   border: px;
   border-color: black;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.selectDropdown {
+  padding: 9px;
+  border-radius: 20px;
+  background-color: rgb(255, 241, 162);
+  font-size: 12pt;
+  margin-bottom: 5px;
+  font-weight: bold;
+     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 </style>
