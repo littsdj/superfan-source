@@ -174,7 +174,7 @@ export default {
 
 <style scoped>
 #bandTitleBox {
-  background-color: steelblue;
+  background-color: rgb(170, 145, 149);
   color: white;
   border-radius: 20px;
   margin-top: 20px;
@@ -184,8 +184,8 @@ export default {
   padding-top: 3px;
   padding-bottom: 3px;
   border: 7px;
-  border-style: outset;
-  border-color: oldlace;
+  border-style: double;
+  border-color: rgb(0, 0, 0);
    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
