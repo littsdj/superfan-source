@@ -38,13 +38,14 @@ body {
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(26, 190, 48); 
-    border-radius: 20px;
+    background: rgba(73, 218, 198, 0.8);
+    border-radius: 7.5px;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(124, 30, 201); 
+    background: rgb(172, 16, 102, 0.8);
+    
   }
 
 #app,
@@ -55,7 +56,12 @@ body {
 button {
   margin-bottom: 20px;
   height: 50px;
-  background-color: rgb(0, 255, 98);
+  background-color: steelblue;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border-style: outset;
+  border-color: oldlace;
+  border: 15px;
   font-size: 13pt;
   border-radius: 20px;
   font-weight: bolder;
@@ -64,7 +70,7 @@ button {
 
 .select-file-button {
   margin-bottom: 20px;
-  background-color: rgb(0, 255, 98);
+  background-color: steelblue;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 3px;
@@ -73,16 +79,18 @@ button {
   border-radius: 20px;
   width: 120px;
   border: 5px;
-  border-style: inset;
-  border-color: black;
+  border-style: outset;
+  border-color: oldlace;
   text-align: center;
   font-weight: bolder;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .followLabel {
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: rgb(0, 255, 98);
+  background-color: steelblue;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 3px;
@@ -91,8 +99,8 @@ button {
   border-radius: 20px;
   width: 120px;
   border: 5px;
-  border-style: inset;
-  border-color: black;
+  border-style: outset;
+  border-color: oldlace;
   text-align: center;
   font-weight: bolder;
 }

@@ -31,13 +31,16 @@
         </p>
       </form>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
+import Footer from "../components/Footer.vue";
 
 export default {
+  components: { Footer },
   name: "register",
   data() {
     return {
@@ -96,14 +99,11 @@ export default {
 
 .register-background {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: url("../images/register-background.jpg"); /* Set the background image */
   background-size: cover;
   background-position: center;
-  opacity: 0.9; /* Set the opacity for the background */
   z-index: -1; /* Send the background behind the content */
 }
 
@@ -111,20 +111,25 @@ export default {
   background-color: rgb(67, 235, 212, 0.8); /* Black background color with opacity */
   color: rgb(235, 39, 137); /* Hot pink text color */
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  margin-bottom: 50px;
   max-width: 400px;
+  max-height: 500px;
   text-align: center;
+   text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 .register-button {
   background-color: rgb(223, 42, 132); /* Hot pink button background color */
-  color: rgb(0, 0, 0); /* Black button text color */
+  color: rgb(255, 255, 255); /* Black button text color */
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   margin-top: 10px;
+  border-style: outset;
+  border-color: rgb(0, 0, 0);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .form-input-group {
@@ -139,7 +144,7 @@ label {
 .headerBar {
   border-radius: 20px;
   margin-bottom: 20px; 
-  background: none;
+  background:rgba(102, 51, 153, .9);
 }
 
 #headerImg {
@@ -156,5 +161,15 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.footer {
+  background-color: rgba(248, 249, 250, 0.0);
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+  color: rgb(223, 42, 132);
+  text-align: center;
+  position: fixed;
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
 }
 </style>

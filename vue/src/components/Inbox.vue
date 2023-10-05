@@ -77,7 +77,7 @@ export default {
 }
 .inbox {
   background-color: rgba(162, 6, 252, 0.856);
-  border-radius: 50px;
+  border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
   padding-left: 10px;
@@ -87,13 +87,13 @@ export default {
   border: 15px;
   border-style: solid;
   border-color: rgba(255, 112, 212, 0.842);
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #pageHeaderTitle {
-  background-color: blueviolet;
   color: white;
   padding: 5px;
-  border-radius: 50px;
+  border-radius: 0px;
   text-align: center;
 }
 </style>

@@ -69,11 +69,13 @@ export default {
 
 <style scoped>
 #gallery-content {
-  background-color: rgb(128, 128, 128, 0.8);
+  background-color: rgb(112, 128, 144, 0.8);
+  color: oldlace;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  border-radius: 50px;
+  border-radius: 20px;
   align-items: center;
 }
 
@@ -91,9 +93,10 @@ export default {
   max-height: 500px;
   margin: 10px;
   margin-top: 25px;
-  border-radius: 50px;
+  
   border: 15px;
   border-style: solid;
-  border-color: orange;
+  border-color: rgb(70, 45, 1);
+  
 }
 </style>

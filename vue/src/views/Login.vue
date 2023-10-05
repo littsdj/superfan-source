@@ -30,13 +30,15 @@
           </p>
       </form>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
-
+import Footer from "../components/Footer.vue";
 export default {
+  components: { Footer },
   name: "login",
   data() {
     return {
@@ -86,7 +88,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("../images/login-background-2.jpg"); /* Set the background image */
+  background: url("../images/login-background-2.jpg"); 
   background-size: cover;
   background-position: center;
   opacity: 0.9; /* Set the opacity for the background */
@@ -94,23 +96,28 @@ export default {
 }
 
 .login-box {
-  background-color: rgb(166, 228, 43, 0.9); /* Black background color with opacity */
-  color: rgb(0, 0, 0); /* Hot pink text color */
+  background-color: rgb(166, 228, 43, 0.9); 
+  color: rgb(235, 39, 137); 
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
   padding: 20px;
   max-width: 400px;
   text-align: center;
+   text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 .login-button {
-  background-color: rgb(245, 150, 61); /* Hot pink button background color */
-  color: rgb(0, 0, 0); /* Black button text color */
+  background-color: rgb(245, 150, 61); 
+  color: rgb(0, 0, 0); 
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  border-radius: 15px;
+  border-style: outset;
+  border-color: rgb(0, 0, 0);
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 .form-input-group {
@@ -131,7 +138,7 @@ label {
 .headerBar {
   border-radius: 20px;
   margin-bottom: 20px; 
-  background: none;
+  background: rgba(102, 51, 153, .9);
 }
 
 #headerImg {
@@ -143,5 +150,15 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.footer {
+  background-color: rgba(248, 249, 250, 0.0);
+  text-shadow: -1px 0 rgb(223, 42, 132), 0 1px rgb(223, 42, 132), 1px 0 rgb(223, 42, 132), 0 -1px rgb(223, 42, 132);
+  color: white;
+  text-align: center;
+  position: fixed;
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
 }
 </style>

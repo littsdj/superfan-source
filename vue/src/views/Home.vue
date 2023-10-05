@@ -10,6 +10,7 @@
         <searched-item v-bind:band="band" />
       </div>
     </div>
+     <Footer/>
   </div>
 </template>
 
@@ -17,10 +18,11 @@
 import sidebar from "../components/sidebar.vue";
 import TitleBar from "../components/TitleBar.vue";
 import BandService from "../services/BandService.js";
-import SearchedItem from "../components/SearchedItemNew.vue"
+import SearchedItem from "../components/SearchedItemNew.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
-  components: { sidebar, TitleBar, SearchedItem },
+  components: { sidebar, TitleBar, SearchedItem, Footer },
   name: "home",
   data() {
     return {
@@ -82,38 +84,53 @@ export default {
 
 .followedBand {
   background-color: rgb(172, 16, 102, 0.7);
-  color: cyan;
-  border-radius: 50px;
-  border-style: solid;
-  border-color: goldenrod;
+  color: rgba(73, 218, 198);
+  border-radius: 20px;
+  border-style: outset;
+  border-color: rgb(0, 0, 0);
   text-align: center;
   width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+
 }
 
 #noFollowed {
   background-color: rgb(172, 16, 102, 0.7);
-  color: rgb(43, 207, 207);
-  border-radius: 50px;
-  border-style: solid;
-  border-color: goldenrod;
+  color: rgba(73, 218, 198);
+  border-radius: 20px;
+  border-style: outset;
+  border-color: rgb(0, 0, 0);
   text-align: center;
   width: 500px;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 
 #homeHeader {
-  background-color: rgb(0, 255, 255, 0.8);
-  color: rgb(172, 16, 102);
-  border-radius: 50px;
+  background-color: rgba(73, 218, 198, 0.8);
+  color: rgb(255, 105, 180, 1);
+  border-radius: 20px;
   border-style: groove;
-  border-color: rgb(218, 165, 32, 0.8);
+  border-color: rgb(0, 0, 0);
   text-align: center;
   width: 60%;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+}
+
+.footer {
+  background-color: rgba(248, 249, 250, 0.0);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+  text-align: center;
+  position: fixed;
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
 }
 
 /* .body {

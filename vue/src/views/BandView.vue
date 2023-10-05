@@ -19,6 +19,7 @@
     <sidebar class="sidebar" />
     <band-page class="content" v-show="true"/> 
     <!-- ^^^ONLY FOR VISIBILITY OF THEMES DISABLE VSHOW FALSE WHEN DONE-->
+    <Footer/>
   </div>
 </template>
 
@@ -26,9 +27,10 @@
 import BandPage from "../components/BandPage.vue";
 import sidebar from "../components/sidebar.vue";
 import TitleBar from "../components/TitleBar.vue";
+import Footer from "../components/Footer.vue";
 
 export default {
-  components: { BandPage, TitleBar, sidebar },
+  components: { BandPage, TitleBar, sidebar, Footer },
   computed: {
     bandGenre() {
       return this.$store.state.currentBand.genreId ? this.$store.state.currentBand.genreId : {};
@@ -73,19 +75,19 @@ export default {
 }
 
 .background-country {
-   background: url("../images/country.jpg");
+   background: url("../images/country-2.jpg");
    background-repeat: no-repeat;
    background-size: cover;
 }
 
 .background-jazz {
-   background: url("../images/jazz.jpg");
+   background: url("../images/Jazzy.jpg");
    background-repeat: no-repeat;
    background-size: cover;
 }
 
 .background-electronic {
-   background: url("../images/concert-2.jpg");
+   background: url("../images/dj-2.jpg");
    background-repeat: no-repeat;
    background-size: cover;
 }
@@ -141,5 +143,17 @@ export default {
 
 .content {
   grid-area: content;
+}
+
+.footer {
+  background-color: rgba(248, 249, 250, 0.0);
+  text-shadow: -1px 0 rgb(0, 0, 0), 0 1px rgb(0, 0, 0), 1px 0 rgb(0, 0, 0), 0 -1px rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  position: fixed;
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
+  z-index: 1000; 
 }
 </style>

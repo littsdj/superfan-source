@@ -19,7 +19,7 @@
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>
     </div>
     <div class="navLink">
-      <router-link v-bind:to="{name: 'inbox' }">Messages</router-link>
+      <router-link v-bind:to="{ name: 'inbox' }">Messages</router-link>
     </div>
     <div class="navLink">
       <router-link
@@ -61,7 +61,8 @@ export default {
 .sidebar {
   display: flex;
   flex: 1 0 0;
-
+  border: outset;
+  border-color: slategray;
   padding: 20px;
   flex-direction: column;
   margin: 20px;
@@ -70,82 +71,91 @@ export default {
   border-radius: 20px;
 }
 .sidebar-generic {
-  background-color: rgba(73, 218, 198, 0.6);
+  background-color: rgba(73, 218, 198, 0.8);
+}
+.sidebar-generic * {
+  background-color: rgb(255, 105, 180, 1);
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .sidebar-pop {
   background-color: #dd9bc6d7;
 }
+.sidebar-pop * {
+  background-color: #f04620;
+  color: #f7e8c4;
+}
 .sidebar-rock {
   background-color: #574158d0;
-
+}
+.sidebar-rock * {
+  color: #c5ac8e;
+  background-color: #882a40;
+ text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .sidebar-country {
-  background-color: #9daf4ed7 ;
+  background-color: #479829d3 ;
+}
+.sidebar-country * {
+  color: #000000d8;
+  background-color: #fde100;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 .sidebar-jazz {
-  background-color: #493368d8;
+  background-color: #493368dc;
+}
+.sidebar-jazz * {
+  color: rgb(0, 0, 0);
+  background-color: rgb(216, 148, 13);
+  text-shadow: -1px 0 rgb(211, 188, 141), 0 1px rgb(211, 188, 141), 1px 0 rgb(211, 188, 141), 0 -1px rgb(211, 188, 141);
 }
 .sidebar-electronic {
   background-color: rgba(251, 184, 195, 0.87);
 }
+.sidebar-electronic * {
+  color: rgba(16, 195, 207, 0.924);
+  background-color: whitesmoke;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
 .sidebar-hiphop {
   background-color: #562583e5;
-}
-.sidebar-world {
-  background-color: rgba(87, 208, 230, 0.863);
-}
-.sidebar-experimental {
-  background-color: #4f632ddf;
-}
-.sidebar-latin {
-  background-color: rgba(73, 189, 175, 0.863);
-}
-.sidebar-metal {
-  background-color: #4f1627cb;
-}
-
-.sidebar-generic > * {
-  background-color: rgb(255, 105, 180, 1);
-}
-.sidebar-pop  * {
-  background-color: #f04620;
-  color: #f7e8c4;
-}
-.sidebar-rock  * {
-  color: #c5ac8e;
-  background-color: #882a40;
-}
-.sidebar-country * {
-  color: #0b6e59d8;
-  background-color: #d4a43c;
-}
-.sidebar-jazz * {
-  color: rgb(219, 153, 30);
-  background-color: grey;
-}
-.sidebar-electronic * {
-  color: rgba(114, 5, 114, 0.924);
-  background-color: whitesmoke;
 }
 .sidebar-hiphop * {
   color: #000000;
   background-color: #fdb927;
+  text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
+}
+.sidebar-world {
+  background-color: rgba(87, 208, 230, 0.863);
 }
 .sidebar-world * {
   color: black;
   background-color: yellow;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.sidebar-experimental {
+  background-color: #4f632ddf;
 }
 .sidebar-experimental * {
   color: rgb(211, 208, 198);
   background-color: #cd4f39;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.sidebar-latin {
+  background-color: rgba(73, 189, 175, 0.863);
 }
 .sidebar-latin * {
   color: rgb(253 241 227);
   background-color: rgba(215, 104, 24, 0.911);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.sidebar-metal {
+  background-color: #4f1627cb;
 }
 .sidebar-metal * {
   color: rgb(173, 172, 182);
   background-color: rgb(92 54 49);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .navLink {
@@ -155,9 +165,9 @@ export default {
   font-size: 20pt;
   font-family: fantasy;
   opacity: 1;
-
+  border-style: outset;
   border-radius: 20px;
-  border-color: black;
+  border-color: slategray;
 }
 
 .sidebar * {
