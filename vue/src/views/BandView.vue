@@ -79,7 +79,7 @@ export default {
 }
 
 .background-jazz {
-   background: url("../images/jazz.jpg");
+   background: url("../images/Jazzy.jpg");
    background-repeat: no-repeat;
    background-size: cover;
 }

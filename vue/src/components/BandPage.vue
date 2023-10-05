@@ -211,7 +211,7 @@ export default {
   background-color: #479829d3 ;
 }
 .bandPageBox-jazz {
-  background-color: rgba(211, 39, 39, 0.89);
+  background-color: #493368dc;
 }
 .bandPageBox-electronic {
   background-color: rgba(255, 192, 203, 0.836);

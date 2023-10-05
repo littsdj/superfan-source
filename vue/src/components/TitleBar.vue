@@ -95,7 +95,7 @@ export default {
   width: 100vw
 }
 .title-bar-generic {
-  background-color: rgba(73, 218, 198, 0.6);
+  background-color: rgba(73, 218, 198, 0.8);
 }
 .title-bar-pop {
   background-color: #dd9bc6d8;

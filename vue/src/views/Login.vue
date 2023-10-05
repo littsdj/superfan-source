@@ -30,13 +30,15 @@
           </p>
       </form>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
-
+import Footer from "../components/Footer.vue";
 export default {
+  components: { Footer },
   name: "login",
   data() {
     return {
@@ -96,7 +98,7 @@ export default {
 .login-box {
   background-color: rgb(166, 228, 43, 0.9); 
   color: rgb(0, 0, 0); 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
   padding: 20px;
   max-width: 400px;
   text-align: center;
@@ -146,5 +148,15 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.footer {
+  background-color: rgba(248, 249, 250, 0.0);
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: white;
+  text-align: center;
+  position: fixed;
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
 }
 </style>

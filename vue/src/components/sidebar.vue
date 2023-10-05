@@ -70,7 +70,7 @@ export default {
   border-radius: 20px;
 }
 .sidebar-generic {
-  background-color: rgba(73, 218, 198, 0.6);
+  background-color: rgba(73, 218, 198, 0.8);
 }
 .sidebar-generic * {
   background-color: rgb(255, 105, 180, 1);
@@ -101,7 +101,7 @@ export default {
   text-shadow: -1px 0 rgb(255, 255, 255), 0 1px rgb(255, 255, 255), 1px 0 rgb(255, 255, 255), 0 -1px rgb(255, 255, 255);
 }
 .sidebar-jazz {
-  background-color: rgba(211, 39, 39, 0.89);
+  background-color: #493368dc;
 }
 .sidebar-jazz * {
   color: rgb(0, 0, 0);
